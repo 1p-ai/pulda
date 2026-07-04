@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | Untying Complexity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#c8c6c7",
+                      "secondary": "#c8c6c8",
+                      "primary-container": "#e60012",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "surface": "#200e0c",
+                      "tertiary-fixed-dim": "#c8c6c7",
+                      "surface-tint": "#ffb4aa",
+                      "on-tertiary": "#313031",
+                      "on-secondary-container": "#b7b4b7",
+                      "surface-container-lowest": "#1a0907",
+                      "on-surface-variant": "#e9bcb6",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "surface-container-high": "#3a2422",
+                      "surface-variant": "#462f2c",
+                      "on-primary-container": "#fff7f6",
+                      "tertiary-fixed": "#e5e2e3",
+                      "neon-red-glow": "rgba(230, 0, 18, 0.4)",
+                      "on-primary": "#690003",
+                      "outline": "#af8782",
+                      "inverse-surface": "#ffdad5",
+                      "surface-dim": "#200e0c",
+                      "primary-fixed": "#ffdad5",
+                      "tertiary-container": "#737273",
+                      "on-surface": "#ffdad5",
+                      "inverse-on-surface": "#412b28",
+                      "on-secondary": "#303032",
+                      "on-background": "#ffdad5",
+                      "error-container": "#93000a",
+                      "surface-container": "#2e1a18",
+                      "primary": "#ffb4aa",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#474647",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "outline-variant": "#5f3f3b",
+                      "border-subtle": "rgba(255, 255, 255, 0.08)",
+                      "background": "#200e0c",
+                      "inverse-primary": "#c0000d",
+                      "surface-container-low": "#2a1614",
+                      "on-secondary-fixed-variant": "#474649",
+                      "surface-bright": "#4b3330",
+                      "on-error": "#690005",
+                      "on-primary-fixed": "#410001",
+                      "surface-container-highest": "#462f2c",
+                      "text-dim": "#a1a1aa",
+                      "secondary-container": "#474649",
+                      "on-tertiary-container": "#fcf8f9",
+                      "secondary-fixed": "#e4e2e4",
+                      "on-tertiary-fixed": "#1c1b1c",
+                      "on-primary-fixed-variant": "#930007"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-lg": "48px",
+                      "section-gap": "120px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0b;
+            color: #ffdad5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .neon-glow-hover:hover {
+            box-shadow: 0 0 15px rgba(230, 0, 18, 0.4);
+            filter: brightness(1.1);
+        }
+        .glass-nav {
+            background: rgba(32, 14, 12, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        .unknot-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 180, 170, 0.3), transparent);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl border-b border-subtle">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto py-4">
+<div class="flex items-center gap-4">
+<img alt="Pulda Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsMnSPyWR6XuDvRfVDRNdtu0t0wIw7wa6qJLItz3FjZJc1t7KfTh6RNt5CfcdZ08AKnVncENXBSfVDMWYYEJ5KJjIZ-g5Vje4sEX94LLjnRwcZqXG-HD2W9mlHVfwzcT9NfwkqxQByuSC2Cp-4COL_fsSPQ4tn5YWoJ6OHzNslTn0_eDLPCYnJ4PZiKset0s1iiDs72mnlFI9astVpZvhvzMPyxkNu73k9BGsjdVGHRItMZvs_dWC_g37g"/>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">회사소개</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#">프로젝트</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#">Story</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#">Contact</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:brightness-110 hover:shadow-[0_0_15px_rgba(230,0,18,0.4)] transition-all active:scale-95 duration-200">
+                문의하기
+            </button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
+<!-- Volumetric Silk Knot Shader Placeholder -->
+
+<div class="relative z-10 max-w-container-max px-gutter text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 mb-8">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-md font-label-md text-primary tracking-widest uppercase">Untying Complexity</span>
+</div>
+<h1 class="font-display-lg text-display-lg md:text-[80px] leading-tight mb-8">
+                복잡함을 <span class="text-primary">풀다</span>,<br/>
+                비즈니스를 잇다.
+            </h1>
+<p class="max-w-2xl mx-auto font-body-lg text-body-lg text-on-surface-variant mb-12">
+                Pulda는 기업의 난해한 기술적 도전을 명확한 솔루션으로 풀어내는 <br class="hidden md:block"/> 테크니컬 디자인 파트너입니다.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="w-full md:w-auto bg-primary-container text-on-primary-container px-10 py-4 rounded-xl font-headline-sm text-headline-sm hover:brightness-110 hover:shadow-[0_0_20px_rgba(230,0,18,0.6)] transition-all">
+                    시작하기
+                </button>
+<button class="w-full md:w-auto border border-subtle text-on-surface px-10 py-4 rounded-xl font-headline-sm text-headline-sm hover:border-primary transition-all flex items-center justify-center gap-2">
+                    포트폴리오 보기
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+<span class="material-symbols-outlined text-4xl">expand_more</span>
+</div>
+</section>
+<!-- Content Divider -->
+<div class="unknot-divider max-w-container-max mx-auto"></div>
+<!-- About Grid Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end mb-20">
+<div class="md:col-span-6">
+<h2 class="font-headline-lg text-headline-lg mb-6">우리의 철학</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    기술은 목적이 아닌 수단입니다. 우리는 복잡하게 얽힌 문제의 매듭을 찾아내어, 가장 우아하고 효율적인 방식으로 해체합니다. 그것이 Pulda가 추구하는 기술적 미학입니다.
+                </p>
+</div>
+<div class="md:col-span-6 flex md:justify-end">
+<div class="flex gap-4">
+<div class="bg-surface-container-high p-6 rounded-xl border border-subtle w-32 text-center">
+<div class="text-primary font-display-lg text-headline-lg mb-2">120+</div>
+<div class="text-label-md font-label-md text-on-surface-variant uppercase">Projects</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl border border-subtle w-32 text-center">
+<div class="text-primary font-display-lg text-headline-lg mb-2">45</div>
+<div class="text-label-md font-label-md text-on-surface-variant uppercase">Experts</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid for Services -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Strategic Consulting -->
+<div class="md:col-span-2 bg-surface-container border border-subtle p-10 rounded-2xl group hover:border-primary transition-all duration-500 relative overflow-hidden h-[400px] flex flex-col justify-end">
+<div class="absolute top-10 right-10 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[80px] text-primary">strategy</span>
+</div>
+<div class="relative z-10">
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">01. Strategy</span>
+<h3 class="font-headline-md text-headline-md mb-4">비즈니스 문제 해결 컨설팅</h3>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-lg">
+                        단순한 개발을 넘어, 비즈니스의 병목 현상을 진단하고 최적의 기술 아키텍처를 설계합니다. 복잡한 문제를 단순한 성과로 치환합니다.
+                    </p>
+</div>
+</div>
+<!-- UI/UX Design -->
+<div class="bg-surface-container-low border border-subtle p-10 rounded-2xl group hover:border-primary transition-all duration-500 h-[400px] flex flex-col">
+<div class="mb-auto text-primary">
+<span class="material-symbols-outlined text-4xl">draw</span>
+</div>
+<div>
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">02. Design</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">고도화된 디지털 경험</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                        기능성을 잃지 않는 심미성. 사용자의 흐름을 방해하는 요소를 제거하여 직관적인 인터페이스를 구현합니다.
+                    </p>
+</div>
+</div>
+<!-- Tech Stack -->
+<div class="bg-surface-container-low border border-subtle p-10 rounded-2xl group hover:border-primary transition-all duration-500 h-[400px] flex flex-col">
+<div class="mb-auto text-primary">
+<span class="material-symbols-outlined text-4xl">code_blocks</span>
+</div>
+<div>
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">03. Tech</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">엔터프라이즈 아키텍처</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                        안정성과 확장성을 최우선으로 합니다. 클라우드 네이티브 환경에서 끊김 없는 비즈니스 운영을 지원합니다.
+                    </p>
+</div>
+</div>
+<!-- Branding -->
+<div class="md:col-span-2 bg-surface-container-highest border border-subtle p-10 rounded-2xl group hover:border-primary transition-all duration-500 relative overflow-hidden h-[400px] flex flex-col justify-center">
+<div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-cover bg-center" data-alt="Close-up artistic shot of red silk threads untying in a dark void, symbolizing clarity and precision in problem solving, cinematic lighting, corporate modern aesthetic with dark background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDId9Ln9ayXXZObek1E4mkmfRlnJPO4IayglYimUFEVcaEZLLcwj-QgwbqiF1Zp8OJA13Q6e-FPuYnbqsMlDIZjApt4UJejve8DHk5WGYqH03Y3cFHYUMAzQY2uKD6ytV3tb6Dundx7vCOI2Dbf9hqlFgl3siLyoG-mBmxj0Qf13tBLguOdqBsWnuTdETaxB7hv9zQAZDornkO6z7-oBSBtUfl69t1duOb0eTmvDpv18tRPSmBE-qAm8R0Q48Y_G4SudeVeYODkQOc')"></div>
+<div class="relative z-10">
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">04. Branding</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">정체성을 선명하게</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl">
+                        우리는 브랜드가 가진 고유의 결을 찾아냅니다. 강렬한 시각적 언어와 일관된 메시지로 시장에서의 압도적인 존재감을 구축합니다.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Detailed List -->
+<section class="bg-surface-container-lowest py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="mb-20 text-center">
+<h2 class="font-headline-lg text-headline-lg mb-4">전문 분야</h2>
+<div class="w-16 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="space-y-6">
+<h4 class="font-headline-sm text-headline-sm border-l-4 border-primary pl-4">Web Development</h4>
+<ul class="space-y-3 text-on-surface-variant font-body-md text-body-md">
+<li>React / Next.js Ecosystem</li>
+<li>High-Performance PWAs</li>
+<li>E-commerce Solutions</li>
+<li>Headless CMS Integration</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-sm text-headline-sm border-l-4 border-primary pl-4">Mobile Apps</h4>
+<ul class="space-y-3 text-on-surface-variant font-body-md text-body-md">
+<li>Native iOS &amp; Android</li>
+<li>Flutter / React Native</li>
+<li>Biometric Security</li>
+<li>Real-time Synchronization</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-sm text-headline-sm border-l-4 border-primary pl-4">AI &amp; Data</h4>
+<ul class="space-y-3 text-on-surface-variant font-body-md text-body-md">
+<li>Custom LLM Implementation</li>
+<li>Data Visualization</li>
+<li>Predictive Analytics</li>
+<li>Automated Workflows</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-sm text-headline-sm border-l-4 border-primary pl-4">Digital Identity</h4>
+<ul class="space-y-3 text-on-surface-variant font-body-md text-body-md">
+<li>Brand Strategy</li>
+<li>Visual Identity System</li>
+<li>Motion Graphics</li>
+<li>UX Writing</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap relative">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="bg-surface border border-subtle rounded-[40px] p-12 md:p-24 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-8 relative z-10">당신의 프로젝트를 <br/> 해결할 준비가 되셨나요?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">
+                    지금 바로 문의하세요. Pulda의 전문가 팀이 당신의 비즈니스 복잡성을 명쾌한 성공의 로드맵으로 풀어드립니다.
+                </p>
+<div class="relative z-10">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-full font-headline-sm text-headline-sm hover:brightness-110 hover:shadow-[0_0_30px_rgba(230,0,18,0.5)] transition-all">
+                        프로젝트 문의하기
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-subtle">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-gutter py-section-gap max-w-container-max mx-auto">
+<div class="md:col-span-4">
+<img alt="Pulda" class="h-8 mb-6" src="https://lh3.googleusercontent.com/aida/AP1WRLsMnSPyWR6XuDvRfVDRNdtu0t0wIw7wa6qJLItz3FjZJc1t7KfTh6RNt5CfcdZ08AKnVncENXBSfVDMWYYEJ5KJjIZ-g5Vje4sEX94LLjnRwcZqXG-HD2W9mlHVfwzcT9NfwkqxQByuSC2Cp-4COL_fsSPQ4tn5YWoJ6OHzNslTn0_eDLPCYnJ4PZiKset0s1iiDs72mnlFI9astVpZvhvzMPyxkNu73k9BGsjdVGHRItMZvs_dWC_g37g"/>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 max-w-xs">
+                    Pulda: 복잡함을 기술로 풀고 브랜드로 잇습니다.
+                </p>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full border border-subtle flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-subtle flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-primary font-headline-sm text-headline-sm mb-6">Explore</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">회사소개</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">프로젝트</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Story</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h5 class="text-primary font-headline-sm text-headline-sm mb-6">Policy</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">개인정보처리방침</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">이용약관</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h5 class="text-primary font-headline-sm text-headline-sm mb-6">Contact</h5>
+<p class="text-on-surface-variant font-body-md text-body-md mb-2">서울특별시 강남구 테헤란로 123</p>
+<p class="text-on-surface-variant font-body-md text-body-md mb-2">contact@pulda.co.kr</p>
+<p class="text-on-surface-variant font-body-md text-body-md">02-123-4567</p>
+</div>
+<div class="md:col-span-12 border-t border-subtle mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md opacity-60">© 2024 Pulda. Untying the knot of complexity.</p>
+<div class="flex items-center gap-6 text-on-surface-variant font-label-md text-label-md">
+<span>Tech Studio</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>Design Lab</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for scroll reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

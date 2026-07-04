@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | 프로젝트</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#c8c6c7",
+                    "secondary": "#c8c6c8",
+                    "primary-container": "#e60012",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "surface": "#200e0c",
+                    "tertiary-fixed-dim": "#c8c6c7",
+                    "surface-tint": "#ffb4aa",
+                    "on-tertiary": "#313031",
+                    "on-secondary-container": "#b7b4b7",
+                    "surface-container-lowest": "#1a0907",
+                    "on-surface-variant": "#e9bcb6",
+                    "on-secondary-fixed": "#1b1b1d",
+                    "surface-container-high": "#3a2422",
+                    "surface-variant": "#462f2c",
+                    "on-primary-container": "#fff7f6",
+                    "tertiary-fixed": "#e5e2e3",
+                    "neon-red-glow": "rgba(230, 0, 18, 0.4)",
+                    "on-primary": "#690003",
+                    "outline": "#af8782",
+                    "inverse-surface": "#ffdad5",
+                    "surface-dim": "#200e0c",
+                    "primary-fixed": "#ffdad5",
+                    "tertiary-container": "#737273",
+                    "on-surface": "#ffdad5",
+                    "inverse-on-surface": "#412b28",
+                    "on-secondary": "#303032",
+                    "on-background": "#ffdad5",
+                    "error-container": "#93000a",
+                    "surface-container": "#2e1a18",
+                    "primary": "#ffb4aa",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#474647",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c8c6c8",
+                    "outline-variant": "#5f3f3b",
+                    "border-subtle": "rgba(255, 255, 255, 0.08)",
+                    "background": "#200e0c",
+                    "inverse-primary": "#c0000d",
+                    "surface-container-low": "#2a1614",
+                    "on-secondary-fixed-variant": "#474649",
+                    "surface-bright": "#4b3330",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#410001",
+                    "surface-container-highest": "#462f2c",
+                    "text-dim": "#a1a1aa",
+                    "secondary-container": "#474649",
+                    "on-tertiary-container": "#fcf8f9",
+                    "secondary-fixed": "#e4e2e4",
+                    "on-tertiary-fixed": "#1c1b1c",
+                    "on-primary-fixed-variant": "#930007"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-lg": "48px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neon-glow-hover:hover {
+            box-shadow: 0 0 15px rgba(230, 0, 18, 0.4);
+            border-color: #e60012;
+        }
+        .unknot-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 100%);
+        }
+        .text-neon-red { color: #e60012; }
+        .bg-neon-red { background-color: #e60012; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Bar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/60 backdrop-blur-xl border-b border-subtle transition-all duration-300"><nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-border-subtle dark:border-outline-variant sticky top-0 w-full z-50 transition-all duration-300 ease-in-out">
+<a class="flex items-center gap-2" href="#">
+<div class="w-10 h-10">https://lh3.googleusercontent.com/aida-public/AB6AXuBDEecY4vAf3f_mpEnEOx0N7M_G2yoL78d2yjtRAedOwh3atBnoaQ4fVGhc5v7rR2KHrsrOs_-8H9XDbWhAAhxfchoMxaLgXdY4O5WqWEeaeLgHezDoTmb8l8qF5R3a6mtHg9skX-HZbPz3r-Q3owjgqVJ1TmhaJO3TRZnEQ1I3BlyzweRMLWkicxAK01U7bV9XU33Urem_7eVFbhnuaFGGdDk5cw3rY6XQzCmIzG-8PFl0TcL9v77LbTXACL_MsuU7SnpyAV_sA5A</div>
+<span class="font-display-lg text-headline-md font-black text-primary tracking-tight">Pulda</span>
+</a>
+<div class="hidden md:flex items-center gap-10 font-label-md text-label-md">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary hover:scale-105 transition-transform duration-200" href="#">회사소개</a>
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-transform duration-200" href="#">프로젝트</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary hover:scale-105 transition-transform duration-200" href="#">Story</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary hover:scale-105 transition-transform duration-200" href="#">Contact</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg text-label-md font-label-md hover:brightness-110 hover:shadow-[0_0_15px_rgba(230,0,18,0.4)] transition-all active:scale-95">
+    Inquiry
+  </button>
+</nav></header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="px-gutter pt-section-gap pb-stack-lg max-w-container-max mx-auto overflow-hidden">
+<div class="flex flex-col gap-stack-sm">
+<span class="text-neon-red font-label-md tracking-widest uppercase">Portfolio</span>
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg max-w-4xl">
+                    복잡함을 풀고 명확함을 <span class="text-primary italic">디자인</span>합니다.
+                </h1>
+<p class="text-on-surface-variant text-body-lg max-w-2xl mt-stack-md">
+                    다양한 파트너와 함께 진행한 프로젝트들을 확인해보세요. 기술력과 미학이 결합된 디지털 솔루션을 제공합니다.
+                </p>
+</div>
+<div class="unknot-divider mt-section-gap"></div>
+</section>
+<!-- Project Filter & Counter -->
+<section class="px-gutter py-stack-md max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-stack-md">
+<div class="flex gap-stack-md">
+<button class="text-label-md font-label-md text-primary border-b border-primary pb-1">All Projects</button>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Web Development</button>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">UI/UX Design</button>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Branding</button>
+</div>
+<div class="text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+<span>Displaying 12 results</span>
+</div>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="px-gutter py-stack-lg max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Project Card 01 -->
+<div class="group flex flex-col gap-stack-md cursor-pointer">
+<div class="relative aspect-[1.78] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<img alt="Pulda Portfolio Project 01" class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLuaB_Z9dtfB6LJ5koMgFE7XpaMnVr0Wj-7QbZPSc12AdCOEb9WAL28ZsyhKwnPKIRFumTWunQDOfdGfuXkRkwAE1l42wVZUueM-yTd1fi55xJaaEFZcyYv8o36rGHUujMetGV2spKpPku8RLDWytk58JgMiAK9RdNPlF9GVE77A3gw5SOgdklr2H5p_vq_KXzSD7MDHoOBrQj9ufWKYYbABlhfSHAiLW7F8o18TPnisJBNJSbwnQP5Zq8o"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">01</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Web Platform</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-60 transition-opacity"></div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30 shadow-[0_0_15px_rgba(230,0,18,0.2)]">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Lumina Digital Hub</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">엔터프라이즈 레벨의 통합 디지털 자산 관리 시스템 구축 및 UI/UX 리뉴얼 프로젝트.</p>
+</div>
+</div>
+<!-- Project Card 02 -->
+<div class="group flex flex-col gap-stack-md cursor-pointer lg:mt-12">
+<div class="relative aspect-[1.83] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<img alt="Pulda Portfolio Project 02" class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLuCvydXvt0yCxNSWq8W4tmPi3WaxIQgNKK4N7kZXbrG1ZSvN14-F1-kaJ65ZBa3b_IsFuLGtns-9u9kx5WcYpM5U7rA9bwulp-veoCrMwQxHTAaCL5fm_2m9lfLriM5kjoXvRavT2ZVmcpcP3xQofQmor-yao5EOv-F0qNX5CbgqiVTorIbhkHG5Ris3uKqEKKeXAg43rP-cDnFQj2fxIANyQWjWJ-nDI_yW_YHevHn7hiYwYIWCiFsdw"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">02</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Lifestyle</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-60 transition-opacity"></div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30 shadow-[0_0_15px_rgba(230,0,18,0.2)]">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Harmony Social App</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">글로벌 커플을 위한 소셜 인터랙션 플랫폼 디자인 및 모바일 최적화 개발.</p>
+</div>
+</div>
+<!-- Project Card 03 -->
+<div class="group flex flex-col gap-stack-md cursor-pointer">
+<div class="relative aspect-[1.78] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<div class="w-full h-full flex items-center justify-center p-8 bg-surface-container-high">
+<img alt="Pulda Portfolio Project 03" class="w-full h-auto object-contain grayscale-[0.8] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLv2djkUqhS-dBf1yszq541NJN9o-rbcHMbmhVmTKvr-xob6m7Btd1wMJ6GIKNKWSrh-19uVEa_LWpPKXS04hyhXbk4QO7-_JgN0pYn7mjhMa_xV4LLgEJ8NjcvXjRkF0ILeLpESsETtHMq5jfBZwi7lIJFyXaEZm-r-N5MRjbg6Sd3c944wniFZy1NBJ3i8xJBjhjzLkgTIWPDfO5YrfnChAOzhFq5Epe4TS7d2YSnl0rL1j7vB5FOg0AM"/>
+</div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">03</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Fintech</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-0 group-hover:opacity-60 transition-opacity"></div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30 shadow-[0_0_15px_rgba(230,0,18,0.2)]">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Nova Finance Branding</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">차세대 금융 시스템을 위한 아이덴티티 수립 및 디지털 브랜딩 가이드라인 제안.</p>
+</div>
+</div>
+<!-- Project Card 04 (Placeholder with description) -->
+<div class="group flex flex-col gap-stack-md cursor-pointer lg:-mt-12">
+<div class="relative aspect-[1.78] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center grayscale-[0.7] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A dark and moody architectural photograph of a futuristic high-rise building at night, illuminated by neon red and soft white lights. The overall aesthetic is cinematic and high-end technological minimalism. The sky is a deep midnight blue, creating an atmospheric depth typical of a corporate modern digital agency." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVrZET3kg-VL6rGrUBXrdNXqLAqN-hapcXX5GgYYV4hZ5zkl0wHoPqk2H6hFjhvsJw0QOtH5bfsVWfLhiABpjtm3tB4dzjq2t-d-VsJOZunesvfkLnK9gstzlIxUiDJoYOOgHnm-GscSGc84y3fMntsqziYBpbDVy0SprmYuqEkLN3kJvstUJqPf0tDkkMUDl9LKHB-MANnz-pIz3jhs1IrCmN8hYfDIgRCVM3KOHbGHm2cukWcD_P1kAEZxF92OB11hRrSdsgvgY')"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">04</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Architecture</span>
+</div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Arch-Tech Solutions</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">건축 설계 사무소를 위한 고성능 데이터 시각화 웹 애플리케이션 개발.</p>
+</div>
+</div>
+<!-- Project Card 05 -->
+<div class="group flex flex-col gap-stack-md cursor-pointer">
+<div class="relative aspect-[1.78] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center grayscale-[0.7] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Close-up macro shot of glowing fiber optic cables pulsing with light in a dark server room. The light is predominantly a soft, luminous neon red and a cool white. This technical agency aesthetic emphasizes speed, connectivity, and precision. Deep blacks and layered dark surfaces define the background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCteAtxrRvLvYLin6J1NiOH0IOBM99fNEmdqCwVXcoie-_2PARbs7nW-I-14t3a7cCdbE8zoUfu-Zwuf3G7sc2Kf4AfzvGWF1UlYUSvyG9AKe1sbFm6bX_S0Ldz79oU7DyFQGwfqpm2hj_kLvva5pMN2t2-OCBdS_IohLn77IknNcOZ3e7CIIX13A1at_JAIYrTEYTcFI3mKgsZko-tfwqVF6CrIu8GGPWMpqnr9VcDy2DplCqGt5lib2F_tfcDntBXZXMefpLypKA')"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">05</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Infrastructure</span>
+</div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Core Connect 5G</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">차세대 통신 인프라 관리를 위한 실시간 모니터링 대시보드 인터페이스 설계.</p>
+</div>
+</div>
+<!-- Project Card 06 -->
+<div class="group flex flex-col gap-stack-md cursor-pointer lg:mt-12">
+<div class="relative aspect-[1.78] overflow-hidden bg-surface-container border border-subtle rounded-xl group-hover:border-primary-container/40 transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center grayscale-[0.7] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A minimalist digital sculpture composed of floating, interlocked glass rings illuminated by a subtle neon red glow from within. The rings represent the 'unknotting' of complexity. Set against a dark, atmospheric Level 0 base color, the lighting is focused and precise, emphasizing clarity and modern digital craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-X-LXLEU_kaP4VHcSnchwI-CXbiqJCSXoNCYclv16GsrvPY3bKARCBcI9871kuvIgNOm9Fv0sut-ak7BiCYWCVOS73R2hjBE2afilkHke4aig_XtgUaRTGNsBriAf05n9x6kE28_I5AQ4EFefFYVLOtDPYbQLHu4P7lfJgTyFuw4_TYgicfPCPe9u-LCkkDZWYQFZlWyhFO5VjnCA4x2nfxjeDycpfAINVHd_MrioeLTnKVkP_Snz1ZXygH1y2RrmenHJX5lP-EA')"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary uppercase tracking-tighter border border-subtle">06</span>
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-on-surface uppercase tracking-tighter border border-subtle">Art Tech</span>
+</div>
+<div class="absolute bottom-4 right-4 translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-neon-red bg-surface-container-high p-3 rounded-full border border-primary-container/30">arrow_outward</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Nexus VR Gallery</h3>
+<p class="text-on-surface-variant text-body-md line-clamp-2">가상 현실 공간에서의 예술 전시를 위한 몰입형 UI 및 공간 디자인 시스템.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-gutter py-section-gap max-w-container-max mx-auto text-center">
+<div class="bg-surface-container-low border border-subtle rounded-full py-20 px-8 flex flex-col items-center gap-stack-md relative overflow-hidden group">
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+<h2 class="font-headline-lg text-headline-lg text-white">다음 혁신을 함께 <br class="md:hidden"/> 시작할 준비가 되셨나요?</h2>
+<p class="text-on-surface-variant text-body-lg max-w-xl mx-auto">
+                    귀사의 비즈니스를 디지털로 전환하고 복잡한 문제를 함께 풀어냅니다. 지금 바로 문의해 보세요.
+                </p>
+<button class="mt-stack-md bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-bold text-label-md hover:brightness-110 hover:shadow-[0_0_20px_rgba(230,0,18,0.5)] transition-all active:scale-95 flex items-center gap-2">
+                    Start a Project
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-subtle transition-opacity duration-300"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter py-section-gap max-w-container-max mx-auto bg-surface-container dark:bg-inverse-surface text-on-surface dark:text-inverse-on-surface font-body-md text-body-md border-t border-border-subtle">
+<div class="flex flex-col gap-stack-md">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8">https://lh3.googleusercontent.com/aida-public/AB6AXuBDEecY4vAf3f_mpEnEOx0N7M_G2yoL78d2yjtRAedOwh3atBnoaQ4fVGhc5v7rR2KHrsrOs_-8H9XDbWhAAhxfchoMxaLgXdY4O5WqWEeaeLgHezDoTmb8l8qF5R3a6mtHg9skX-HZbPz3r-Q3owjgqVJ1TmhaJO3TRZnEQ1I3BlyzweRMLWkicxAK01U7bV9XU33Urem_7eVFbhnuaFGGdDk5cw3rY6XQzCmIzG-8PFl0TcL9v77LbTXACL_MsuU7SnpyAV_sA5A</div>
+<span class="font-display-lg text-headline-md text-primary">Pulda</span>
+</div>
+<p class="opacity-80 hover:opacity-100 transition-opacity">Untying the knot of complexity. 기술적 우위와 현대적 감각으로 비즈니스 가치를 극대화합니다.</p>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h4 class="font-bold text-primary mb-2">Links</h4>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">Careers</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">LinkedIn</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h4 class="font-bold text-primary mb-2">Navigation</h4>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">회사소개</a>
+<a class="text-primary font-bold hover:underline transition-opacity" href="#">프로젝트</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">Story</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline transition-opacity" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h4 class="font-bold text-primary mb-2">Connect</h4>
+<div class="flex gap-4">
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-opacity" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-opacity" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div class="md:col-span-4 border-t border-border-subtle pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="opacity-80">© 2024 Pulda Digital Agency. All rights reserved.</div>
+<div class="flex gap-4 opacity-80">
+<span>Designed for Excellence</span>
+<span class="text-neon-red">●</span>
+<span>Modern Digital Agency</span>
+</div>
+</div>
+</div></footer>
+<script>
+        // Micro-interaction for project cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle glow interaction handled by Tailwind classes
+            });
+        });
+
+        // Floating Header effect on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('py-2', 'bg-surface/80');
+                header.classList.remove('py-4', 'bg-surface/60');
+            } else {
+                header.classList.add('py-4', 'bg-surface/60');
+                header.classList.remove('py-2', 'bg-surface/80');
+            }
+        });
+    </script>
+</body></html>

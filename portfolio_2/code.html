@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#ffb4aa",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary-fixed-dim": "#bdc6e0",
+                        "on-surface-variant": "#5f3f3b",
+                        "inverse-surface": "#263143",
+                        "on-tertiary-fixed-variant": "#474742",
+                        "on-primary-fixed-variant": "#930007",
+                        "tertiary-container": "#73736d",
+                        "secondary-fixed": "#d9e2fd",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#d9e2fd",
+                        "tertiary": "#5a5a55",
+                        "on-tertiary-fixed": "#1b1c17",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#fbf9f1",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#111c2d",
+                        "on-primary-container": "#fff7f6",
+                        "surface-variant": "#d8e3fb",
+                        "surface-container-high": "#dee8ff",
+                        "primary-fixed": "#ffdad5",
+                        "primary": "#b7000c",
+                        "surface-container": "#e7eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#5b647b",
+                        "secondary": "#555e74",
+                        "tertiary-fixed": "#e4e3db",
+                        "surface-dim": "#cfdaf2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410001",
+                        "surface-tint": "#c0000d",
+                        "outline": "#946e69",
+                        "outline-variant": "#e9bcb6",
+                        "on-surface": "#111c2d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-secondary-fixed-variant": "#3d475c",
+                        "tertiary-fixed-dim": "#c8c7bf",
+                        "background": "#f9f9ff",
+                        "surface": "#f9f9ff",
+                        "primary-container": "#e60012",
+                        "on-secondary-fixed": "#111b2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "section-gap": "128px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f9f9ff;
+            color: #111c2d;
+            font-family: 'Hanken Grotesk', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(17, 28, 45, 0.05);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #b7000c;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #b7000c;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-on-surface/10">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">Pulda</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface opacity-70 hover:text-primary transition-colors duration-300" href="#">회사소개</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-200" href="#">프로젝트</a>
+<a class="font-body-md text-body-md text-on-surface opacity-70 hover:text-primary transition-colors duration-300" href="#">Story</a>
+<a class="font-body-md text-body-md text-on-surface opacity-70 hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 font-body-md text-body-md font-bold transition-all duration-200 active:scale-95 hover:bg-on-primary-container">
+                문의하기
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<header class="mb-20">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-8 h-[2px] bg-primary"></div>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Portfolio</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 max-w-4xl">
+                Crafting digital <br/>
+<span class="text-primary">architectural</span> excellence.
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+                We design and develop high-performance digital experiences for forward-thinking brands. Explore our latest work from Hannamdong to global tech innovators.
+            </p>
+<!-- Project Filtering -->
+<div class="flex flex-wrap gap-4 mb-12 border-b border-on-surface/5 pb-8">
+<button class="px-6 py-1 border border-primary text-primary font-label-sm text-label-sm">ALL PROJECTS</button>
+<button class="px-6 py-1 border border-on-surface/10 text-on-surface opacity-60 hover:opacity-100 font-label-sm text-label-sm transition-all">STRATEGY</button>
+<button class="px-6 py-1 border border-on-surface/10 text-on-surface opacity-60 hover:opacity-100 font-label-sm text-label-sm transition-all">DEVELOPMENT</button>
+<button class="px-6 py-1 border border-on-surface/10 text-on-surface opacity-60 hover:opacity-100 font-label-sm text-label-sm transition-all">BRANDING</button>
+</div>
+<!-- Bento Portfolio Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Featured Project: Hannamdong -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 h-full flex flex-col justify-between">
+<div class="overflow-hidden mb-8 aspect-video relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A luxurious, minimalist interior of a high-end architectural space in Hannamdong, Seoul. The lighting is soft and natural, emphasizing clean lines and premium materials like marble and dark wood. The overall aesthetic is calm, sophisticated, and modern, using a palette of off-white and deep navy, characteristic of high-end corporate design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj7VS_MAWHKHOz76zujDB7DRzfbnJ68dFvH_q__xQI-IZ-P58KLRMEg50rfiaS8mBfSvdAEKg1tuXTvBvmtiqd5lj91vmq6gNwjcslQymb4yef__js8E1VeRzB0QY4jWeVS-JBVZLCvlE0IbxyZttNwIUFtyxAZu7pUPhHNHYvntchqKW8voyzfGg163v-os5N0klZP3dBgMhQbdOsUSkLekNZWoC72rVGSPsMesuA9XBuecVOrKt5gkrieVmvFG82Qhgkpbd6pN8"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1">FEATURED</div>
+</div>
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Hannamdong Heritage</h3>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+<div class="flex gap-3 items-center">
+<span class="font-label-sm text-label-sm text-secondary px-3 py-1 border border-secondary/20">REAL ESTATE</span>
+<span class="font-label-sm text-label-sm text-secondary px-3 py-1 border border-secondary/20">WEB EXPERIENCE</span>
+<div class="w-2 h-2 bg-primary ml-auto"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project: a4u -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 h-full flex flex-col justify-between">
+<div class="overflow-hidden mb-6 aspect-square relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A sleek, tech-focused digital interface mockup for a4u platform. The design is displayed on a high-resolution screen with deep navy backgrounds and crisp white typography. Red surgical accents highlight key data points. The lighting is moody and technical, suggesting a highly precise and modern software solution for enterprise clients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN15fc9e8YvjOizYiYKRzELZHyoaSlVT-LiWMFm1yeOBzSVaWK0IUsBAQaNjVA7oxxwqVtlU2y3LOBGgYAlQqvMaaLvENSROUwDfmngLIKc64tHB52yXbTGxx_NnJDtSygGQ3yKlPS4NVvl7uPDw1VTHno3Vk99Fwy2zNOXLrh4dIJltPCPYRTgbiMTb-IueLmt9T5NBgBu7xxXeGOeCOQui-1qOcVNdlBy7jlZe-0z-9UnRJwNJihl3PB2AzTqB8Ay8UxaBEpMc4"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">a4u Platform</h3>
+<p class="font-body-md text-body-md text-secondary mb-4">Reinventing enterprise workflow through precise UX engineering.</p>
+<div class="flex gap-2">
+<span class="font-label-sm text-label-sm text-secondary px-2 py-1 border border-secondary/10">SAAS</span>
+<div class="w-2 h-2 bg-primary self-center ml-auto"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project: Client Site C -->
+<div class="md:col-span-4 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 h-full flex flex-col justify-between">
+<div class="overflow-hidden mb-6 aspect-[4/3] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Minimalist product photography of high-end tech accessories on a pristine white surface. Sharp shadows create a dramatic, architectural feel. The color scheme is dominated by cool whites and greys with a single, vivid red element providing a focal point. This represents the precision and clean aesthetic of modern corporate digital branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8iqCHyFj63PMMv1aLw_jKhlrLiYYzdm124mOeClxBLu89ZU-dLfeSLdjyRqoRH5zRF5tZ0wxSDv7O7Eom0xmjzWVpiFGuMkAkjtR0c-nwUS7nn5blNBIyxenk0gz--9N9I5aR4YVyuIc2PTMpQOAd9CLycNfWNVXtdeB4M-HErdZsnh91wCItzeXU7pHNGiSqN9HjXn9YxYnkrP62-iewrZVOlHumPzvL546mVRglH-V9_Tc3LZCtalCJ5smpV4yn7FAdNfE7Yh4"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Technical Goods</h3>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-label-sm text-label-sm text-secondary">E-COMMERCE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Project: Client Site D -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 h-full flex flex-col md:flex-row gap-8 items-center">
+<div class="md:w-1/2 overflow-hidden aspect-video w-full">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="An abstract digital landscape visualizing complex data structures as glowing red and navy architectural elements. The scene is set in a vast, white virtual environment that feels like a futuristic laboratory. High contrast, sharp edges, and professional lighting emphasize the agency's focus on technical authority and creative confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw1KYp7ux_L2EXiMNvOCVmUL_WD9_DaU3UqNOluLoLvXN0FetlzahiBYH8855pPGkf-2U0CHSM4nMVXPoi2UICIDigZdQ0ndjX8Z5FpxPTe4jhrFIrV96ExNnScxny10GE8cH-h8uXUV9zjVpKJGTC1MP0yrqhg32uNRprP6bBKTrbPVGJ9T39g9DFGRgXcttX409n2KrGbspURvKte5Um043bISbk1VH3shMXfDm1uttOaI0gcuNWoMtxirBI_B2esfUAmmLhCas"/>
+</div>
+<div class="md:w-1/2">
+<div class="bg-on-surface/5 px-2 py-1 inline-block mb-4 font-label-sm text-label-sm text-secondary">2024 COLLECTION</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Neural Data Viz</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">Transforming complex analytical datasets into intuitive, high-contrast visual narratives for global fintech partners.</p>
+<button class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1">VIEW CASE STUDY</button>
+</div>
+</div>
+</div>
+<!-- Bottom Row Bento Items -->
+<div class="md:col-span-3 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 border-b-4 border-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Voda</h4>
+<span class="font-label-sm text-label-sm text-secondary">BRAND IDENTITY</span>
+</div>
+</div>
+<div class="md:col-span-3 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 border-b-4 border-primary/20 hover:border-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Nexu</h4>
+<span class="font-label-sm text-label-sm text-secondary">AI INTERFACE</span>
+</div>
+</div>
+<div class="md:col-span-3 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 border-b-4 border-primary/20 hover:border-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Studio K</h4>
+<span class="font-label-sm text-label-sm text-secondary">RETAIL WEB</span>
+</div>
+</div>
+<div class="md:col-span-3 group cursor-pointer">
+<div class="project-card bg-surface-container-lowest p-6 border-b-4 border-primary/20 hover:border-primary">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Urban-S</h4>
+<span class="font-label-sm text-label-sm text-secondary">PLANNING</span>
+</div>
+</div>
+</div>
+</header></main>
+<!-- CTW Section -->
+<section class="bg-inverse-surface py-section-gap text-inverse-on-surface">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-8">Have a project in mind?</h2>
+<p class="font-body-lg text-body-lg mb-12 opacity-80 max-w-xl mx-auto">We are always looking for the next challenge. Let's build something exceptional together.</p>
+<div class="flex justify-center gap-6">
+<button class="bg-primary text-on-primary px-12 py-4 font-body-md text-body-md font-bold uppercase tracking-widest hover:bg-on-primary-container transition-all active:scale-95">Start a Conversation</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap border-t border-on-surface/10">
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-4 md:col-span-6">
+<div class="font-headline-md text-headline-md font-bold text-on-surface mb-6">Pulda</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-8 opacity-70">
+                    A digital agency focused on precision, technical authority, and creative confidence. Based in Seoul, serving the world.
+                </p>
+</div>
+<div class="col-span-2 md:col-span-2 flex flex-col gap-4">
+<h5 class="font-label-sm text-label-sm text-on-surface font-bold">NAVIGATION</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">회사소개</a>
+<a class="font-body-md text-body-md text-on-surface font-semibold" href="#">프로젝트</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">Story</a>
+</div>
+<div class="col-span-2 md:col-span-2 flex flex-col gap-4">
+<h5 class="font-label-sm text-label-sm text-on-surface font-bold">SOCIAL</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">Behance</a>
+</div>
+<div class="col-span-4 md:col-span-2 flex flex-col gap-4">
+<h5 class="font-label-sm text-label-sm text-on-surface font-bold">LEGAL</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="#">Terms</a>
+</div>
+<div class="col-span-4 md:col-span-12 mt-12 pt-8 border-t border-on-surface/5">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">
+                    © 2024 Pulda. All rights reserved. CEO Kim Kyunghoon | Business ID: 000-00-00000 | Address: Seoul, Korea
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover effects on bento items
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const indicator = card.querySelector('.bg-primary');
+                if (indicator) {
+                    indicator.classList.add('scale-150');
+                    indicator.style.transition = 'transform 0.3s ease';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                const indicator = card.querySelector('.bg-primary');
+                if (indicator) {
+                    indicator.classList.remove('scale-150');
+                }
+            });
+        });
+    </script>
+</body></html>

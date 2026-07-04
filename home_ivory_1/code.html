@@ -1,0 +1,429 @@
+<html class="light" lang="ko"><head></head><body class="text-on-surface font-body-md overflow-x-hidden">```html
+
+
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | 매듭을 풀어내는 사람들</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#ffb4aa",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#d8e3fb",
+                    "secondary-fixed-dim": "#bdc6e0",
+                    "on-surface-variant": "#5f3f3b",
+                    "inverse-surface": "#263143",
+                    "on-tertiary-fixed-variant": "#474742",
+                    "on-primary-fixed-variant": "#930007",
+                    "tertiary-container": "#73736d",
+                    "secondary-fixed": "#d9e2fd",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-container": "#d9e2fd",
+                    "tertiary": "#5a5a55",
+                    "on-tertiary-fixed": "#1b1c17",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#fbf9f1",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#111c2d",
+                    "on-primary-container": "#fff7f6",
+                    "surface-variant": "#d8e3fb",
+                    "surface-container-high": "#dee8ff",
+                    "primary-fixed": "#ffdad5",
+                    "primary": "#b7000c",
+                    "surface-container": "#e7eeff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#5b647b",
+                    "secondary": "#555e74",
+                    "tertiary-fixed": "#e4e3db",
+                    "surface-dim": "#cfdaf2",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410001",
+                    "surface-tint": "#c0000d",
+                    "outline": "#946e69",
+                    "outline-variant": "#e9bcb6",
+                    "on-surface": "#111c2d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-secondary-fixed-variant": "#3d475c",
+                    "tertiary-fixed-dim": "#c8c7bf",
+                    "background": "#f9f9f5",
+                    "surface": "#f9f9ff",
+                    "primary-container": "#e60012",
+                    "on-secondary-fixed": "#111b2e",
+                    "agency-red": "#b7000c",
+                    "border-subtle": "rgba(17, 28, 45, 0.1)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "section-gap": "128px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f5;
+            scroll-behavior: smooth;
+        }
+        .red-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #b7000c;
+        }
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-zoom-in {
+            animation: zoomIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+<!-- TopNavBar Component -->
+<header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-border-subtle">
+<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="Pulda Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDEecY4vAf3f_mpEnEOx0N7M_G2yoL78d2yjtRAedOwh3atBnoaQ4fVGhc5v7rR2KHrsrOs_-8H9XDbWhAAhxfchoMxaLgXdY4O5WqWEeaeLgHezDoTmb8l8qF5R3a6mtHg9skX-HZbPz3r-Q3owjgqVJ1TmhaJO3TRZnEQ1I3BlyzweRMLWkicxAK01U7bV9XU33Urem_7eVFbhnuaFGGdDk5cw3rY6XQzCmIzG-8PFl0TcL9v77LbTXACL_MsuU7SnpyAV_sA5A"/>
+<span class="font-display-lg text-headline-md font-black text-agency-red tracking-tight">Pulda</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-sm text-label-sm text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300 ease-in-out hover:scale-105" href="#">회사소개</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-all duration-300 ease-in-out hover:scale-105" href="#">프로젝트</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-all duration-300 ease-in-out hover:scale-105" href="#">Story</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-all duration-300 ease-in-out hover:scale-105" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 font-label-sm uppercase tracking-widest transition-all duration-200 active:scale-95 hover:bg-primary hover:scale-105">
+            Inquiry
+        </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden bg-transparent">
+<!-- WebGL Background -->
+<canvas id="hero-canvas"></canvas>
+<div class="max-w-container-max mx-auto w-full grid grid-cols-12 gap-gutter relative z-10 animate-zoom-in">
+<div class="col-span-12 md:col-span-8">
+<span class="inline-block px-3 py-1 border border-primary text-primary font-label-sm mb-6">NEW CORPORATE CREATIVE AGENCY</span>
+<h1 class="font-display-lg text-[64px] md:text-display-lg leading-none mb-8">
+                    매듭을 풀어내는<br/>
+<span class="text-primary">사람들</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12 opacity-90">
+                    우리는 복잡하게 얽힌 비즈니스의 문제점을 발견하고, 정교한 설계와 감도 높은 디자인을 통해 가장 명쾌한 해답을 제시합니다.
+                </p>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-4 font-label-sm hover:bg-primary transition-colors duration-300">VIEW PROJECTS</button>
+<button class="border-2 border-secondary text-secondary px-8 py-4 font-label-sm hover:bg-secondary hover:text-white transition-colors duration-300">OUR SERVICE</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Philosophy -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-center gap-4 mb-16">
+<div class="red-dot"></div>
+<h2 class="font-label-sm uppercase tracking-[0.2em] text-on-surface-variant">Our Philosophy</h2>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<div class="col-span-4 md:col-span-6">
+<h3 class="font-headline-lg text-headline-lg mb-8 md:mb-0">Complexity to Clarity.<br/>단순함의 미학.</h3>
+</div>
+<div class="col-span-4 md:col-span-6 flex flex-col justify-end">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Pulda는 단순히 아름다운 것을 만드는 것에 그치지 않습니다. 사용자의 여정 속에 숨겨진 마찰력을 제거하고, 브랜드가 전달하고자 하는 핵심 가치가 왜곡 없이 전달될 수 있도록 매듭을 푸는 과정에 집중합니다.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Business Areas -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#f9f9f5]">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-center gap-4 mb-16">
+<div class="red-dot"></div>
+<h2 class="font-label-sm uppercase tracking-[0.2em] text-on-surface-variant">Business Areas</h2>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<!-- Web Development -->
+<div class="col-span-4 md:col-span-8 bg-white border border-on-surface/5 p-12 flex flex-col justify-between h-[500px] bento-card">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">code</span>
+<h4 class="font-headline-md text-headline-md mb-4">Web Development</h4>
+<p class="text-on-surface-variant max-w-md">최신 기술 스택을 바탕으로 한 퍼포먼스 중심의 웹 구축. 확장성 있고 견고한 아키텍처를 설계합니다.</p>
+</div>
+<div class="flex justify-between items-end">
+<ul class="space-y-2 font-label-sm text-on-surface-variant">
+<li>NEXT.JS / REACT</li>
+<li>HEADLESS CMS</li>
+<li>ANIMATION ENGINE</li>
+</ul>
+<div class="w-48 h-48 bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy7C1KP0XVDvWz8lJ0TPfXb0k1QgtF1Vcr9uhQCLc3Mx4Dh0-9JY65NjSmhilCunQpbjN-M8bnFcZJwAxjrkgCQlhsbq4bqMnVvxFzs5AY9umAlQuop8qXecy7WRn9x_afHo8aWFdXVcaycjznNXdepDNuSoP8SDP1TuImGaw2mpHBT7Uk3Yzm44d_dqOB21l2mWc_WDjAtwljf_bwtzY6eKWZQRksn1t0O1WrvsmszTTj_CBCEmlq6CvauzkItIEJwXMKNqoc1N4"/>
+</div>
+</div>
+</div>
+<!-- UI/UX Design -->
+<div class="col-span-4 md:col-span-4 bg-secondary text-white p-12 flex flex-col justify-between h-[500px] bento-card">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6">space_dashboard</span>
+<h4 class="font-headline-md text-headline-md mb-4">UI/UX Design</h4>
+<p class="opacity-80">사용자 경험을 최우선으로 하는 논리적 디자인. 심미성과 기능성의 완벽한 균형을 추구합니다.</p>
+</div>
+<div>
+<button class="flex items-center gap-2 font-label-sm group">
+                            EXPLORE DESIGN 
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Platform Service -->
+<div class="col-span-4 md:col-span-12 relative overflow-hidden h-[400px] group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkev2HF7LU3hO5-x5a1-bh0F286AdDLmmiPDccbVxF50BRfsKBeXg8TLN3ZuX2qhXwvWYc0uXeJUbT5LTYAzJ-2aC_KAZfn9p1exubIFPXdFfXCqqNRapFNtnDOXx5zQd6PEgHDgaJhozztoW8MblVfeM0DBaC1qOpcRF1JDIxzHyzRihrdndiod-aYempTo6rz2rZ5mT9ma-2Tm7GlgzZgoiFEE1yvABNcJFdz64xe3i9lqFN9dkrPerMq1dE7HiBNaRUmGRjdy8')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface to-transparent opacity-60"></div>
+<div class="relative h-full flex flex-col justify-center px-12 md:px-24 text-white">
+<h4 class="font-label-sm mb-4 tracking-widest">OWN PLATFORM SERVICE</h4>
+<h3 class="font-display-lg text-headline-lg md:text-display-lg mb-6">a4u.kr</h3>
+<p class="max-w-md font-body-lg opacity-80 mb-8">모두를 위한 가치 있는 연결, Pulda가 직접 운영하는 올인원 플랫폼 서비스입니다.</p>
+<a class="w-fit border border-white px-8 py-3 font-label-sm hover:bg-white hover:text-on-surface transition-all" href="https://a4u.kr" target="_blank">VISIT PLATFORM</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop text-center bg-[#f9f9f5]">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-8">새로운 프로젝트를 함께 시작할까요?</h2>
+<p class="font-body-lg text-on-surface-variant mb-12">귀사의 비즈니스 매듭을 풀 준비가 되었습니다.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<div class="flex flex-col items-center">
+<span class="font-label-sm text-on-surface-variant mb-2">EMAIL US</span>
+<a class="font-headline-md text-primary" href="mailto:hello@pulda.com">hello@pulda.com</a>
+</div>
+<div class="w-px h-16 bg-on-surface/10 hidden md:block"></div>
+<div class="flex flex-col items-center">
+<span class="font-label-sm text-on-surface-variant mb-2">CALL US</span>
+<a class="font-headline-md text-on-surface" href="tel:02-000-0000">02. 000. 0000</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-section-gap bg-surface-container border-t border-border-subtle">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto text-on-surface font-body-md text-body-md">
+<div class="col-span-1 md:col-span-1">
+<div class="font-display-lg text-headline-md text-agency-red font-bold mb-6">Pulda</div>
+<p class="opacity-80 leading-relaxed mb-6">
+                We untie the knots of complex business challenges through design and technology.
+            </p>
+</div>
+<div class="col-span-1">
+<h5 class="font-label-sm mb-6 uppercase tracking-widest text-on-surface">Links</h5>
+<ul class="space-y-3">
+<li><a class="text-on-secondary-fixed-variant hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="text-on-secondary-fixed-variant hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a></li>
+<li><a class="text-on-secondary-fixed-variant hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Careers</a></li>
+<li><a class="text-on-secondary-fixed-variant hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">LinkedIn</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h5 class="font-label-sm mb-6 uppercase tracking-widest text-on-surface">Office</h5>
+<p class="text-on-secondary-fixed-variant opacity-80">Seoul, Korea<br/>Gangnam-gu</p>
+</div>
+<div class="col-span-1 flex flex-col justify-between">
+<div class="flex gap-4">
+<span class="material-symbols-outlined opacity-80 hover:opacity-100 cursor-pointer transition-opacity">language</span>
+<span class="material-symbols-outlined opacity-80 hover:opacity-100 cursor-pointer transition-opacity">dark_mode</span>
+</div>
+<p class="mt-8 text-sm opacity-60">
+                © 2024 Pulda Digital Agency. All rights reserved.
+            </p>
+</div>
+</div>
+</footer>
+<script>
+    // WebGL Shader Setup
+    const canvas = document.getElementById('hero-canvas');
+    const gl = canvas.getContext('webgl');
+
+    const vertexShaderSrc = `
+        attribute vec2 position;
+        varying vec2 v_texCoord;
+        void main() {
+            v_texCoord = position * 0.5 + 0.5;
+            gl_Position = vec4(position, 0.0, 1.0);
+        }
+    `;
+
+    // Fixed Fragment Shader from ANIMATION_165
+    const fragmentShaderSrc = `
+        precision highp float;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        varying vec2 v_texCoord;
+
+        vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+        vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+        vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+        float snoise(vec2 v) {
+          const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+          vec2 i  = floor(v + dot(v, C.yy) );
+          vec2 x0 = v -   i + dot(i, C.xx);
+          vec2 i1;
+          i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+          vec4 x12 = x0.xyxy + C.xxzz;
+          x12.xy -= i1;
+          i = mod289(i);
+          vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+          vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+          m = m*m ;
+          m = m*m ;
+          vec3 x = 2.0 * fract(p * C.www) - 1.0;
+          vec3 h = abs(x) - 0.5;
+          vec3 ox = floor(x + 0.5);
+          vec3 a0 = x - ox;
+          m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+          vec3 g;
+          g.x  = a0.x  * x0.x  + h.x  * x0.y;
+          g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+          return 130.0 * dot(m, g);
+        }
+
+        void main() {
+            vec2 uv = v_texCoord;
+            float t = u_time * 0.2;
+            
+            float silk = 0.0;
+            float depth = 0.0;
+            
+            for(float i = 1.0; i <= 6.0; i++) {
+                float speed = i * 0.25;
+                float freq = 1.2 + i * 0.35;
+                float noise = snoise(vec2(uv.x * 0.3 + t * 0.1, t * 0.15 + i * 2.5));
+                float wave = sin(uv.x * freq - t * speed + noise * 1.5) * 0.15;
+                float yPos = 0.5 + sin(t * 0.15 + i) * 0.04;
+                float dist = abs(uv.y - yPos - wave);
+                float thickness = 0.07 / i;
+                float strand = smoothstep(thickness, 0.0, dist);
+                float edge = smoothstep(thickness * 0.4, 0.0, dist);
+                silk += strand * (0.85 / i);
+                depth += edge * (1.1 / i);
+            }
+            
+            float untie = smoothstep(1.0, 0.1, uv.x);
+            silk *= untie;
+            depth *= untie;
+            
+            vec3 brandRed = vec3(0.9, 0.0, 0.07);
+            vec3 softBurgundy = vec3(0.65, 0.15, 0.2);
+            vec3 ivory = vec3(1.0, 0.98, 0.95);
+            
+            float globalGlow = snoise(uv * 0.4 + vec2(t * 0.05)) * 0.5 + 0.5;
+            vec3 color = mix(ivory, softBurgundy * 0.1, globalGlow * 0.3);
+            color = mix(color, softBurgundy, silk);
+            color += brandRed * depth * 0.45;
+            
+            float code = snoise(uv * 16.0 + vec2(0.0, t * 1.5));
+            color -= vec3(0.1, 0.1, 0.1) * step(0.92, code) * 0.05;
+            
+            gl_FragColor = vec4(color, 1.0);
+        }
+    `;
+
+    function createShader(gl, type, source) {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            console.error(gl.getShaderInfoLog(shader));
+            gl.deleteShader(shader);
+            return null;
+        }
+        return shader;
+    }
+
+    const vs = createShader(gl, gl.VERTEX_SHADER, vertexShaderSrc);
+    const fs = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSrc);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+    const positionLoc = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(positionLoc);
+    gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const timeLoc = gl.getUniformLocation(program, 'u_time');
+    const resLoc = gl.getUniformLocation(program, 'u_resolution');
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight</script></body></html>

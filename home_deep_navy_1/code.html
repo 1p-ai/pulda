@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | 매듭을 풀어내는 사람들</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --brand-red: #e60012;
+            --deep-navy: #010205; /* Deep Navy from Shader */
+        }
+        body {
+            background-color: var(--deep-navy);
+            color: #ffffff;
+            font-family: 'Hanken Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .neon-text-red {
+            color: #ffffff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--brand-red), 0 0 30px var(--brand-red), 0 0 40px var(--brand-red);
+            animation: neon-pulse 2s ease-in-out infinite alternate;
+        }
+        @keyframes neon-pulse {
+            from { opacity: 0.9; text-shadow: 0 0 5px #fff, 0 0 10px var(--brand-red); }
+            to { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 20px var(--brand-red), 0 0 40px var(--brand-red); }
+        }
+        @keyframes zoom-in-entrance {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-zoom-in {
+            animation: zoom-in-entrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .vertical-line {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);
+        }
+        .card-hover:hover {
+            border-color: var(--brand-red);
+            transform: translateY(-4px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#ffb4aa",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary-fixed-dim": "#bdc6e0",
+                        "on-surface-variant": "#5f3f3b",
+                        "inverse-surface": "#263143",
+                        "on-tertiary-fixed-variant": "#474742",
+                        "on-primary-fixed-variant": "#930007",
+                        "tertiary-container": "#73736d",
+                        "secondary-fixed": "#d9e2fd",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#d9e2fd",
+                        "tertiary": "#5a5a55",
+                        "on-tertiary-fixed": "#1b1c17",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#fbf9f1",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#ffffff",
+                        "on-primary-container": "#fff7f6",
+                        "surface-variant": "#d8e3fb",
+                        "surface-container-high": "#dee8ff",
+                        "primary-fixed": "#ffdad5",
+                        "primary": "#e60012",
+                        "surface-container": "#e7eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#5b647b",
+                        "secondary": "#555e74",
+                        "tertiary-fixed": "#e4e3db",
+                        "surface-dim": "#cfdaf2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410001",
+                        "surface-tint": "#c0000d",
+                        "outline": "#946e69",
+                        "outline-variant": "#e9bcb6",
+                        "on-surface": "#ffffff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-secondary-fixed-variant": "#3d475c",
+                        "tertiary-fixed-dim": "#c8c7bf",
+                        "background": "#010205",
+                        "surface": "#010205",
+                        "primary-container": "#e60012",
+                        "on-secondary-fixed": "#111b2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "section-gap": "128px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b border-white/10">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="Pulda Logo" class="h-10 w-auto invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDEecY4vAf3f_mpEnEOx0N7M_G2yoL78d2yjtRAedOwh3atBnoaQ4fVGhc5v7rR2KHrsrOs_-8H9XDbWhAAhxfchoMxaLgXdY4O5WqWEeaeLgHezDoTmb8l8qF5R3a6mtHg9skX-HZbPz3r-Q3owjgqVJ1TmhaJO3TRZnEQ1I3BlyzweRMLWkicxAK01U7bV9XU33Urem_7eVFbhnuaFGGdDk5cw3rY6XQzCmIzG-8PFl0TcL9v77LbTXACL_MsuU7SnpyAV_sA5A"/>
+<span class="font-display-lg text-headline-md font-black text-primary tracking-tight">Pulda</span>
+</div>
+<div class="hidden md:flex gap-8 items-center font-label-sm text-label-sm">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 transition-transform duration-200 hover:scale-105" href="#">회사소개</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-transform duration-200 hover:scale-105" href="#">프로젝트</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-transform duration-200 hover:scale-105" href="#">Story</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-transform duration-200 hover:scale-105" href="#">Contact</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 font-label-sm text-label-sm uppercase tracking-widest transition-transform duration-200 hover:scale-105 active:scale-95">Inquiry</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- WebGL Background -->
+<canvas id="hero-canvas"></canvas>
+<div class="relative z-10 text-center px-margin-mobile animate-zoom-in">
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight flex flex-col md:flex-row items-center justify-center gap-4">
+<span class="neon-text-red">매듭을 풀어내는</span>
+<span class="text-white">사람들</span>
+</h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-2xl mx-auto mb-12">
+            우리는 비즈니스의 복잡한 문제를 디자인과 기술로 해결합니다.<br/>
+            엉켜있는 실타래를 가장 아름다운 방식으로 풀어내는 크리에이티브 파트너, Pulda.
+        </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary text-white px-10 py-4 font-label-sm text-label-sm tracking-widest hover:brightness-110 transition-all">VIEW PROJECTS</button>
+<button class="border-2 border-white/20 text-white px-10 py-4 font-label-sm text-label-sm tracking-widest hover:border-primary transition-all">OUR STORY</button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+<span class="font-label-sm text-[10px] tracking-widest vertical-rl">SCROLL</span>
+<div class="h-16 vertical-line"></div>
+</div>
+</section>
+<!-- Content Section 01: Services (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">01</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Focus Card -->
+<div class="md:col-span-8 group border border-white/10 p-12 transition-all duration-300 card-hover flex flex-col justify-between h-[500px]">
+<div>
+<span class="text-primary font-label-sm tracking-tighter mb-4 block">DESIGN STRATEGY</span>
+<h3 class="font-headline-lg text-headline-lg mb-6 leading-tight">Brand Identity &amp; <br/>Digital Experience</h3>
+</div>
+<div class="flex justify-between items-end">
+<p class="font-body-md text-white/70 max-w-sm">브랜드의 본질을 탐구하고, 사용자에게 잊지 못할 디지털 경험을 선사합니다. 우리는 비주얼 그 이상의 가치를 설계합니다.</p>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 border border-white/10 p-8 card-hover transition-all flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl">code</span>
+<h3 class="font-headline-md text-headline-md mb-4">Technical Excellence</h3>
+</div>
+<p class="font-body-md text-white/70">최신 기술 스택을 활용하여 확장 가능하고 견고한 디지털 인프라를 구축합니다.</p>
+</div>
+<!-- Side Card 2 -->
+<div class="md:col-span-4 border border-white/10 p-8 card-hover transition-all flex flex-col justify-between h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl">insights</span>
+<h3 class="font-headline-md text-headline-md mb-4">Growth Strategy</h3>
+</div>
+<p class="font-body-md text-white/70">데이터 기반 분석을 통해 비즈니스의 지속 가능한 성장을 위한 로드맵을 제시합니다.</p>
+</div>
+<!-- Long Horizontal Card -->
+<div class="md:col-span-8 border border-white/10 p-8 card-hover transition-all flex items-center gap-12">
+<div class="flex-shrink-0 w-24 h-24 bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Creative Direction</h3>
+<p class="font-body-md text-white/70">단순한 미학을 넘어, 비즈니스 성과를 창출하는 크리에이티브 방향성을 확립합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Section 02: Selected Projects -->
+<section class="py-section-gap bg-white/5">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">02</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Selected Projects</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video overflow-hidden mb-8 border border-white/10">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8F-PV1qlpdKqCN6Yj8R-ITpT0zsXn1crIx_OEWkKgip5y9H7_FlAOtCQTfoNXOFZ0YldaxTvFyD0z8V_hsj1o-A24I_lwIUYrluOLK7Y4cGpPebZLTMphulZUrHt8SBcCaldHB_lyqnNI-786GY1-H73CC-r9AqgtaLPl2GXyirkCneeVWQQDeedMxQSdRL0-w-NU6k0Farze4uDfeiF7uW1RIOc2Oq7mYqycda0gJGRXEMBV0BDW2pB51xKQHO1CegKHe8-Tn7A"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="font-label-sm text-white tracking-[0.5em] border border-white px-6 py-2">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">The Nexus Alpha</h4>
+<p class="text-white/40 font-body-md">Brand Experience, Web Development</p>
+</div>
+<span class="text-primary font-label-sm mt-2">2024</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group cursor-pointer mt-0 md:mt-24">
+<div class="relative aspect-video overflow-hidden mb-8 border border-white/10">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe-qbpMn3nRQ7IzwpM3Y2HxSmLTVb3VJM2dxx42pr578sMbR_bBlgnup0dS08qT4RzxawLkUBE1eJVA1hFkt3Gr449rp0MEkUrjBJCJKb4bQy4a4V2hJQvWDB4gROfEuxDg7EWaADIRrNf0oHOO0t2WB0Cco5YZO6a2aga1FzIArjd5ZYjw_F7QX7kzGEO08v9TxuLROTuuiD3glrljUtW2ft-m20P2yE9_8XcXzLhfMRvfPFHkkhXc1RivDpmwAOkPddMOPtDyq0"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="font-label-sm text-white tracking-[0.5em] border border-white px-6 py-2">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Loom Protocol</h4>
+<p class="text-white/40 font-body-md">Interface Design, Motion Graphics</p>
+</div>
+<span class="text-primary font-label-sm mt-2">2023</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Section 03: Methodology -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">03</span>
+<h2 class="font-headline-lg text-headline-lg text-white">How We Work</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">01</span>
+<h3 class="font-headline-md text-headline-md mb-4">Discovery</h3>
+<p class="font-body-md text-white/70">클라이언트의 비즈니스와 당면한 과제를 깊이 있게 탐구하고 숨겨진 매듭을 찾아냅니다.</p>
+</div>
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">02</span>
+<h3 class="font-headline-md text-headline-md mb-4">Untying</h3>
+<p class="font-body-md text-white/70">가장 효율적이고 아름다운 솔루션을 위해 복잡한 구조를 하나씩 체계적으로 풀어나갑니다.</p>
+</div>
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">03</span>
+<h3 class="font-headline-md text-headline-md mb-4">Evolution</h3>
+<p class="font-body-md text-white/70">해결된 결과물이 비즈니스의 새로운 동력이 되어 지속적인 가치를 창출하도록 합니다.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="absolute inset-0 bg-primary z-0 opacity-10"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center relative z-10">
+<h2 class="font-display-lg text-display-lg mb-8">당신의 복잡함을<br/><span class="text-primary">명쾌함</span>으로 바꿉니다.</h2>
+<p class="font-body-lg text-body-lg text-white/70 mb-12 max-w-xl mx-auto">새로운 프로젝트를 고민 중이신가요? Pulda와 함께 매듭을 풀어가세요.</p>
+<button class="bg-primary text-white px-12 py-5 font-label-sm text-label-sm tracking-[0.2em] hover:scale-105 transition-all">START A PROJECT</button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-inverse-surface border-t border-border-subtle">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto text-inverse-on-surface">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<img alt="Logo" class="h-8 w-auto invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDEecY4vAf3f_mpEnEOx0N7M_G2yoL78d2yjtRAedOwh3atBnoaQ4fVGhc5v7rR2KHrsrOs_-8H9XDbWhAAhxfchoMxaLgXdY4O5WqWEeaeLgHezDoTmb8l8qF5R3a6mtHg9skX-HZbPz3r-Q3owjgqVJ1TmhaJO3TRZnEQ1I3BlyzweRMLWkicxAK01U7bV9XU33Urem_7eVFbhnuaFGGdDk5cw3rY6XQzCmIzG-8PFl0TcL9v77LbTXACL_MsuU7SnpyAV_sA5A"/>
+<span class="font-display-lg text-headline-md text-primary">Pulda</span>
+</div>
+<p class="font-body-md text-body-md opacity-80">
+                비즈니스의 복잡한 문제를 디자인과 기술의 조화로 풀어내는 디지털 에이전시.
+            </p>
+<div class="flex gap-4">
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h5 class="font-label-sm text-primary mb-6">LINKS</h5>
+<ul class="space-y-4 font-body-md opacity-80">
+<li><a class="hover:underline transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:underline transition-all" href="#">Careers</a></li>
+<li><a class="hover:underline transition-all" href="#">LinkedIn</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-primary mb-6">SERVICES</h5>
+<ul class="space-y-4 font-body-md opacity-80">
+<li><a class="hover:underline transition-all" href="#">Design Strategy</a></li>
+<li><a class="hover:underline transition-all" href="#">Technical Excellence</a></li>
+<li><a class="hover:underline transition-all" href="#">Growth Strategy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-primary mb-6">CONTACT US</h5>
+<p class="font-body-md opacity-80 mb-4">Seoul, Gangnam-gu, Teheran-ro 123, 4F</p>
+<p class="font-body-md text-white font-bold">hello@pulda.agency</p>
+<p class="font-body-md text-white font-bold">+82 (0)2 1234 5678</p>
+</div>
+<div class="md:col-span-4 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md opacity-60">© 2024 Pulda Digital Agency. All rights reserved.</p>
+<div class="flex gap-8 font-label-sm text-[10px] opacity-60">
+<a class="hover:text-white transition-colors" href="#">PRIVACY POLICY</a>
+<a class="hover:text-white transition-colors" href="#">TERMS OF SERVICE</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // WebGL Shader Setup
+    const canvas = document.getElementById('hero-canvas');
+    const gl = canvas.getContext('webgl');
+
+    if (gl) {
+        const vsSource = `
+            attribute vec4 a_position;
+            varying vec2 v_texCoord;
+            void main() {
+                gl_Position = a_position;
+                v_texCoord = a_position.xy * 0.5 + 0.5;
+            }
+        `;
+
+        const fsSource = `
+            precision highp float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            varying vec2 v_texCoord;
+
+            vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+            vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+            vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+            float snoise(vec2 v) {
+              const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+              vec2 i  = floor(v + dot(v, C.yy) );
+              vec2 x0 = v -   i + dot(i, C.xx);
+              vec2 i1;
+              i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+              vec4 x12 = x0.xyxy + C.xxzz;
+              x12.xy -= i1;
+              i = mod289(i);
+              vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+              vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+              m = m*m ;
+              m = m*m ;
+              vec3 x = 2.0 * fract(p * C.www) - 1.0;
+              vec3 h = abs(x) - 0.5;
+              vec3 ox = floor(x + 0.5);
+              vec3 a0 = x - ox;
+              m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+              vec3 g;
+              g.x  = a0.x  * x0.x  + h.x  * x0.y;
+              g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+              return 130.0 * dot(m, g);
+            }
+
+            void main() {
+                vec2 uv = v_texCoord;
+                float t = u_time * 0.25;
+                float silk = 0.0;
+                float depth = 0.0;
+                
+                for(float i = 1.0; i <= 6.0; i++) {
+                    float speed = i * 0.3;
+                    float freq = 1.2 + i * 0.35;
+                    float noise = snoise(vec2(uv.x * 0.3 + t * 0.1, t * 0.12 + i * 2.0));
+                    float wave = sin(uv.x * freq - t * speed + noise * 1.5) * 0.15;
+                    float yPos = 0.5 + sin(t * 0.15 + i) * 0.04;
+                    float dist = abs(uv.y - yPos - wave);
+                    float thickness = 0.07 / i;
+                    float strand = smoothstep(thickness, 0.0, dist);
+                    float edge = smoothstep(thickness * 0.3, 0.0, dist);
+                    silk += strand * (0.85 / i);
+                    depth += edge * (1.1 / i);
+                }
+                
+                float untie = smoothstep(1.0, 0.1, uv.x);
+                silk *= untie;
+                depth *= untie;
+                
+                vec3 brandRed = vec3(0.9, 0.0, 0.07);
+                vec3 highlightRed = vec3(1.0, 0.3, 0.3);
+                vec3 deepNavy = vec3(0.01, 0.02, 0.05);
+                
+                float globalGlow = snoise(uv * 0.4 + vec2(t * 0.08)) * 0.5 + 0.5;
+                vec3 color = mix(deepNavy, brandRed * 0.2, globalGlow * 0.4);
+                color = mix(color, brandRed, silk);
+                color += highlightRed * depth * 0.5;
+                color += brandRed * silk * silk * 0.7;
+                
+                float code = snoise(uv * 15.0 + vec2(0.0, t * 2.0));
+                color += brandRed * step(0.88, code) * 0.05 * globalGlow;
+                
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        const createShader = (gl, type, source) => {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        };
+
+        const program = gl.createProgram();
+        gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vsSource));
+        gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fsSource));
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const timeLocation = gl.getUniformLocation(program, 'u_time');
+        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+        const render = (time) => {
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            gl.uniform1f(timeLocation, time * 0.001);
+            gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(render);
+        };
+
+        const resize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+
+        window.addEventListener('resize', resize);
+        resize();
+        requestAnimationFrame(render);
+    }
+
+    // Micro-interaction for cards
+    document.querySelectorAll('.card-hover').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Simple smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body></html>

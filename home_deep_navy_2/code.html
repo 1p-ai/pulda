@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulda | 매듭을 풀어내는 사람들</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --brand-red: #e60012;
+            --deep-navy: #111c2d;
+        }
+        body {
+            background-color: var(--deep-navy);
+            color: #ffffff;
+            font-family: 'Hanken Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .neon-text-red {
+            color: #ffffff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--brand-red), 0 0 30px var(--brand-red), 0 0 40px var(--brand-red);
+            animation: neon-pulse 2s ease-in-out infinite alternate;
+        }
+        @keyframes neon-pulse {
+            from { opacity: 0.9; text-shadow: 0 0 5px #fff, 0 0 10px var(--brand-red); }
+            to { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 20px var(--brand-red), 0 0 40px var(--brand-red); }
+        }
+        .silk-knot-container {
+            perspective: 1000px;
+        }
+        .vertical-line {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);
+        }
+        .card-hover:hover {
+            border-color: var(--brand-red);
+            transform: translateY(-4px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#ffb4aa",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary-fixed-dim": "#bdc6e0",
+                        "on-surface-variant": "#5f3f3b",
+                        "inverse-surface": "#263143",
+                        "on-tertiary-fixed-variant": "#474742",
+                        "on-primary-fixed-variant": "#930007",
+                        "tertiary-container": "#73736d",
+                        "secondary-fixed": "#d9e2fd",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#d9e2fd",
+                        "tertiary": "#5a5a55",
+                        "on-tertiary-fixed": "#1b1c17",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#fbf9f1",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#111c2d",
+                        "on-primary-container": "#fff7f6",
+                        "surface-variant": "#d8e3fb",
+                        "surface-container-high": "#dee8ff",
+                        "primary-fixed": "#ffdad5",
+                        "primary": "#e60012",
+                        "surface-container": "#e7eeff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#5b647b",
+                        "secondary": "#555e74",
+                        "tertiary-fixed": "#e4e3db",
+                        "surface-dim": "#cfdaf2",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410001",
+                        "surface-tint": "#c0000d",
+                        "outline": "#946e69",
+                        "outline-variant": "#e9bcb6",
+                        "on-surface": "#111c2d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-secondary-fixed-variant": "#3d475c",
+                        "tertiary-fixed-dim": "#c8c7bf",
+                        "background": "#111c2d",
+                        "surface": "#111c2d",
+                        "primary-container": "#e60012",
+                        "on-secondary-fixed": "#111b2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "section-gap": "128px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-white">Pulda</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-200" href="#">회사소개</a>
+<a class="font-body-md text-body-md text-white opacity-70 hover:text-primary transition-colors duration-300" href="#">프로젝트</a>
+<a class="font-body-md text-body-md text-white opacity-70 hover:text-primary transition-colors duration-300" href="#">Story</a>
+<a class="font-body-md text-body-md text-white opacity-70 hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 font-label-sm text-label-sm uppercase tracking-widest transition-all duration-200 active:scale-95">문의하기</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+<!-- Volumetric Silk Knot Shader -->
+
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight flex flex-col md:flex-row items-center justify-center gap-4">
+<span class="neon-text-red">매듭을 풀어내는</span>
+<span class="text-white">사람들</span>
+</h1>
+<p class="font-body-lg text-body-lg text-white/60 max-w-2xl mx-auto mb-12">
+                우리는 비즈니스의 복잡한 문제를 디자인과 기술로 해결합니다.<br/>
+                엉켜있는 실타래를 가장 아름다운 방식으로 풀어내는 크리에이티브 파트너, Pulda.
+            </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary text-white px-10 py-4 font-label-sm text-label-sm tracking-widest hover:brightness-110 transition-all">VIEW PROJECTS</button>
+<button class="border-2 border-white/20 text-white px-10 py-4 font-label-sm text-label-sm tracking-widest hover:border-primary transition-all">OUR STORY</button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+<span class="font-label-sm text-[10px] tracking-widest vertical-rl">SCROLL</span>
+<div class="h-16 vertical-line"></div>
+</div>
+</section>
+<!-- Content Section 01: Services (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">01</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Focus Card -->
+<div class="md:col-span-8 group border border-white/10 p-12 transition-all duration-300 card-hover flex flex-col justify-between h-[500px]">
+<div>
+<span class="text-primary font-label-sm tracking-tighter mb-4 block">DESIGN STRATEGY</span>
+<h3 class="font-headline-lg text-headline-lg mb-6 leading-tight">Brand Identity &amp; <br/>Digital Experience</h3>
+</div>
+<div class="flex justify-between items-end">
+<p class="font-body-md text-white/50 max-w-sm">브랜드의 본질을 탐구하고, 사용자에게 잊지 못할 디지털 경험을 선사합니다. 우리는 비주얼 그 이상의 가치를 설계합니다.</p>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 border border-white/10 p-8 card-hover transition-all flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl">code</span>
+<h3 class="font-headline-md text-headline-md mb-4">Technical Excellence</h3>
+</div>
+<p class="font-body-md text-white/50">최신 기술 스택을 활용하여 확장 가능하고 견고한 디지털 인프라를 구축합니다.</p>
+</div>
+<!-- Side Card 2 -->
+<div class="md:col-span-4 border border-white/10 p-8 card-hover transition-all flex flex-col justify-between h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl">insights</span>
+<h3 class="font-headline-md text-headline-md mb-4">Growth Strategy</h3>
+</div>
+<p class="font-body-md text-white/50">데이터 기반 분석을 통해 비즈니스의 지속 가능한 성장을 위한 로드맵을 제시합니다.</p>
+</div>
+<!-- Long Horizontal Card -->
+<div class="md:col-span-8 border border-white/10 p-8 card-hover transition-all flex items-center gap-12">
+<div class="flex-shrink-0 w-24 h-24 bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Creative Direction</h3>
+<p class="font-body-md text-white/50">단순한 미학을 넘어, 비즈니스 성과를 창출하는 크리에이티브 방향성을 확립합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Section 02: Selected Projects -->
+<section class="py-section-gap bg-white/5">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">02</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Selected Projects</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video overflow-hidden mb-8 border border-white/10">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A high-end architectural visualization of a futuristic skyscraper designed with fluid, ribbon-like structures. The lighting is cinematic with deep navy shadows and sharp white highlights, accented by intense red neon reflections on polished glass surfaces. The style is minimalist and high-contrast, following a new corporate agency aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8F-PV1qlpdKqCN6Yj8R-ITpT0zsXn1crIx_OEWkKgip5y9H7_FlAOtCQTfoNXOFZ0YldaxTvFyD0z8V_hsj1o-A24I_lwIUYrluOLK7Y4cGpPebZLTMphulZUrHt8SBcCaldHB_lyqnNI-786GY1-H73CC-r9AqgtaLPl2GXyirkCneeVWQQDeedMxQSdRL0-w-NU6k0Farze4uDfeiF7uW1RIOc2Oq7mYqycda0gJGRXEMBV0BDW2pB51xKQHO1CegKHe8-Tn7A"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="font-label-sm text-white tracking-[0.5em] border border-white px-6 py-2">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">The Nexus Alpha</h4>
+<p class="text-white/40 font-body-md">Brand Experience, Web Development</p>
+</div>
+<span class="text-primary font-label-sm mt-2">2024</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group cursor-pointer mt-0 md:mt-24">
+<div class="relative aspect-video overflow-hidden mb-8 border border-white/10">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="An abstract 3D composition of smooth, interconnected metallic threads forming a complex knot structure. The scene is lit by a single, powerful red light source from below, casting long shadows against a deep navy blue background. Tiny white particles float in the air, creating a sense of digital atmosphere and precision. Minimalist, tech-forward, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe-qbpMn3nRQ7IzwpM3Y2HxSmLTVb3VJM2dxx42pr578sMbR_bBlgnup0dS08qT4RzxawLkUBE1eJVA1hFkt3Gr449rp0MEkUrjBJCJKb4bQy4a4V2hJQvWDB4gROfEuxDg7EWaADIRrNf0oHOO0t2WB0Cco5YZO6a2aga1FzIArjd5ZYjw_F7QX7kzGEO08v9TxuLROTuuiD3glrljUtW2ft-m20P2yE9_8XcXzLhfMRvfPFHkkhXc1RivDpmwAOkPddMOPtDyq0"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="font-label-sm text-white tracking-[0.5em] border border-white px-6 py-2">VIEW CASE STUDY</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Loom Protocol</h4>
+<p class="text-white/40 font-body-md">Interface Design, Motion Graphics</p>
+</div>
+<span class="text-primary font-label-sm mt-2">2023</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Section 03: Methodology -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-baseline gap-4 mb-16">
+<span class="font-display-lg text-headline-lg text-primary opacity-50">03</span>
+<h2 class="font-headline-lg text-headline-lg text-white">How We Work</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">01</span>
+<h3 class="font-headline-md text-headline-md mb-4">Discovery</h3>
+<p class="font-body-md text-white/50">클라이언트의 비즈니스와 당면한 과제를 깊이 있게 탐구하고 숨겨진 매듭을 찾아냅니다.</p>
+<div class="mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-8 h-8 bg-primary/20 flex items-center justify-center">
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+</div>
+</div>
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">02</span>
+<h3 class="font-headline-md text-headline-md mb-4">Untying</h3>
+<p class="font-body-md text-white/50">가장 효율적이고 아름다운 솔루션을 위해 복잡한 구조를 하나씩 체계적으로 풀어나갑니다.</p>
+<div class="mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-8 h-8 bg-primary/20 flex items-center justify-center">
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+</div>
+</div>
+<div class="relative p-8 border-l-2 border-white/10 hover:border-primary transition-colors group">
+<span class="text-primary font-bold text-4xl mb-6 block">03</span>
+<h3 class="font-headline-md text-headline-md mb-4">Evolution</h3>
+<p class="font-body-md text-white/50">해결된 결과물이 비즈니스의 새로운 동력이 되어 지속적인 가치를 창출하도록 합니다.</p>
+<div class="mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-8 h-8 bg-primary/20 flex items-center justify-center">
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap relative overflow-hidden">
+<div class="absolute inset-0 bg-primary z-0 opacity-10"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center relative z-10">
+<h2 class="font-display-lg text-display-lg mb-8">당신의 복잡함을<br/><span class="text-primary">명쾌함</span>으로 바꿉니다.</h2>
+<p class="font-body-lg text-body-lg text-white/60 mb-12 max-w-xl mx-auto">새로운 프로젝트를 고민 중이신가요? Pulda와 함께 매듭을 풀어가세요.</p>
+<button class="bg-primary text-white px-12 py-5 font-label-sm text-label-sm tracking-[0.2em] hover:scale-105 transition-all">START A PROJECT</button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-inverse-surface border-t border-white/10">
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-inverse-on-surface">
+<div class="col-span-4 md:col-span-4">
+<div class="font-headline-md text-headline-md font-bold text-white mb-6">Pulda</div>
+<p class="font-body-md text-body-md text-surface-variant max-w-xs mb-8">
+                    비즈니스의 복잡한 문제를 디자인과 기술의 조화로 풀어내는 디지털 에이전시.
+                </p>
+<div class="flex gap-4">
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-white hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div class="col-span-4 md:col-span-2">
+<h5 class="font-label-sm text-primary mb-6">LINKS</h5>
+<ul class="space-y-4 font-body-md text-surface-variant">
+<li><a class="hover:text-white transition-colors" href="#">회사소개</a></li>
+<li><a class="hover:text-white transition-colors" href="#">프로젝트</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Career</a></li>
+</ul>
+</div>
+<div class="col-span-4 md:col-span-2">
+<h5 class="font-label-sm text-primary mb-6">SOCIAL</h5>
+<ul class="space-y-4 font-body-md text-surface-variant">
+<li><a class="hover:text-white transition-colors" href="#">LinkedIn</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Behance</a></li>
+</ul>
+</div>
+<div class="col-span-4 md:col-span-4">
+<h5 class="font-label-sm text-primary mb-6">CONTACT US</h5>
+<p class="font-body-md text-surface-variant mb-4">Seoul, Gangnam-gu, Teheran-ro 123, 4F</p>
+<p class="font-body-md text-white font-bold">hello@pulda.agency</p>
+<p class="font-body-md text-white font-bold">+82 (0)2 1234 5678</p>
+</div>
+<div class="col-span-4 md:col-span-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-surface-variant opacity-50">© 2024 Pulda. All rights reserved. CEO Kim Kyunghoon | Business ID: 000-00-00000</p>
+<div class="flex gap-8 font-label-sm text-[10px] opacity-50">
+<a class="hover:text-white transition-colors" href="#">PRIVACY POLICY</a>
+<a class="hover:text-white transition-colors" href="#">TERMS OF SERVICE</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Nav transparency logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-background/95', 'py-3');
+                nav.classList.remove('bg-background/80', 'py-4');
+            } else {
+                nav.classList.add('bg-background/80', 'py-4');
+                nav.classList.remove('bg-background/95', 'py-3');
+            }
+        });
+    </script>
+</body></html>

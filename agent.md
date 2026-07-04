@@ -13,6 +13,7 @@
 - PM은 최종 우선순위와 범위 조정 권한을 가진다.
 - QA는 품질과 배포 안정성에 대해 PM에게 이슈를 보고한다.
 - PL 문서는 전문 조력자로서 직접 최종 결정을 확정하지 않고, PM에게 리스크와 제안을 보고한다.
+- Dev Guardrail은 코드 수정 시 전체 재생성, 기존 구현 삭제, 히스토리 없는 대규모 교체를 막는 기준으로 사용한다.
 - WORKLOG는 실제 작업 이력과 검증 결과를 기록한다.
 - 오래된 판단과 로그는 docs/archive/로 이관한다.
 
@@ -22,6 +23,7 @@
 | --- | --- | --- | --- | --- |
 | PM | pm.md | 전체 우선순위, 범위, 이슈 조정, 배포 판단 | 작업 순서 결정, 범위 변경, 외부 승인 필요사항, QA/PL 보고 취합 | User |
 | QA | qa.md | 품질, 테스트, 고객여정, 배포 전 검수 | 빌드/라우트/사용성/운영 리스크 점검 | PM |
+| Dev Guardrail | dev.md | 코드 수정 안전 기준, 기존 구현 보존, 히스토리 주석 기준 | Codex/Replit/Gemini 등 코드 수정 전 공통 확인 | PM + PL-06 |
 | Worklog | WORKLOG.md | 작업 이력과 검증 기록 | 변경 이력 확인, 회고, 세션 복구 | PM |
 
 ## PL Agents
@@ -34,6 +36,7 @@
 | PL-04 DevOps | docs/agents/pl-04-devops.md | Git, Replit, 배포, 보안, 환경변수 | GitHub 연결, 배포 설정, /admin 접근 제어, 롤백 | PM |
 | PL-05 Marketing | docs/agents/pl-05-marketing.md | SEO, 전환, 광고, 분석, 채널 전략 | 검색 유입, 문의 전환, GA/Search Console/Naver, 광고 판단 | PM |
 | PL-06 Development | docs/agents/pl-06-development.md | Astro 구현, CSS/JS 수정, 컴포넌트 구조, 사이드이펙트 통제 | 실제 소스 수정, 빌드 오류, 라이트/다크 분기, 런타임 장애 | PM |
+| PL-07 Knowledge Ops | docs/agents/pl-07-knowledge-ops.md | Notion, Google Drive, NotebookLM, Stitch, Workspace 자료 흐름과 지식 기반 관리 | 자료 보관, 요약, 시안, 히스토리, 병목/중복/유실 점검 | PM |
 
 ## Invocation Examples
 
@@ -41,6 +44,8 @@
 - PL-04 DevOps 관점으로 /admin 접근 제어 리스크를 검토하라.
 - PL-02 Design 관점으로 프로젝트 상세가 수주 전시장 역할을 하는지 평가하라.
 - QA 기준으로 배포 전 고객여정 테스트를 수행하고 PM에게 보고하라.
+- dev.md 기준으로 기존 코드를 통째로 갈아엎지 않고 수정 사유와 이전 구현 의도를 남겨라.
+- PL-07 Knowledge Ops 기준으로 Notion, Drive, NotebookLM, Stitch의 역할과 자료 흐름을 정리하라.
 
 ## Archive Rule
 
@@ -64,5 +69,6 @@ PM은 대화가 길어져 작업 품질 저하, 지시 혼선, 할루시네이�
 - 다음 Task 목록
 - 새 채팅에서 반드시 읽어야 할 문서
 - 반복하면 안 되는 실수
+- 코드 수정 시 dev.md 기준의 기존 구현 보존과 히스토리 주석 원칙
 
 QA와 PL 문서는 PM의 전환 판단에 필요한 리스크 근거를 제공한다.

@@ -34,7 +34,8 @@
 3. `DESIGN.md`: 현재 디자인/컬러/철학 기준
 4. `pm.md`: 프로젝트 운영 관점과 다음 프로젝트로 이전 가능한 교훈
 5. `agent.md`: 역할형 MD 문서 디렉터리와 보고 체계
-6. 필요한 경우 `site/README.md`, `site/CONTENT_GUIDE.md`, `qa.md`, `docs/agents/pl-*.md`
+6. `dev.md`: 코드 수정 안전 기준과 기존 구현 보존 원칙
+7. 필요한 경우 `site/README.md`, `site/CONTENT_GUIDE.md`, `qa.md`, `docs/agents/pl-*.md`
 
 이 문서들과 충돌하는 변경은 사용자가 명시적으로 지시하지 않는 한 하지 않는다.
 
@@ -55,6 +56,10 @@
 ## 개발/빌드 원칙
 
 - 실제 수정은 `site/src/`와 `site/public/`에 한다.
+- 기존 파일을 전체 재생성하거나 긴 새 코드로 덮어쓰지 않는다. 먼저 현재 구현을 읽고 필요한 범위만 작게 수정한다.
+- 의미 있는 구조 변경, CSS/JS 분기 변경, 라이트/다크 테마 영향이 있는 변경은 코드 근처에 변경일, 수정 사유, 이전 구현 의도를 짧게 주석으로 남긴다.
+- 이전 코드가 이슈 추적에 필요하면 삭제하지 않고 실행되지 않는 주석으로 보존한다. 단, 실제 동작하는 중복 코드가 남아 사이드이펙트를 만들지 않게 한다.
+- 대규모 교체가 불가피하면 PM에게 이유, 영향 범위, 검증 계획을 먼저 보고하고 `dev.md` 기준으로 진행한다.
 - 변경 후 가능하면 `site/`에서 `npm run build`를 실행한다.
 - 빌드가 오래 걸리거나 타임아웃되어도 출력에 `Complete!`가 있으면 산출물을 확인한다.
 - 로컬 미리보기는 현재 사용 가능한 정적 서버 또는 Astro 빌드 결과를 사용한다.
@@ -81,6 +86,7 @@
 역할 구조:
 
 - agent.md: 역할형 MD 문서의 디렉터리이자 인사관리자 문서
+- dev.md: 코드 수정 안전 기준과 기존 구현 보존 원칙
 - pm.md: 전체 우선순위, 업무범위, 이슈 조정, 배포 가능 여부를 판단하는 최종 PM 문서
 - qa.md: 품질, 테스트, 고객여정, 배포 전 검수 담당 문서
 - docs/agents/pl-01-research.md: 인터뷰, 레퍼런스, 기존 사이트, 시장 조사 담당
@@ -89,14 +95,17 @@
 - docs/agents/pl-04-devops.md: Git, Replit, 배포, 환경변수, 접근 제어 담당
 - docs/agents/pl-05-marketing.md: SEO, 전환, 광고, 분석, 마케팅 채널 담당
 - docs/agents/pl-06-development.md: Astro 구현, CSS/JS 수정, 컴포넌트 구조, 사이드이펙트 통제 담당
+- docs/agents/pl-07-knowledge-ops.md: Notion, Google Drive, NotebookLM, Stitch, Google Workspace 기반 지식 운영 담당
 
 운영 규칙:
 
 - PM은 PL과 QA의 보고를 취합해 Task Queue와 우선순위를 조정할 권한을 가진다.
 - QA가 High 이상 이슈를 보고하면 PM Task Queue보다 우선해 대응한다.
+- 모든 코드 수정 담당은 dev.md와 PL-06 Development 기준을 먼저 확인하고, 기존 구현 삭제나 전체 재생성 없이 작은 패치로 작업한다.
 - PL 문서는 전문 조력자로서 리스크와 제안을 보고하며, 최종 결정은 pm.md에 기록한다.
 - 오래된 판단과 종료된 이슈는 docs/archive/로 이관해 pm.md와 qa.md를 현재판 대시보드로 유지한다.
 - 반복적으로 유효한 운영 규칙은 docs/00-project/skill-operating-model.md와 docs/00-project/workflow-md-agent-system.md에 반영해 향후 Skill 고도화 자료로 사용한다.
+- Notion은 프로젝트 사관과 다이어리, Google Drive는 대용량 원본/백업, NotebookLM은 프로젝트별 압축 요약, Stitch 2.0은 시안/HTML 초안 도구로 구분한다.
 
 
 ## 세션 전환과 인계 기준

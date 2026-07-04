@@ -165,3 +165,12 @@
 - docs/00-project/handoff-2026-07-04.md를 생성했다.
 - 현재 구현 상태, 필수 참조 문서, P0/P1 열린 작업, 반복 금지사항, 새 채팅 첫 프롬프트를 정리했다.
 - 다음 작업은 P0-1 GitHub 기준 원본화 및 .gitignore 정리부터 이어가는 것으로 제안했다.
+
+
+### 2026-07-04 GitHub 기준 원본화 준비
+
+- 루트 `.gitignore`를 생성해 `site/node_modules/`, `site/dist/`, `site/.astro/`, 환경변수 파일, 로그, 에디터/OS 파일을 Git 추적 대상에서 제외하도록 했다.
+- GitHub Desktop에서 `C:\Users\sion\Documents\pulda` 폴더를 그대로 저장소로 생성하고, Git ignore 템플릿은 None으로 두는 흐름을 기준으로 안내했다.
+- 저장소 공개 범위는 초기에는 Private로 시작하고, 배포/공개 범위가 정리된 뒤 Public 전환을 검토하는 방향으로 판단했다.
+- 앞으로 소스 기준 원본은 GitHub 저장소로 보고, Codex와 Replit은 GitHub 원본을 받아 작업을 이어가는 보조 실행 환경으로 운영한다.
+- 세션 중단이나 도구 전환이 생길 경우 MD 문서, 특히 AGENTS.md, agent.md, pm.md, qa.md, WORKLOG.md, DESIGN.md, handoff 문서를 먼저 확인해 같은 기준에서 이어간다.

@@ -7,9 +7,10 @@
 ## Current Summary
 
 - 현재 판단: GitHub를 기준 원본으로 둔다.
+- Codex와 Replit은 GitHub 원본을 받아 작업을 이어가는 실행 환경으로 둔다.
 - 열린 이슈: PM Task Queue와 QA 이슈 로그를 기준으로 관련 항목을 추적한다.
 - PM에게 보고할 사항: /admin은 noindex만으로 보호되지 않으며 호스팅 레벨 접근 제어가 필요하다.
-- 다음 검토 대상: PM이 요청한 작업 중 DevOps 관점의 리스크와 제안을 정리한다.
+- 다음 검토 대상: GitHub Desktop 첫 push 후 원격 저장소 상태, 제외 파일 누락 여부, Replit 연동 방식, 배포 플랫폼 연결 기준을 점검한다.
 
 ## Role
 
@@ -40,4 +41,7 @@ PL 문서는 최종 결정을 확정하지 않는다. 아래 형식으로 pm.md�
 ## Working Notes
 
 - GitHub를 기준 원본으로 둔다.
+- 루트 `.gitignore` 기준으로 `site/node_modules/`, `site/dist/`, `site/.astro/`, 환경변수 파일은 Git에 올리지 않는다.
+- Replit으로 이어갈 때는 GitHub 저장소를 import하고, 작업 전후 pull/push 흐름을 유지한다.
+- Codex 세션이 중단되면 AGENTS.md, agent.md, pm.md, qa.md, WORKLOG.md, DESIGN.md, handoff 문서를 기준으로 복구한다.
 - /admin은 noindex만으로 보호되지 않으며 호스팅 레벨 접근 제어가 필요하다.

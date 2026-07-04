@@ -409,7 +409,7 @@ PM은 새 채팅 전환을 작업 중단으로 보지 않는다. 새 채팅 전�
 
 | Task | 담당 | 판단 | 상태 |
 | --- | --- | --- | --- |
-| GitHub repository 기준 원본화 및 .gitignore 정리 | PL-04 DevOps + PL-06 Development | 배포/협업/롤백 기준을 만들려면 GitHub 기준 원본이 필요하다. site/dist, node_modules, 환경파일 제외 기준도 확정해야 한다. | Todo |
+| GitHub repository 기준 원본화 및 .gitignore 정리 | PL-04 DevOps + PL-06 Development | 배포/협업/롤백 기준을 만들려면 GitHub 기준 원본이 필요하다. site/dist, node_modules, 환경파일 제외 기준도 확정해야 한다. 루트 .gitignore는 생성했으며 GitHub Desktop 연결/첫 push는 사용자 진행 단계다. | In Progress |
 | /admin 접근 제어 구체안 문서화 | PL-04 DevOps | 기존 P0에 있으나 아직 Cloudflare/Vercel/Netlify 중 어떤 보호 정책을 쓸지 구체 문서가 없다. | Todo |
 | Sanity Studio 실제 스키마 초안 작성 | PL-03 Content + PL-06 Development | CMS 도입 계획은 있으나 실제 schema 파일/필드 정의/이전 방식이 아직 없다. | Todo |
 | PL-06 Development 회귀 검증 루틴 정착 | PL-06 Development + QA | 개발 담당은 신설됐지만, 실제 수정 전후 라이트/다크/라우트 영향 확인 절차가 아직 Task Queue에 고정되지 않았다. | Todo |
@@ -447,3 +447,12 @@ PM은 새 채팅 전환을 작업 중단으로 보지 않는다. 새 채팅 전�
 - 다음 시작 작업: P0-1 GitHub 기준 원본화 및 .gitignore 정리
 - 새 채팅 필수 참조: AGENTS.md, agent.md, pm.md, qa.md, WORKLOG.md, DESIGN.md, handoff 문서
 - 주의사항: 라이트/다크 테마 분리, PL-06 Development 활용, QA 브라우저 검증 병행
+
+
+## 2026-07-04 Source of Truth Policy
+
+- Pulda 프로젝트의 기준 원본은 GitHub 저장소로 둔다.
+- 로컬 Codex 작업 폴더와 Replit 작업 환경은 GitHub 원본을 받아 작업하고, 완료된 변경은 다시 GitHub에 반영하는 방식으로 운영한다.
+- 세션 중단, PC 전환, Codex/Replit 전환이 발생하면 MD 문서를 연결 장치로 사용한다. 최소 확인 문서는 AGENTS.md, agent.md, pm.md, qa.md, WORKLOG.md, DESIGN.md다.
+- Git에는 소스와 운영 문서를 남기고, `site/node_modules/`, `site/dist/`, `site/.astro/`, 환경변수 파일은 루트 `.gitignore` 기준으로 제외한다.
+- GitHub 첫 push 전에는 GitHub Desktop 변경 목록에서 제외 대상이 보이지 않는지 확인한다.

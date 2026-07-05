@@ -218,7 +218,7 @@ QA 테스트 중 발견된 이슈는 이 섹션에 즉시 기록한다. Blocker�
 | 발견일 | 심각도 | 영역 | 재현 경로 | 이슈 | 대응 상태 |
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-04 | Medium | QA 체계 | site/package.json | 별도 unit test 스크립트 부재는 site/scripts/qa-check.mjs와 npm run qa로 1차 완화했다. Sanity 도입 후 스키마/쿼리 테스트 보강 필요. | In Progress |
-| 2026-07-04 | High | 운영 보안 | /admin | /admin은 noindex만으로 보호되지 않는다. 실제 배포 전 호스팅 레벨 접근 제어 확정 필요. | Open |
+| 2026-07-04 | High | 운영 보안 | /admin | /admin은 noindex만으로 보호되지 않는다. 2026-07-05에 Cloudflare Access 우선, Vercel/Netlify 보호 기능 대안, 내부 도메인 분리 보류안을 문서화했다. 실제 배포 설정 적용 전까지 High로 유지한다. | In Progress |
 | 2026-07-04 | Medium | 콘텐츠 품질 | /project/a4u-platform/ | A4U 프로젝트는 대표 이미지 cover가 없고 본문도 짧아 포트폴리오 전시장 역할이 약하다. P1 프로젝트 상세 고도화에 포함한다. | Open |
 
 
@@ -229,7 +229,7 @@ QA 보고를 반영해 작업을 구조적 중요도와 배포 리스크 기준�
 | 순서 | 중요도 | 상태 | Task | 판단 기준 | 산출물 |
 | --- | --- | --- | --- | --- | --- |
 | 1 | P0 | Done | 반복 가능한 QA 자동검증 체계 추가 | 매번 수동 확인에 의존하면 배포 안정성이 떨어진다. | site/scripts/qa-check.mjs, package qa scripts |
-| 2 | P0 | Todo | /admin 접근 제어 배포 정책 확정 | noindex와 robots는 접근 제어가 아니므로 배포 전 반드시 결정해야 한다. | 배포 플랫폼별 보호 설정 문서 또는 내부 도메인 정책 |
+| 2 | P0 | In Progress | /admin 접근 제어 배포 정책 확정 | noindex와 robots는 접근 제어가 아니므로 배포 전 반드시 결정해야 한다. 2026-07-05 기준 Cloudflare Access를 1순위로 문서화했으며, 실제 플랫폼 설정 적용은 배포 결정 후 진행한다. | docs/02-development/cms-plan.md |
 | 3 | P0 | Todo | Sanity Studio 실제 운영 구조 확정 | 콘텐츠 CRUD 주체가 확정되어야 운영 혼선을 막을 수 있다. | Sanity schema, Studio 경로, 발행/재빌드 흐름 |
 | 4 | P0 | Todo | 주요 고객여정 회귀 테스트 자동화 | 방문자가 홈-프로젝트-스토리-문의로 이동하는 흐름이 깨지면 마케팅 채널 역할을 잃는다. | 브라우저 여정 테스트 시나리오 및 로그 |
 | 5 | P1 | Todo | 프로젝트 상세 포트폴리오 전시력 강화 | 수주 전환을 위해 텍스트보다 시각적 신뢰가 먼저 필요하다. | Pulda/Eunjo/A4U 프로젝트 이미지 구성 개선 |
@@ -409,8 +409,8 @@ PM은 새 채팅 전환을 작업 중단으로 보지 않는다. 새 채팅 전�
 
 | Task | 담당 | 판단 | 상태 |
 | --- | --- | --- | --- |
-| GitHub repository 기준 원본화 및 .gitignore 정리 | PL-04 DevOps + PL-06 Development | 배포/협업/롤백 기준을 만들려면 GitHub 기준 원본이 필요하다. site/dist, node_modules, 환경파일 제외 기준도 확정해야 한다. 루트 .gitignore는 생성했으며 GitHub Desktop 연결/첫 push는 사용자 진행 단계다. | In Progress |
-| /admin 접근 제어 구체안 문서화 | PL-04 DevOps | 기존 P0에 있으나 아직 Cloudflare/Vercel/Netlify 중 어떤 보호 정책을 쓸지 구체 문서가 없다. | Todo |
+| GitHub repository 기준 원본화 및 .gitignore 정리 | PL-04 DevOps + PL-06 Development | 2026-07-05 확인 결과 main과 origin/main이 일치하고, site/dist, node_modules, 환경파일 제외 기준도 `.gitignore`에 반영되어 있다. | Done |
+| /admin 접근 제어 구체안 문서화 | PL-04 DevOps | Cloudflare Access 1순위, Vercel/Netlify 보호 기능 대안, 내부 도메인 분리 보류안을 `docs/02-development/cms-plan.md`에 반영했다. 실제 배포 플랫폼 설정 적용은 남아 있다. | In Progress |
 | Sanity Studio 실제 스키마 초안 작성 | PL-03 Content + PL-06 Development | CMS 도입 계획은 있으나 실제 schema 파일/필드 정의/이전 방식이 아직 없다. | Todo |
 | PL-06 Development 회귀 검증 루틴 정착 | PL-06 Development + QA | 개발 담당은 신설됐지만, 실제 수정 전후 라이트/다크/라우트 영향 확인 절차가 아직 Task Queue에 고정되지 않았다. | Todo |
 | 새 채팅 인계 요약 생성 기준 실전 적용 | PM | 세션 전환 기준은 생겼으나 현재 대화가 길어지고 있어 다음 큰 작업 전 handoff summary를 준비해야 한다. | Todo |

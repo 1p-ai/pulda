@@ -1,5 +1,13 @@
 # Pulda 작업이력
 
+## 2026-07-05
+
+- GitHub 기준 원본 상태를 확인했다. 현재 브랜치는 `main`, 원격은 `https://github.com/11p-prog/pulda.git`, `main`과 `origin/main`은 `66c4f09` 기준으로 일치한다. `.gitignore`에서 `site/node_modules/`, `site/dist/`, `site/.astro/`, 환경변수 파일 제외도 확인했다.
+- `site/`에서 `npm run build`와 `npm run qa:check`를 실행해 통과를 확인했다. QA 자동검증 경고는 기존과 동일하게 A4U 프로젝트 본문/cover 보강, clarity-before-decoration 스토리 본문 보강이다.
+- 빌드 산출물 기준 로컬 라우트 스모크 테스트를 수행했다. `/`, `/about/`, `/project/`, 주요 프로젝트 상세 3개, `/story/`, 주요 스토리 상세 2개, `/contact/`, `/admin/`, `/sitemap.xml`, `/rss.xml`, `/robots.txt`가 모두 200으로 응답했다.
+- `/admin` 접근 제어 구체안을 `docs/02-development/cms-plan.md`에 반영했다. Cloudflare Access를 1순위로 두고, Vercel/Netlify 보호 기능과 내부 도메인 분리를 대안으로 정리했으며, 클라이언트 비밀번호는 보안 대책으로 쓰지 않는 기준을 재확인했다.
+- 완료보고서 초안에 2026-07-05 중간 검증 결과와 완료 전환 기준을 보강했다. 완료 선언은 아직 하지 않으며, 공개 배포 전 `/admin` 호스팅 레벨 접근 제어, 최종 배포 URL 검수, 통계/개인정보 고지 확정이 남아 있다.
+
 ## 2026-07-04
 
 - /admin의 역할을 실제 CMS가 아닌 운영 포털로 재정의했다. 콘텐츠 CRUD는 Sanity Studio에서 처리하고, 접속통계는 Google Analytics, Search Console, 네이버 애널리틱스에서 확인하며, 배포된 /admin은 noindex만으로는 부족하므로 호스팅 레벨 접근 제어가 필요하다는 정책을 화면과 문서에 반영했다.

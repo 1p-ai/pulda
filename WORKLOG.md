@@ -1,6 +1,14 @@
 # Pulda 작업이력
 
-## 2026-07-06
+## 2026-07-06 (구조 일관성 작업)
+
+- `site/src/components/SiteHeader.astro` 신규 생성 — 모든 페이지 공통 nav 컴포넌트. 양/음 테마 스위치, 함께풀기(→/contact/) CTA, 팬 메뉴 JS, 테마 영속화(localStorage: `pulda-theme`), 전역 CSS(vars, body, nav, dark mode, 모바일 반응형) 포함.
+- `site/src/components/SiteFooter.astro` 신규 생성 — 모든 페이지 공통 4열 footer 컴포넌트. 로고·바로가기·문의·위치 컬럼 + copyright 행, dark mode CSS 포함.
+- `site/src/layouts/ContentLayout.astro` 재작성 — SiteHeader/SiteFooter 임포트·사용. 기존 nav/footer/body CSS 및 대형 메뉴/테마 JS 블록 제거, 콘텐츠 전용 CSS(page-head, section-grid, content-list, story, project 등)만 유지.
+- `site/src/pages/index.astro` 업데이트 — SiteHeader/SiteFooter 임포트 추가, 인라인 `<header>` 블록을 `<SiteHeader />`로 교체, 인라인 `<footer>` 블록을 `<SiteFooter />`로 교체, script 블록에서 팬오디오·메뉴·테마 JS 제거(SiteHeader로 이전), IntersectionObserver·canvas 코드 유지.
+- 결과: /, /about/, /project/, /story/, /contact/ 전 페이지에서 동일한 양/음 스위치, 함께풀기 CTA, 4열 footer 확인. 브라우저 콘솔 오류 없음.
+
+## 2026-07-06 (이전 작업)
 
 - GitHub Desktop pull/push 이후 `main...origin/main` 상태를 확인해 로컬과 원격 동기화가 맞아졌음을 확인했다.
 - Replit 작업분으로 보이는 최근 Git 이력을 확인했다. 2026-07-05 커밋에 텍스트 줌, 라인 드로잉, 히어로 이탈 후 애니메이션 트리거, 지연/속도 조정이 기록되어 있고, 2026-07-06에는 원격 main 병합 커밋이 있다.

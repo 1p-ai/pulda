@@ -11,7 +11,6 @@ featured: true
 outcome: "공간 사진을 전면에 내세운 포트폴리오 구조로 은조의 작업 스타일과 문의 흐름을 연결했습니다."
 seoTitle: "인테리어 은조 아임웹 홈페이지 제작 사례"
 seoDescription: "풀다가 아임웹으로 구축한 은조 아뜰리에 공식 홈페이지와 이미지 중심 포트폴리오 구조를 소개합니다."
-canonicalUrl: "https://www.eunjo.net/"
 ---
 <section class="case-visual-lead image-first">
   <figure class="hero-shot">

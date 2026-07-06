@@ -288,4 +288,33 @@
 - `site/`에서 `npm run build`를 실행해 정상 종료와 `Complete!`를 확인했다. 생성 라우트는 `/`, `/about/`, `/contact/`, `/project/`, 프로젝트 상세 3개, `/story/`, 스토리 상세 2개, `/robots.txt`, `/rss.xml`, `/sitemap.xml`이다.
 - `site/`에서 `npm run qa:check`를 실행했고 통과했다. 기존 A4U 프로젝트의 cover 이미지 부재는 포트폴리오 품질 보강 경고로 남았다.
 - A4U cover 이미지 반영 후 `npm run build`와 `npm run qa:check`를 다시 실행했고 통과했다. A4U cover 이미지 부재 경고는 해소되었다.
+
+### Replit 후속 커밋 검토 및 SEO 보정
+
+- Replit이 `main`에 커밋/푸시한 변경을 로컬에서 확인했다. 로컬 `main`은 `origin/main`과 동일했고 작업트리는 깨끗한 상태였다.
+- 최근 Replit 커밋은 모바일 메뉴 dim overlay/바깥 클릭 닫기, 상세 페이지 레이아웃 보정, A4U 프로젝트 실서비스 화면과 설명 보강, 자체제작 클라이언트 표기 개선을 포함한다.
+- `site/`에서 `npm run build`와 `npm run qa:check`를 실행했고 모두 통과했다.
+- A4U 상세 페이지를 브라우저에서 확인했다. 제목, 대표 이미지 `/case/a4u-platform/a4u-main.png`, 실제 서비스 링크 `https://a4u.kr`가 정상 렌더링됐다.
+- 모바일 390px 폭에서 메뉴를 열면 dim overlay가 표시되고, 바깥 영역 클릭 시 `menu-open`과 `aria-expanded`가 정상적으로 닫히는 것을 확인했다.
+- SEO 관점에서 A4U와 은조 프로젝트 Markdown의 외부 `canonicalUrl`을 제거했다. 외부 서비스 URL을 canonical로 두면 Pulda 케이스 상세 페이지가 검색 원본으로 인정받기 어려우므로, canonical은 내부 상세 경로를 유지하고 실제 서비스 링크는 본문 링크로 분리했다.
+
+### 풀다 리뉴얼 케이스 스터디 전시 보강
+
+- `site/src/content/projects/pulda-official-website-renewal.md`를 보강해 라이트/다크 모드 차이, 이전 아임웹 홈페이지의 구조적 아쉬움, 디자인 포인트, 애니메이션 효과가 더 잘 드러나도록 재정리했다.
+- 현재 로컬 사이트에서 라이트 모드와 다크 모드 홈 화면을 새로 캡처해 `site/public/case/pulda-renewal/home-light-current.png`, `site/public/case/pulda-renewal/home-dark-current.png`로 저장했다.
+- 리뉴얼 상세의 대표 이미지와 비교 섹션을 새 캡처 기준으로 교체했다.
+- 진관사 태극기에서 차용한 한지색, 오래된 홍색, 깊은 태극 청색의 컬러 방향과 부채 메뉴, 노리개 스크롤 사인, 붉은 명주실 셰이더, 다크 모드 네온 시스템을 별도 디자인 포인트로 설명했다.
+- 부채 메뉴 닫힘/열림 이미지와 노리개 스크롤 사인 자산을 케이스 스터디 본문에 전시해 독특한 컴포넌트가 보이도록 했다.
+- `npm run build`는 도구 시간 제한에 걸렸지만 출력상 `Complete!`까지 도달했고 11개 페이지가 생성됐다. 이후 `npm run qa:check`는 통과했다.
+- 브라우저에서 `/project/pulda-official-website-renewal/` 상세가 새 라이트/다크 캡처, 부채, 노리개 이미지를 정상 렌더링하는 것을 확인했다.
+- 이전 아임웹 홈페이지의 정확한 스크린샷 원본은 저장소에서 확인되지 않았다. 임의 이미지를 넣지 않고 구조적 아쉬움을 텍스트/Before 패널로 표현했으며, 실제 아임웹 캡처가 확보되면 Before 이미지 슬롯을 추가하는 후속 작업으로 남긴다.
+
+### 풀다 리뉴얼 히어로 셰이더 모션 캡슐 추가
+
+- 사용자가 제안한 방향에 따라 단순 스크린샷만으로는 라이트/다크 히어로 셰이더 의도를 충분히 설명하기 어렵다고 판단했다.
+- GIF나 영상 파일을 새로 만들기보다, `home-light-current.png`, `home-dark-current.png` 위에 CSS 애니메이션 오버레이를 얹은 축소 메인 화면 형태의 `hero-motion-grid`를 리뉴얼 케이스에 추가했다.
+- 라이트 모션은 한지 위에서 매듭의 실마리를 잡아 명주실을 천천히 뽑아내는 느낌으로, 다크 모션은 어둠 속에서 강한 빛의 실마리를 찾아 시스템 방향을 밝히는 느낌으로 표현했다.
+- 공통 상세 레이아웃 `site/src/layouts/ContentLayout.astro`에 모션 캡슐 스타일과 `prefers-reduced-motion` 호환 가능한 CSS 애니메이션을 추가했다. 무거운 GIF/영상 자산 없이도 케이스 상세에서 움직임을 전달할 수 있게 했다.
+- `npm run build`와 `npm run qa:check`를 통과했다.
+- 브라우저에서 `/project/pulda-official-website-renewal/`에 `hero-motion-grid`와 라이트/다크 모션 카드 2개가 렌더링되는 것을 확인했다.
 - 브라우저 기반 모바일/다크 시각 QA는 로컬 브라우저/서버 세션 시간 초과로 완료하지 못했다. 대신 `site/dist/`의 주요 HTML, sitemap, RSS, robots 산출물 존재를 확인했다. 다음 세션 또는 실제 미리보기 환경에서 라이트/다크, 모바일 메뉴, 메인-소개-프로젝트-스토리-문의 고객여정 시각 확인이 필요하다.

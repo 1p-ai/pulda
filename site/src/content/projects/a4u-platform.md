@@ -12,7 +12,6 @@ featured: true
 outcome: "기획부터 배포까지 AI 협업 파이프라인으로 실서비스를 완성. a4u.kr에서 이력서 등록·관리·제출 흐름을 운영 중입니다."
 seoTitle: "a4u.kr AI 커리어 매니지먼트 플랫폼 구축 사례 · Pulda"
 seoDescription: "Pulda가 Replit으로 구축한 a4u.kr AI 커리어 매니지먼트 플랫폼. 이력서 등록부터 제출 관리까지, Genspark·Gemini·Stitch·Replit AI 파이프라인 전 과정을 소개합니다."
-canonicalUrl: "https://a4u.kr"
 ---
 <section class="case-visual-lead image-first">
   <figure class="hero-shot">
@@ -71,4 +70,4 @@ a4u.kr의 이름은 유니어플라이 재직 시절의 apply4u에서 왔습니�
 
 ## 현재 상태
 
-a4u.kr은 현재 실서비스로 운영 중입니다. 완성형 제품이라기보다, Pulda가 AI 시대의 웹 서비스를 어떻게 기획하고 실행하는지 보여주는 실증 사례입니다. 앞으로 실제 사용자 피드백을 반영해 이력서 코칭 기능과 매칭 흐름을 확장할 예정입니다.
+[a4u.kr](https://a4u.kr)은 현재 실서비스로 운영 중입니다. 완성형 제품이라기보다, Pulda가 AI 시대의 웹 서비스를 어떻게 기획하고 실행하는지 보여주는 실증 사례입니다. 앞으로 실제 사용자 피드백을 반영해 이력서 코칭 기능과 매칭 흐름을 확장할 예정입니다.

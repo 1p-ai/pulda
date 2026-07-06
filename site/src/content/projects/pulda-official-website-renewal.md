@@ -4,8 +4,8 @@ description: "아임웹 기반 기존 사이트의 철학과 메시지를 Astro 
 client: "Pulda Union"
 year: 2026
 publishedAt: 2026-07-03
-updatedAt: 2026-07-03
-cover: "/case/pulda-renewal/home-light.png"
+updatedAt: 2026-07-06
+cover: "/case/pulda-renewal/home-light-current.png"
 services: ["Brand Strategy", "Information Architecture", "UI/UX Design", "Astro Development", "Content System"]
 tags: ["브랜드 리뉴얼", "공식 웹사이트", "Astro", "콘텐츠 운영"]
 featured: true
@@ -15,13 +15,13 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 ---
 <section class="case-visual-lead">
   <figure class="hero-shot">
-    <img src="/case/pulda-renewal/home-light.png" alt="풀다 공식 웹사이트 리뉴얼 라이트 모드 홈 화면" loading="eager" />
-    <figcaption>Light mode home · Hanji, old taegeuk red, editorial calm</figcaption>
+    <img src="/case/pulda-renewal/home-light-current.png" alt="풀다 공식 웹사이트 리뉴얼 라이트 모드 홈 화면" loading="eager" />
+    <figcaption>Current light mode home · Hanji, old taegeuk red, silk-flow hero</figcaption>
   </figure>
   <div class="case-summary-grid" aria-label="프로젝트 핵심 요약">
     <div><span>Role</span><strong>Strategy · Design · Build</strong></div>
     <div><span>Stack</span><strong>Astro · Markdown · Static SEO</strong></div>
-    <div><span>System</span><strong>Project · Story · Admin Draft</strong></div>
+    <div><span>System</span><strong>Project · Story · Contact · Theme System</strong></div>
   </div>
 </section>
 
@@ -34,56 +34,72 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 <section class="case-before-after" aria-label="리뉴얼 전후 방향">
   <div class="before-panel">
     <p class="case-label">Before · Imweb</p>
-    <h2>메시지는 있었지만, 축적 구조는 약했습니다.</h2>
+    <h2>메시지는 있었지만, 수주 판단을 돕는 증거 구조는 약했습니다.</h2>
     <ul>
       <li>Home / Project / Story / Contact / Notice 중심의 단순 구조</li>
       <li>“매듭을 풀어내는 사람들”이라는 좋은 메시지</li>
-      <li>작업 과정과 결과를 전시하기 어려운 포트폴리오 구조</li>
-      <li>콘텐츠 운영과 SEO 확장 기준의 부재</li>
+      <li>대표 프로젝트와 작업 과정을 깊게 전시하기 어려운 구조</li>
+      <li>스토리, 공지, 작업 노트가 축적되는 콘텐츠 허브의 부재</li>
+      <li>정적 라우트, SEO 메타, 구조화 데이터, RSS까지 이어지는 운영 기준의 부족</li>
     </ul>
   </div>
   <div class="after-panel">
     <p class="case-label">After · Astro</p>
-    <h2>브랜드, 작업, 기록이 쌓이는 전시형 사이트로 재구성했습니다.</h2>
+    <h2>브랜드, 작업, 기록, 문의가 이어지는 전시형 사이트로 재구성했습니다.</h2>
     <ul>
       <li>소개 / 프로젝트 / 스토리 / 문의를 실제 페이지로 분리</li>
       <li>라이트와 다크가 전혀 다른 브랜드 표정을 갖도록 설계</li>
       <li>프로젝트 상세를 케이스 스터디와 갤러리 중심으로 전환</li>
-      <li>Sanity 도입을 고려한 콘텐츠 모델과 어드민 초안 준비</li>
+      <li>Markdown 콘텐츠 컬렉션, sitemap, RSS, robots, 향후 Sanity 전환 기준 준비</li>
     </ul>
   </div>
 </section>
 
-## 전시 화면
+## 정확한 화면 기록
+
+아래 이미지는 현재 Astro 사이트에서 다시 캡처한 실제 화면이다. 라이트 모드는 기존 Pulda가 가진 사람 중심의 철학과 전통 상징을 이어받고, 다크 모드는 같은 콘텐츠를 기술, 시스템, AI 실행의 언어로 다시 번역한다.
+
+<section class="device-showcase" aria-label="풀다 리뉴얼 라이트와 다크 실제 화면 비교">
+  <div class="device-copy">
+    <p class="case-label">Live Capture</p>
+    <h2>같은 사이트지만, 낮과 밤의 역할이 다릅니다.</h2>
+    <p>라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 붓글씨 로고, 노리개 스크롤 사인으로 Pulda의 태도와 관계의 온도를 보여준다. 다크 모드는 영문 워드마크, 네온 레드, 시스템 그리드, 마우스형 스크롤 사인으로 기술 실행력을 보여준다.</p>
+  </div>
+  <div class="screen-pair">
+    <figure><img src="/case/pulda-renewal/home-light-current.png" alt="풀다 리뉴얼 현재 라이트 모드 홈 화면" loading="lazy" /><figcaption>Light · Hanji, brush title, norigae signal</figcaption></figure>
+    <figure><img src="/case/pulda-renewal/home-dark-current.png" alt="풀다 리뉴얼 현재 다크 모드 홈 화면" loading="lazy" /><figcaption>Dark · PULDA wordmark, neon shader, system grid</figcaption></figure>
+  </div>
+</section>
+
+<section class="hero-motion-grid" aria-label="풀다 히어로 셰이더 모션 축소 전시">
+  <figure class="hero-motion-card light">
+    <img src="/case/pulda-renewal/home-light-current.png" alt="라이트 모드 히어로 위로 명주실 흐름이 겹쳐진 축소 화면" loading="lazy" />
+    <figcaption class="hero-motion-caption"><strong>Light shader</strong><span>한지 위에서 매듭의 실마리를 잡아 명주실을 천천히 뽑아내는 느낌.</span></figcaption>
+  </figure>
+  <figure class="hero-motion-card dark">
+    <img src="/case/pulda-renewal/home-dark-current.png" alt="다크 모드 히어로 위로 네온 실마리 빛이 겹쳐진 축소 화면" loading="lazy" />
+    <figcaption class="hero-motion-caption"><strong>Dark shader</strong><span>어둠 속에서 강한 빛의 실마리를 찾아내고, 시스템 방향을 밝히는 느낌.</span></figcaption>
+  </figure>
+</section>
+
+## 전시 화면과 상세 구조
 
 은조 아뜰리에 사이트를 다시 확인하며 방향을 더 분명히 했다. 좋은 프로젝트 페이지는 긴 설명보다 먼저 작업 장면을 보여준다. 인테리어 포트폴리오가 공간 사진을 중심으로 설득하듯, 디지털 프로젝트도 화면, 구조, 운영 시스템, 산출물을 전시해야 한다.
 
 
 <section class="case-gallery" aria-label="풀다 공식 웹사이트 리뉴얼 화면 갤러리">
   <figure class="gallery-item large">
-    <img src="/case/pulda-renewal/home-light.png" alt="풀다 리뉴얼 홈 라이트 모드" loading="lazy" />
-    <figcaption><strong>Light Home</strong><span>한지, 오래된 홍색, 붓글씨 타이포로 사람 중심의 브랜드 태도를 표현했습니다.</span></figcaption>
+    <img src="/case/pulda-renewal/home-light-current.png" alt="풀다 리뉴얼 홈 라이트 모드" loading="lazy" />
+    <figcaption><strong>Light Home</strong><span>한지, 오래된 홍색, 붓글씨 타이포, 붉은 명주실 흐름으로 사람 중심의 브랜드 태도를 표현했습니다.</span></figcaption>
+  </figure>
+  <figure class="gallery-item">
+    <img src="/case/pulda-renewal/home-dark-current.png" alt="풀다 리뉴얼 홈 다크 모드" loading="lazy" />
+    <figcaption><strong>Dark Home</strong><span>영문 워드마크, 네온 레드, 시스템 그리드로 AI/기술 실행의 밤 얼굴을 만들었습니다.</span></figcaption>
   </figure>
   <figure class="gallery-item">
     <img src="/case/pulda-renewal/project-detail.png" alt="풀다 공식 웹사이트 리뉴얼 프로젝트 상세 화면" loading="lazy" />
     <figcaption><strong>Case Detail</strong><span>프로젝트 상세는 설명문이 아니라 전시와 판단의 기록으로 확장했습니다.</span></figcaption>
   </figure>
-  <figure class="gallery-item">
-    <img src="/case/pulda-renewal/admin-draft.png" alt="풀다 콘텐츠 관리 어드민 초안 화면" loading="lazy" />
-    <figcaption><strong>Admin Draft</strong><span>콘텐츠 운영자가 프로젝트와 스토리를 관리할 수 있는 어드민 콘솔 초안입니다.</span></figcaption>
-  </figure>
-</section>
-
-<section class="device-showcase" aria-label="라이트와 다크 브랜드 모드 비교">
-  <div class="device-copy">
-    <p class="case-label">Dual Identity</p>
-    <h2>낮에는 사람의 언어로, 밤에는 시스템의 언어로.</h2>
-    <p>라이트 모드는 Pulda의 철학과 관계의 온도를 보여준다. 다크 모드는 같은 회사가 기술과 운영 구조를 다루는 밤의 얼굴이다. 두 모드는 색만 바뀌는 스킨이 아니라 서로 다른 태도와 사용 문법을 갖는다.</p>
-  </div>
-  <div class="screen-pair">
-    <figure><img src="/case/pulda-renewal/home-light.png" alt="라이트 모드 화면" loading="lazy" /><figcaption>Light · Philosophy</figcaption></figure>
-    <figure><img src="/case/pulda-renewal/home-dark.png" alt="풀다 리뉴얼 홈 다크 모드" loading="lazy" /><figcaption>Dark · Engineering</figcaption></figure>
-  </div>
 </section>
 
 ## 질문
@@ -121,6 +137,39 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 </section>
 
 다크 모드는 단순 반전이 아니라 다른 얼굴로 설계했다. 테크 네이비, 네온 레드, 영문 PULDA 워드마크, 시스템형 메뉴와 스크롤 사인을 사용해 밤의 풀다가 기술과 시스템을 다루는 회사처럼 보이도록 했다.
+
+<section class="case-map" aria-label="풀다 리뉴얼 디자인 포인트">
+  <div><span>Color Source</span><strong>진관사 태극기의 빛바랜 천</strong><p>순백색 대신 한지색을 바탕으로 쓰고, 오래된 홍색과 깊은 태극 청색을 CTA, 강조어, 버튼, 섹션 구조에 나누어 적용했습니다.</p></div>
+  <div><span>Light Symbol</span><strong>부채 메뉴와 노리개 스크롤 사인</strong><p>모바일 라이트 메뉴는 부채 이미지로 열리고 닫히며, 데스크톱 히어로 우측 하단에는 노리개가 아래 흐름을 안내합니다.</p></div>
+  <div><span>Motion</span><strong>매듭에서 풀리는 명주실 셰이더</strong><p>히어로의 붉은 흐름은 단순한 배경 번짐이 아니라, 엉킨 매듭에서 실이 풀리는 이미지를 WebGL 흐름으로 표현했습니다.</p></div>
+  <div><span>Dark System</span><strong>영문 워드마크와 네온 시스템</strong><p>다크 모드는 전통 자산을 줄이고, PULDA 워드마크, 네온 레드, 그리드, 마우스형 스크롤 사인으로 기술 회사의 밤 얼굴을 만듭니다.</p></div>
+</section>
+
+<section class="case-gallery" aria-label="풀다 브랜드 컴포넌트 자산">
+  <figure class="gallery-item">
+    <img src="/logo/fan-menu-closed.png" alt="풀다 라이트 모바일 메뉴 닫힌 부채 아이콘" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:42px;" />
+    <figcaption><strong>Closed Fan</strong><span>라이트 모바일 메뉴의 닫힌 상태. 전통 자산을 기능 아이콘으로 번역했습니다.</span></figcaption>
+  </figure>
+  <figure class="gallery-item">
+    <img src="/logo/fan-menu-open.png" alt="풀다 라이트 모바일 메뉴 열린 부채 아이콘" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:42px;" />
+    <figcaption><strong>Open Fan</strong><span>클릭 시 펼쳐지는 부채 이미지와 회전 애니메이션으로 메뉴 열림을 표현했습니다.</span></figcaption>
+  </figure>
+  <figure class="gallery-item large">
+    <img src="/logo/scroll-norigae.png" alt="풀다 노리개 스크롤 사인" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:64px;" />
+    <figcaption><strong>Norigae Scroll</strong><span>히어로 우측 하단에서 상하 움직임과 술 흔들림으로 다음 섹션을 암시합니다.</span></figcaption>
+  </figure>
+</section>
+
+## 애니메이션과 상호작용
+
+정적인 전통 장식처럼 보이지 않도록, 상징 요소는 모두 행동 신호와 연결했다. 부채는 모바일 메뉴의 열림과 닫힘을 설명하고, 노리개는 스크롤 신호가 되며, 붉은 실 흐름은 “풀다”라는 이름의 문제 해결 태도를 히어로 첫 장면에서 전달한다.
+
+<section class="case-map" aria-label="풀다 리뉴얼 애니메이션 효과">
+  <div><span>Hero Shader</span><strong>Light silk flow / Dark neon beam</strong><p>라이트에서는 한지 위 홍색 실이 부드럽게 흐르고, 다크에서는 네온 광원이 더 선명하게 뻗어나가도록 같은 WebGL 셰이더를 테마별로 분기했습니다.</p></div>
+  <div><span>Scroll Sign</span><strong>Norigae float / Tech mouse</strong><p>라이트에서는 노리개 몸체와 술이 따로 움직이고, 다크에서는 마우스 휠과 네온 화살표가 아래로 흐릅니다.</p></div>
+  <div><span>Mobile Menu</span><strong>Fan rotation / Dark hamburger</strong><p>라이트 모바일에서는 부채가 회전하며 펼쳐지고, 다크 모바일에서는 기술 제품에 가까운 햄버거/X 메뉴로 전환됩니다.</p></div>
+  <div><span>Feedback</span><strong>Reveal, hover, sound</strong><p>섹션 진입 reveal, 라이트 내비게이션 붓터치 hover, 테마별 메뉴 효과음으로 작은 피드백을 만들었습니다.</p></div>
+</section>
 
 ## 산출물
 

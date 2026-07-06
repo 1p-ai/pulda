@@ -272,8 +272,12 @@
 - 메인 프로젝트 노출은 전체 목록이 아니라 `풀다 공식 웹사이트 리뉴얼`, `은조 아뜰리에` 2개 대표 케이스로 줄이고, 스토리는 `왜 풀다인가`, `장식보다 먼저 명확함을 설계하는 일` 2개만 큐레이션했다.
 - `site/src/pages/about.astro` 소개 페이지를 회사소개서 흐름에 가깝게 보강했다. Pulda의 지향, 잘하는 일, 1인 중심 리딩과 전문가 네트워크, 영업/마케팅에서 웹기획/PM으로 이어진 신뢰 근거, AI/자동화 활용, 협업자에게 열린 메시지를 한 흐름으로 정리했다.
 - `site/src/content/projects/a4u-platform.md`는 상세 본문이 너무 짧아 보이지 않도록 질문, 해답, 플랫폼 구성, Pulda 역할, 결과 설명을 보강했다.
+- 사용자 제공 맥락을 바탕으로 A4U 프로젝트를 `apply4u`에서 이어진 AI 이력서 코칭/취업 관리 플랫폼 사례로 재정리했다. Genspark 초기기획, Gemini/NotebookLM 기반 MD 문서와 에이전트 구성, Stitch 2.0 시안, Replit 개발/배포 흐름을 케이스 스터디에 반영했다.
+- `C:\Users\sion\Desktop\a4u\어플라이포유.jpg`를 `site/public/case/a4u-platform/apply4u-origin.jpg`로 복사해 A4U 프로젝트 cover와 메인 대표 카드 근거 이미지로 사용했다.
+- 메인 대표 프로젝트 카드에서 은조 대신 A4U를 전면 노출하도록 조정했다. 은조는 프로젝트 목록과 상세에서 유지한다.
 - `site/src/content/stories/clarity-before-decoration.md`는 문의 전 정리 기준과 CTA를 추가해 스토리에서 문의 흐름으로 이어지게 했다.
 - `site/src/pages/contact.astro`에는 고객 문의와 별도로 협업자/파트너 제안을 열어두는 짧은 섹션을 추가했다.
 - `site/`에서 `npm run build`를 실행해 정상 종료와 `Complete!`를 확인했다. 생성 라우트는 `/`, `/about/`, `/contact/`, `/project/`, 프로젝트 상세 3개, `/story/`, 스토리 상세 2개, `/robots.txt`, `/rss.xml`, `/sitemap.xml`이다.
 - `site/`에서 `npm run qa:check`를 실행했고 통과했다. 기존 A4U 프로젝트의 cover 이미지 부재는 포트폴리오 품질 보강 경고로 남았다.
+- A4U cover 이미지 반영 후 `npm run build`와 `npm run qa:check`를 다시 실행했고 통과했다. A4U cover 이미지 부재 경고는 해소되었다.
 - 브라우저 기반 모바일/다크 시각 QA는 로컬 브라우저/서버 세션 시간 초과로 완료하지 못했다. 대신 `site/dist/`의 주요 HTML, sitemap, RSS, robots 산출물 존재를 확인했다. 다음 세션 또는 실제 미리보기 환경에서 라이트/다크, 모바일 메뉴, 메인-소개-프로젝트-스토리-문의 고객여정 시각 확인이 필요하다.

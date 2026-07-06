@@ -128,6 +128,31 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 오래된 홍색, 깊은 태극 청색에서 출발했다. 기존 사이트가 가진 사람과 관계의 정서를 이어가기 위해 붓글씨 로고, 한지 배경, 부채형 모바일 메뉴, 노리개 스크롤 사인을 사용했다.
 
+### 진관사 태극기 참조
+
+진관사 태극기는 원본 사진을 임의로 재가공해 쓰기보다, 저작권과 출처가 확인된 이미지 자산을 확보한 뒤 실제 이미지 슬롯에 반영하는 편이 안전하다. 이번 1차 정리에서는 사진을 대신해 색과 질감의 출처를 명확히 남기고, 공개 전 검토 단계에서 원본 이미지 또는 사용 허가된 전시 사진을 넣을 수 있도록 참조 영역을 마련했다.
+
+<section class="heritage-reference" aria-label="진관사 태극기 디자인 참조">
+  <div class="heritage-flag-card" aria-hidden="true">
+    <span class="heritage-stain stain-a"></span>
+    <span class="heritage-stain stain-b"></span>
+    <span class="heritage-taegeuk"></span>
+    <span class="heritage-trigram trigram-a"></span>
+    <span class="heritage-trigram trigram-b"></span>
+    <span class="heritage-trigram trigram-c"></span>
+    <span class="heritage-trigram trigram-d"></span>
+  </div>
+  <div>
+    <p class="case-label">Heritage Source</p>
+    <h3>빛바랜 천, 먹색, 오래된 홍색과 청색</h3>
+    <p>한지색 바탕, 탁한 홍색, 깊은 청색, 검은 먹선의 대비를 UI 토큰으로 옮겼습니다. 실제 진관사 태극기 사진은 사용권이 확인되는 파일을 확보한 뒤 이 위치에 교체하면 됩니다.</p>
+  </div>
+</section>
+
+### 컬러 조견표
+
+라이트 모드는 순백색을 피하고 한지와 빛바랜 천의 온도를 기준으로 삼았다. 다크 모드는 같은 브랜드를 기술 실행 맥락으로 전환하기 위해 깊은 남색과 네온 레드를 보조 레이어로 사용했다.
+
 <section class="design-tokens" aria-label="디자인 토큰">
   <div style="--swatch:#f4ead8"><span></span><strong>Hanji</strong><small>#f4ead8</small></div>
   <div style="--swatch:#13233a"><span></span><strong>Taegeuk Blue</strong><small>#13233a</small></div>
@@ -154,8 +179,8 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
     <img src="/logo/fan-menu-open.png" alt="풀다 라이트 모바일 메뉴 열린 부채 아이콘" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:42px;" />
     <figcaption><strong>Open Fan</strong><span>클릭 시 펼쳐지는 부채 이미지와 회전 애니메이션으로 메뉴 열림을 표현했습니다.</span></figcaption>
   </figure>
-  <figure class="gallery-item large">
-    <img src="/logo/scroll-norigae.png" alt="풀다 노리개 스크롤 사인" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:64px;" />
+  <figure class="gallery-item">
+    <img src="/logo/scroll-norigae.png" alt="풀다 노리개 스크롤 사인" loading="lazy" style="object-fit:contain;background:#f4ead8;padding:42px;max-height:260px;" />
     <figcaption><strong>Norigae Scroll</strong><span>히어로 우측 하단에서 상하 움직임과 술 흔들림으로 다음 섹션을 암시합니다.</span></figcaption>
   </figure>
 </section>

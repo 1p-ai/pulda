@@ -1,4 +1,10 @@
-import {defineField, defineType} from 'sanity'
+import {
+  ConditionalPropertyCallbackContext,
+  defineField,
+  defineType,
+  SlugValidationContext,
+  ValidationContext,
+} from 'sanity'
 
 export default defineType({
   name: 'project',
@@ -9,7 +15,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.required(),
         Rule.max(96).warning('제목은 96자 이내로 작성하는 것이 좋습니다.'),
       ],
@@ -22,7 +28,7 @@ export default defineType({
         source: 'title',
         maxLength: 96,
         // isUnique 함수를 사용해 다른 문서에 같은 슬러그가 있는지 확인합니다.
-        isUnique: async (slug, context) => {
+        isUnique: async (slug: string, context: SlugValidationContext) => {
           const {document, getClient} = context
           const client = getClient({apiVersion: '2026-07-07'})
           const id = document?._id.replace(/^drafts\./, '')
@@ -38,13 +44,13 @@ export default defineType({
           return await client.fetch(query, params)
         },
       },
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.required(),
         Rule.max(200).warning('요약 설명은 200자 이내로 작성해주세요.'),
       ],
@@ -53,27 +59,37 @@ export default defineType({
       name: 'client',
       title: 'Client',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'year',
       title: 'Year',
       type: 'number',
-      validation: Rule => [
+      validation: (Rule) => [
         Rule.required(),
-        Rule.min(2000).error('2000년 이후의 연도를 입력해주세요.'),
-        // 2026-07-08: Gemini가 논리 오류 및 중복 선언 오류 수정.
-        // Rule.max(new Date().getFullYear() + 1).error('미래 연도는 입력할 수 없습니다.'), // 기존 오류 코드
+        Rule.min(2000).error('2000년 이후의 연도를 입력해야 합니다.'),
         Rule.max(new Date().getFullYear()).error('미래 연도는 입력할 수 없습니다.'),
       ],
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'date',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'updatedAt',
       title: 'Updated at',
       type: 'date',
-      validation: Rule => Rule.min(Rule.valueOf('publishedAt')).error('수정일은 발행일보다 빠를 수 없습니다.'),
-      // 2026-07-08: Gemini가 중복 선언한 readOnly 속성 오류 수정.
-      hidden: ({document}) => !document?.publishedAt, // 발행일이 없으면 필드 숨김
+      validation: (Rule) =>
+        Rule.custom((updatedAt: string | undefined, context: ValidationContext) => {
+          const publishedAt = context.document?.publishedAt as string | undefined
+          if (publishedAt && updatedAt && new Date(updatedAt) < new Date(publishedAt)) {
+            return '수정일은 발행일보다 빠를 수 없습니다.'
+          }
+          return true
+        }),
+      hidden: ({document}: ConditionalPropertyCallbackContext) => !document?.publishedAt,
     }),
     defineField({
       name: 'cover',
@@ -82,7 +98,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: Rule => Rule.required().error('대표 이미지는 필수입니다.'),
+      validation: (Rule) => Rule.required().error('대표 이미지는 필수입니다.'),
     }),
     defineField({
       name: 'body',
@@ -97,7 +113,7 @@ export default defineType({
       options: {
         layout: 'tags',
       },
-      validation: Rule => Rule.min(1).error('최소 1개 이상의 서비스를 입력해주세요.'),
+      validation: (Rule) => Rule.min(1).error('최소 1개 이상의 서비스를 입력해주세요.'),
     }),
     defineField({
       name: 'tags',
@@ -129,13 +145,13 @@ export default defineType({
       name: 'seoTitle',
       title: 'SEO Title',
       type: 'string',
-      validation: Rule => Rule.max(60).warning('SEO 제목은 60자 이내를 권장합니다.'),
+      validation: (Rule) => Rule.max(60).warning('SEO 제목은 60자 이내를 권장합니다.'),
     }),
     defineField({
       name: 'seoDescription',
       title: 'SEO Description',
       type: 'text',
-      validation: Rule => Rule.max(160).warning('SEO 설명은 160자 이내를 권장합니다.'),
+      validation: (Rule) => Rule.max(160).warning('SEO 설명은 160자 이내를 권장합니다.'),
     }),
     defineField({
       name: 'canonicalUrl',
@@ -157,14 +173,23 @@ export default defineType({
       media: 'cover',
       draft: 'draft',
     },
-    // 2026-07-08: Gemini가 잘못된 preview 객체 구조(prepare 함수 위치) 오류 수정.
-    prepare({title, client, year, media, draft}) {
+    // 2026-07-08: Gemini가 prepare 함수 인자의 암시적 any 타입 오류 수정.
+    // 2026-07-09: Gemini가 story.ts와 일관성을 맞추고 타입 안정성을 강화.
+    prepare(selection: {
+      title?: string
+      client?: string
+      year?: number
+      media?: any
+      draft?: boolean
+    }) {
+      const {title, client, year, media, draft} = selection
       const subtitles = [
         draft ? '초안(Draft)' : '발행(Published)',
         client,
         year ? `${year}년` : '',
       ].filter(Boolean)
 
+      // Sanity PreviewValue 호환을 위해 media를 any로 처리합니다.
       return {title, subtitle: subtitles.join(' · '), media}
     },
   },

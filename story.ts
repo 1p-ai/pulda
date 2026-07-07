@@ -1,4 +1,11 @@
-import {defineField, defineType} from 'sanity'
+import {
+  ConditionalPropertyCallbackContext,
+  defineField,
+  defineType,
+  Rule,
+  SlugValidationContext,
+  ValidationContext,
+} from 'sanity'
 
 export default defineType({
   name: 'story',
@@ -9,7 +16,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => [
+      validation: (Rule: Rule) => [
         Rule.required(),
         Rule.max(96).warning('제목은 96자 이내로 작성하는 것이 좋습니다.'),
       ],
@@ -22,9 +29,9 @@ export default defineType({
         source: 'title',
         maxLength: 96,
         // isUnique 함수를 사용해 다른 문서에 같은 슬러그가 있는지 확인합니다.
-        isUnique: async (slug, context) => {
+        isUnique: async (slug: string, context: SlugValidationContext) => {
           const {document, getClient} = context
-          const client = getClient({apiVersion: '2026-07-07'})
+          const client = getClient({apiVersion: '2026-07-08'})
           const id = document?._id.replace(/^drafts\./, '')
           const params = {
             draft: `drafts.${id}`,
@@ -38,13 +45,13 @@ export default defineType({
           return await client.fetch(query, params)
         },
       },
-      validation: Rule => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: Rule => [
+      validation: (Rule: Rule) => [
         Rule.required(),
         Rule.max(200).warning('요약 설명은 200자 이내로 작성해주세요.'),
       ],
@@ -53,15 +60,21 @@ export default defineType({
       name: 'publishedAt',
       title: 'Published at',
       type: 'date',
-      validation: Rule => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     }),
     defineField({
       name: 'updatedAt',
       title: 'Updated at',
       type: 'date',
-      validation: Rule => Rule.min(Rule.valueOf('publishedAt')).error('수정일은 발행일보다 빠를 수 없습니다.'),
-      readOnly: ({value}) => !value,
-      hidden: ({document}) => !document?.publishedAt,
+      validation: (Rule: Rule) =>
+        Rule.custom((updatedAt: string | undefined, context: ValidationContext) => {
+          const publishedAt = context.document?.publishedAt as string | undefined
+          if (publishedAt && updatedAt && new Date(updatedAt) < new Date(publishedAt)) {
+            return '수정일은 발행일보다 빠를 수 없습니다.'
+          }
+          return true
+        }),
+      hidden: ({document}: ConditionalPropertyCallbackContext) => !document?.publishedAt,
     }),
     defineField({
       name: 'author',
@@ -76,7 +89,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: Rule => Rule.required().error('대표 이미지는 필수입니다.'),
+      validation: (Rule: Rule) => Rule.required().error('대표 이미지는 필수입니다.'),
     }),
     defineField({
       name: 'body',
@@ -113,7 +126,7 @@ export default defineType({
       of: [
         {type: 'reference', to: [{type: 'project'}]},
       ],
-      validation: Rule => Rule.max(3).warning('관련 프로젝트는 최대 3개까지 연결할 수 있습니다.'),
+      validation: (Rule: Rule) => Rule.max(3).warning('관련 프로젝트는 최대 3개까지 연결할 수 있습니다.'),
     }),
     defineField({
       name: 'featured',
@@ -131,13 +144,13 @@ export default defineType({
       name: 'seoTitle',
       title: 'SEO Title',
       type: 'string',
-      validation: Rule => Rule.max(60).warning('SEO 제목은 60자 이내를 권장합니다.'),
+      validation: (Rule: Rule) => Rule.max(60).warning('SEO 제목은 60자 이내를 권장합니다.'),
     }),
     defineField({
       name: 'seoDescription',
       title: 'SEO Description',
       type: 'text',
-      validation: Rule => Rule.max(160).warning('SEO 설명은 160자 이내를 권장합니다.'),
+      validation: (Rule: Rule) => Rule.max(160).warning('SEO 설명은 160자 이내를 권장합니다.'),
     }),
     defineField({
       name: 'noindex',
@@ -154,7 +167,14 @@ export default defineType({
       media: 'cover',
       draft: 'draft',
     },
-    prepare({title, category, publishedAt, media, draft}) {
+    prepare(selection: {
+      title?: string
+      category?: string
+      publishedAt?: string
+      media?: unknown
+      draft?: boolean
+    }) {
+      const {title, category, publishedAt, media, draft} = selection
       const subtitles = [
         draft ? '초안(Draft)' : '발행(Published)',
         category,

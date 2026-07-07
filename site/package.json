@@ -10,10 +10,19 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "qa": "npm run build && node scripts/qa-check.mjs",
-    "qa:check": "node scripts/qa-check.mjs"
+    "qa:check": "node scripts/qa-check.mjs",
+    "qa": "npm run build && npm run qa:check",
+    "test:e2e": "playwright test",
+    "postinstall": "playwright install --with-deps"
   },
   "dependencies": {
-    "astro": "^7.0.5"
+    "@astro-community/astro-portable-text": "^0.10.0",
+    "@portabletext/to-html": "^2.0.13",
+    "astro": "^4.12.2",
+    "astro-icon": "^1.1.0",
+    "sanity": "^3.55.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.3"
   }
 }

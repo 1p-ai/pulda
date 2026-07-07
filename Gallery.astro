@@ -1,0 +1,13 @@
+---
+import { urlFor } from '../lib/sanityClient';
+const { node } = Astro.props;
+---
+
+<div class="gallery-grid">
+  {node.images && node.images.map(image => (
+    <figure>
+      <img src={urlFor(image).width(800).url()} alt={image.alt || ''} />
+      {image.caption && <figcaption>{image.caption}</figcaption>}
+    </figure>
+  ))}
+</div>

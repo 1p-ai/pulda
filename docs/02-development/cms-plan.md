@@ -45,26 +45,26 @@
 - 실제 배포에서는 Cloudflare Access, Vercel Protection, Netlify Basic Auth 같은 호스팅 레벨 접근 제어를 적용하거나 별도 내부 도메인으로 분리한다.
 - 클라이언트 단의 단순 비밀번호 입력은 보안 대책으로 보지 않는다.
 
-### 5.1 배포 전 접근 제어 선택 기준
+### 5.1 /admin 접근 제어 정책
 
-2026-07-05 기준 우선안은 Cloudflare Access 또는 배포 플랫폼의 보호 기능을 `/admin/*` 경로에 적용하는 것이다. Pulda 사이트가 Cloudflare Pages로 배포되면 Cloudflare Access를 1순위로 두고, Vercel 또는 Netlify로 배포하면 각 플랫폼의 보호 기능을 같은 수준의 호스팅 레벨 접근 제어로 본다.
+`/admin` 운영 포털의 접근 제어는 배포되는 호스팅 플랫폼에 내장된 보호 기능을 사용하는 것을 원칙으로 한다. 이는 외부 서비스 의존 없이 안정적인 보안을 확보하기 위함이다.
 
 | 방식 | 적용 조건 | 판단 |
 | --- | --- | --- |
 | Cloudflare Access | Cloudflare Pages 또는 Cloudflare 프록시를 사용할 때 | 1순위. 이메일/OTP 또는 허용 계정 기준으로 `/admin/*`를 보호한다. |
 | Vercel Protection | Vercel 배포를 선택할 때 | 대안. 프로젝트/환경 보호 기능으로 운영 포털 접근을 제한한다. |
 | Netlify Basic Auth 또는 Access Control | Netlify 배포를 선택할 때 | 대안. 정적 `_headers` 또는 플랫폼 기능으로 보호한다. |
-| 내부 도메인 분리 | 공개 도메인에서 `/admin`을 노출하지 않을 때 | 보안은 단순하지만 운영 링크 공유와 관리가 별도로 필요하다. |
+| 내부 도메인 분리 | 공개 도메인에서 `/admin`을 노출하지 않을 때 | 후순위. 보안은 단순하지만 운영 링크 공유와 관리가 별도로 필요하다. |
 | 클라이언트 비밀번호 | 정적 HTML/JS에서 비밀번호를 비교하는 방식 | 사용하지 않는다. 소스와 빌드 결과에 우회 단서가 남으므로 보안으로 보지 않는다. |
 
-배포 완료 조건은 `noindex + robots disallow + 호스팅 레벨 접근 제어`가 함께 확인되는 것이다. 외부 계정 설정이 아직 확정되지 않은 동안 `/admin`은 로컬/스테이징 검증 대상이며, 공개 배포 전 High 리스크로 남긴다.
+**최종 배포의 완료 조건은 `noindex + robots disallow + 호스팅 레벨 접근 제어` 세 가지가 모두 적용되었을 때 충족된다.** 실제 플랫폼 설정 적용은 외부 계정 승인이 필요한 작업이므로, 그전까지 이 정책은 문서상으로 확정하고 실제 적용은 배포 직전에 수행한다.
 
 ## 6. 단계별 도입
 
 | 단계 | 작업 | 우선순위 |
 | --- | --- | --- |
-| 1 | 현재 Markdown 스키마를 기준으로 Sanity schema 초안 작성 | P0 |
-| 2 | project, story 문서 타입 구현 | P0 |
+| 1 | 현재 Markdown frontmatter를 기준으로 Sanity schema 초안 작성 (`project`, `story`, `siteSettings`) | P0 (완료) |
+| 2 | 생성된 스키마를 기반으로 Sanity Studio 로컬 실행 및 필드 검증 | P0 |
 | 3 | Pulda 공식 웹사이트 리뉴얼, 은조 아임웹 홈페이지, 첫 스토리 샘플 이전 | P0 |
 | 4 | Astro 데이터 로더를 Sanity fetch 방식으로 전환할지, Markdown 병행으로 둘지 결정 | P0 |
 | 5 | 발행 Webhook과 배포 훅 연결 | P0 |

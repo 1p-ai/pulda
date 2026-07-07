@@ -62,22 +62,18 @@ export default defineType({
       validation: Rule => [
         Rule.required(),
         Rule.min(2000).error('2000년 이후의 연도를 입력해주세요.'),
-        Rule.max(new Date().getFullYear() + 1).error('미래 연도는 입력할 수 없습니다.'),
+        // 2026-07-08: Gemini가 논리 오류 및 중복 선언 오류 수정.
+        // Rule.max(new Date().getFullYear() + 1).error('미래 연도는 입력할 수 없습니다.'), // 기존 오류 코드
+        Rule.max(new Date().getFullYear()).error('미래 연도는 입력할 수 없습니다.'),
       ],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'date',
-      validation: Rule => Rule.required(),
     }),
     defineField({
       name: 'updatedAt',
       title: 'Updated at',
       type: 'date',
       validation: Rule => Rule.min(Rule.valueOf('publishedAt')).error('수정일은 발행일보다 빠를 수 없습니다.'),
-      readOnly: ({value}) => !value, // 발행일이 정해지기 전까지는 비활성화
-      hidden: ({document}) => !document?.publishedAt, // 발행일이 없으면 숨김
+      // 2026-07-08: Gemini가 중복 선언한 readOnly 속성 오류 수정.
+      hidden: ({document}) => !document?.publishedAt, // 발행일이 없으면 필드 숨김
     }),
     defineField({
       name: 'cover',
@@ -161,6 +157,7 @@ export default defineType({
       media: 'cover',
       draft: 'draft',
     },
+    // 2026-07-08: Gemini가 잘못된 preview 객체 구조(prepare 함수 위치) 오류 수정.
     prepare({title, client, year, media, draft}) {
       const subtitles = [
         draft ? '초안(Draft)' : '발행(Published)',

@@ -90,7 +90,7 @@ const checkMarkdownCollection = (collection, requiredFields) => {
     for (const field of requiredFields) {
       assert(Boolean(fields[field]), rel + ' missing required frontmatter: ' + field);
     }
-    warn(source.length > 900, rel + ' is very short for portfolio/blog quality review.');
+    warn(source.length < 900, rel + ' is very short for portfolio/blog quality review.');
   }
 };
 
@@ -99,7 +99,7 @@ checkMarkdownCollection('projects', ['title', 'description', 'client', 'year', '
 for (const file of fs.existsSync(path.join(contentRoot, 'projects')) ? fs.readdirSync(path.join(contentRoot, 'projects')).filter((name) => name.endsWith('.md')) : []) {
   const source = fs.readFileSync(path.join(contentRoot, 'projects', file), 'utf8');
   const fields = parseFrontmatter(source);
-  warn(Boolean(fields.cover), path.join('src', 'content', 'projects', file) + ' has no cover image. Portfolio quality review needed.');
+  warn(!Boolean(fields.cover), path.join('src', 'content', 'projects', file) + ' has no cover image. Portfolio quality review needed.');
 }
 checkMarkdownCollection('stories', ['title', 'description', 'publishedAt', 'author', 'category', 'tags']);
 

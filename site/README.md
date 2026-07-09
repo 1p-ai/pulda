@@ -12,7 +12,7 @@
 
 ## 운영 원칙
 
-라이트/다크 메인 페이지는 분리하지 않고 `src/pages/index.astro`에서 함께 관리합니다. 루트의 독립 `code.html` 파일들은 참고 시안입니다. 변경 이력과 결정 사항은 루트 `WORKLOG.md`에 남깁니다.
+라이트/다크 메인 페이지는 분리하지 않고 `src/pages/index.astro`에서 함께 관리합니다. 루트의 독립 `code.html` 파일들은 참고 시안입니다. 변경 후 `npm run build`와 `npm run qa:check`를 실행해 검증합니다. 변경 이력과 결정 사항은 루트 `WORKLOG.md`에 남깁니다.
 
 ## 명령
 

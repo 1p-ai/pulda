@@ -36,4 +36,6 @@
 1. 메인 페이지 변경은 `site/src/pages/index.astro`에서 한다.
 2. 콘텐츠 변경은 `site/src/content/` 아래 Markdown에서 한다.
 3. 디자인/운영 결정은 `WORKLOG.md`에 날짜별로 남긴다.
-4. 변경 후 `site/`에서 `npm run build`로 `site/dist/`를 갱신한다.
+4. 변경 후 `site/`에서 `npm run build`와 `npm run qa:check`를 모두 실행해 검증한다.
+5. 기능 확장은 작은 단위로 나눠 별도 검증 후 진행한다.
+6. 실제 기준 소스는 `site/src/`와 `site/public/`이며, `site/dist/`와 `code.html` 시안은 참고용이다.

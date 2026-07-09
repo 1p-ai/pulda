@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ContentLayout from '../../layouts/ContentLayout.astro';
+import { getStoryPath } from '../../utils/contentRoutes';
 
 const stories = (await getCollection('stories'))
   .filter((entry) => !entry.data.draft)
@@ -18,7 +19,7 @@ const dateFormatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
       {categories.map((category) => <a href="/story/" aria-label={category + ' 글 보기'}>{category}</a>)}
     </div>
 
-    {featuredStory && <a class="story-feature" href={'/story/' + featuredStory.id + '/'}>
+    {featuredStory && <a class="story-feature" href={getStoryPath(featuredStory.id)}>
       <div class="story-feature-copy">
         <p class="meta">Featured · {featuredStory.data.category}</p>
         <h2>{featuredStory.data.title}</h2>
@@ -35,7 +36,7 @@ const dateFormatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
       <h2>최근 글</h2>
     </div>
     <div class="story-card-list" aria-label="최근 스토리 목록">
-      {restStories.map((story) => <a class="story-card" href={'/story/' + story.id + '/'}>
+      {restStories.map((story) => <a class="story-card" href={getStoryPath(story.id)}>
         <figure>{story.data.cover ? <img src={story.data.cover} alt="" loading="lazy" /> : <span>{story.data.category}</span>}</figure>
         <div><p class="meta">{story.data.category} · {story.data.author}</p><h3>{story.data.title}</h3><p>{story.data.description}</p><time datetime={story.data.publishedAt.toISOString()}>{dateFormatter.format(story.data.publishedAt)}</time></div>
       </a>)}

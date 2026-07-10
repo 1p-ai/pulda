@@ -3,6 +3,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 const baseUrl = Astro.site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://example.com');
 const canonicalUrl = new URL(Astro.url.pathname, baseUrl);
+const socialImageUrl = new URL('/case/pulda-renewal/home-light-current.png', baseUrl);
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -29,7 +30,11 @@ try{const stored=localStorage.getItem('pulda-theme');const theme=stored==='dark'
 <meta property="og:title" content="풀다 | 어려움은 풀고,올바름을 향합니다.">
 <meta property="og:description" content="기술과 비즈니스 사이의 매듭을 풀어 사람이 이해하고 움직일 수 있는 디지털 경험을 만듭니다.">
 <meta property="og:url" content={canonicalUrl}>
+<meta property="og:image" content={socialImageUrl}>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="풀다 | 어려움은 풀고,올바름을 향합니다.">
+<meta name="twitter:description" content="기술과 비즈니스 사이의 매듭을 풀어 사람이 이해하고 움직일 수 있는 디지털 경험을 만듭니다.">
+<meta name="twitter:image" content={socialImageUrl}>
 <meta name="theme-color" content="#f4ead8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#050914" media="(prefers-color-scheme: dark)">
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />

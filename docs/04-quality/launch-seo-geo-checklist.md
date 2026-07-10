@@ -23,6 +23,7 @@
    - 최종 대표 도메인을 `PUBLIC_SITE_URL`에 넣는다.
    - 현재 권장값은 `https://puldaunion.com`이다.
    - 플랫폼 환경변수에만 넣고, `.env` 파일은 커밋하지 않는다.
+   - 이 값이 없으면 Astro 기본값 때문에 canonical, OG URL, sitemap, robots가 `https://example.com` 기준으로 생성될 수 있다.
 
 3. 도메인 연결
    - 대표 도메인을 하나로 정한다: `puldaunion.com` 또는 `www.puldaunion.com`.
@@ -55,6 +56,8 @@
 4. Analytics
    - GA4와 네이버 애널리틱스를 연결한다.
    - 개인정보처리방침 또는 운영 고지에 분석 도구 사용 사실을 반영한다.
+   - 현재 `_headers`의 CSP는 GA4, Google Tag Manager, 네이버 애널리틱스 도메인을 허용하도록 준비되어 있다.
+   - 실제 추적 스크립트 삽입은 고지 문구 확정 후 진행한다.
 
 ## P1 GEO Setup
 

@@ -10,6 +10,9 @@
 - `site/scripts/qa-check.mjs`에 `dist/llms.txt` 산출물과 대표 링크, 비밀값 노출 여부 검증을 추가했다.
 - 기존 QA 스크립트에서 프로젝트 cover가 있어도 없다고 경고하던 조건 오류를 바로잡았다.
 - `docs/04-quality/launch-seo-geo-checklist.md`를 생성해 배포 플랫폼 연결, `PUBLIC_SITE_URL`, 도메인 리다이렉트, `/admin` 보호, Search Console, 네이버/Bing 등록, Analytics, GEO 운영 기준을 P0/P1로 정리했다.
+- 홈과 공통 콘텐츠 레이아웃에 Twitter title/description/image 메타를 보강하고, 홈 OG 이미지를 `home-light-current.png` 기준으로 명시했다.
+- `_headers`의 CSP를 GA4, Google Tag Manager, 네이버 애널리틱스 도입 시 차단되지 않도록 보강했다. 실제 분석 스크립트 삽입은 개인정보/통계 고지 확정 후 진행한다.
+- `npm run build`와 `npm run qa:check`를 다시 실행해 통과했다. 로컬 빌드는 배포 환경변수가 없어 canonical이 `https://example.com`으로 생성되므로, 실제 배포 플랫폼에는 `PUBLIC_SITE_URL=https://puldaunion.com` 설정이 필수다.
 
 ## 2026-07-08
 

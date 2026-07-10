@@ -28,6 +28,18 @@
 | 최종 검수 | 미완료 |
 | 운영 이관 | 미완료 |
 
+### 2.1 2026-07-10 배포 직전 상태
+
+| 항목 | 상태 |
+| --- | --- |
+| Git 상태 | 로컬 `main`이 `ff7e0af 07101324` 커밋으로 `origin/main`보다 1개 앞선 상태 |
+| 빌드 | `site/`에서 `npm run build` 통과 |
+| QA | `site/`에서 `npm run qa:check` 통과 |
+| SEO | canonical, OG, Twitter Card, JSON-LD, sitemap, RSS, robots 구현 |
+| GEO | `site/public/llms.txt` 추가 및 QA 검증 포함 |
+| 남은 P0 | GitHub Desktop에서 push, 배포 플랫폼 연결, `PUBLIC_SITE_URL=https://puldaunion.com`, 도메인/DNS 연결, `/admin` 보호 |
+| 주의 | 배포 환경변수 없이 빌드하면 canonical과 sitemap이 `https://example.com` 기준으로 생성될 수 있음 |
+
 ## 3. 완료 후 작성할 요약
 
 완료 시 아래 내용을 최종 문장으로 정리한다.
@@ -66,6 +78,8 @@
 - 프로젝트 상세가 포트폴리오 전시장으로 충분한 시각 자료를 갖춘다.
 - /admin의 역할이 운영 포털로 명확히 구분되고 `noindex + robots disallow + 호스팅 레벨 접근 제어`가 확인된다.
 - sitemap, RSS, robots가 생성된다.
+- llms.txt가 생성되고 공개 가능한 핵심 페이지와 sitemap/RSS/robots만 안내한다.
+- 홈과 주요 상세 페이지에 OG/Twitter 이미지가 설정된다.
 - 최종 문구, 연락처, 대표 프로젝트, 대표 스토리가 확정된다.
 - 배포 URL과 운영 방식이 확정된다.
 - 통계 도구, 개인정보 고지, 광고 정책이 배포 상태에 맞게 정리된다.

@@ -443,6 +443,30 @@ Replit AI, Gemini, Codex 등 코드 수정 도구가 기존 구현을 통째로 
 
 기존 구현이 설명 없이 사라졌거나, 한 기능을 고치면서 다른 테마/경로가 망가진 경우 Medium 이상 이슈로 PM에게 보고한다. 사용자 여정이 막히거나 배포 기능이 깨진 경우 High로 올린다.
 
+## 16. 2026-07-10 Project Detail Image Layout
+
+### 사용자 보고
+
+- 과제 상세 페이지에서 초반 이미지는 화면비에 맞게 보이지만, 아래로 갈수록 큰 이미지가 오른쪽으로 치우치고 잘리는 문제가 보고됨.
+
+### 원인 판단
+
+- 은조 상세의 후반 전시 섹션이 `device-frame`, `slide-card`, `magazine-card` 같은 전용 클래스를 사용했지만, 공통 상세 레이아웃에 해당 클래스 스타일이 없었다.
+- 그 결과 일부 이미지가 브라우저 기본 크기 또는 느슨한 본문 흐름으로 렌더링되어 본문 레이아웃과 어긋날 수 있었다.
+
+### 대응
+
+- `ContentLayout.astro`에 후반 이미지 전시 블록 전용 스타일을 추가했다.
+- 디바이스 프레임, 슬라이드 카드, 매거진 보드 이미지는 카드 안에서 `object-fit: contain`으로 표시되며 과도한 높이를 갖지 않도록 제한했다.
+- 다크 모드와 960px 이하 반응형도 함께 보정했다.
+
+### 검증
+
+- `npm run build`: 통과.
+- `npm run qa:check`: 통과.
+- 로컬 `http://127.0.0.1:4178/project/eunjo-imweb-homepage/` 200 응답 확인.
+- 산출물 HTML에 `device-resolution-showcase`, `slide-card-strip`, `magazine-board` 섹션 포함 확인.
+
 ## 15. 2026-07-10 Home Hero Gap Regression
 
 ### 사용자 보고

@@ -896,3 +896,11 @@ Pulda 사이트의 장기 이벤트 또는 숨은 이스터에그 후보로 `슬
 - PM 판단: 목록 전체를 카드형 포트폴리오로 바꾸기보다, 기존 리스트 구조를 유지하면서 각 과제의 `cover` 이미지 1장만 노출하는 것이 현재 콘텐츠 마무리 단계에 적합하다.
 - 대응: `site/src/pages/project/index.astro`에서 기존 `cover` 값을 대표 이미지로 출력하고, `ContentLayout.astro`에 프로젝트 목록 전용 썸네일 스타일을 추가했다.
 - 검증: `npm run build`, `npm run qa:check` 통과. 로컬 `/project/`에서 과제 3개와 대표 이미지 3개 출력 확인.
+
+## 2026-07-10 Project Detail Image Layout PM Note
+
+- 과제 상세는 전시장처럼 보이되, 큰 원본 이미지가 본문 레이아웃을 밀어내면 읽기와 감상이 모두 깨진다.
+- PM 판단: 상세 콘텐츠의 이미지 전시 블록은 페이지 후반으로 갈수록 더 엄격하게 카드/프레임 안에 넣어야 한다.
+- 대응: `ContentLayout.astro`에 은조 상세 후반부에서 쓰는 `device-frame`, `slide-card`, `magazine-card` 계열 스타일을 추가했다.
+- 기준: 이미지는 `object-fit: contain`, 명확한 최대 높이, 반응형 1열 전환을 기본으로 한다. 원본 비율을 존중하되 본문 폭을 넘기지 않는다.
+- 검증: `npm run build`, `npm run qa:check` 통과. 로컬 은조 상세는 200 응답이고 새 전시 섹션이 산출물에 포함됨을 확인했다.

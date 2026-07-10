@@ -375,3 +375,12 @@
 - `site/src/pages/project/index.astro`에 `project.data.cover`가 있을 때만 대표 이미지 `figure`를 렌더링하도록 추가했다.
 - `site/src/layouts/ContentLayout.astro`에는 프로젝트 목록 전용 썸네일 그리드와 다크 모드 배경/테두리 스타일을 작게 추가했다.
 - `site/`에서 `npm run build`와 `npm run qa:check`를 통과했다. 로컬 `/project/`에서 프로젝트 카드 3개와 대표 이미지 3개가 DOM에 출력되는 것을 확인했다.
+
+### 과제 상세 후반 이미지 레이아웃 안정화
+
+- 사용자가 과제 상세 페이지 후반부 이미지가 커지고 오른쪽으로 치우쳐 잘린다고 보고했다.
+- 은조 상세 본문에 `device-frame`, `slide-card`, `magazine-card` 같은 전시용 클래스가 있었지만 공통 레이아웃 CSS가 없어 브라우저 기본 이미지 크기로 흘러갈 수 있는 상태였다.
+- `site/src/layouts/ContentLayout.astro`에 디바이스별 전시, 슬라이드 카드, 매거진 보드 전용 CSS를 추가해 이미지가 카드 내부에서 `object-fit: contain`으로 들어오도록 했다.
+- 각 이미지 카드에는 최대 높이와 배경, 테두리, 캡션 규칙을 주어 본문 레이아웃에 맞는 크기로 정리했다.
+- 다크 모드와 960px 이하 반응형에서도 한 열로 쌓이며 과도한 이미지 크기가 생기지 않도록 보정했다.
+- `site/`에서 `npm run build`와 `npm run qa:check`를 통과했다. 로컬 `http://127.0.0.1:4178/project/eunjo-imweb-homepage/`는 200 응답이며 새 전시 섹션이 산출물에 포함된 것을 확인했다.

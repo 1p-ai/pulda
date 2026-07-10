@@ -889,3 +889,10 @@ Pulda 사이트의 장기 이벤트 또는 숨은 이스터에그 후보로 `슬
 - 원인: 홈 히어로 셰이더와 오버레이가 고정 헤더 높이만큼 아래에서 시작해 헤더 아래에 띠가 생겼다.
 - 대응: `site/src/pages/index.astro`에서 홈 히어로 배경을 `inset:0` 기준으로 정리했다. 상세 페이지 `.page-head`는 유지했다.
 - 검증: `npm run build`, `npm run qa:check`, 로컬 브라우저 CSS 측정 통과. 로컬 확인 URL은 `http://127.0.0.1:4178/`이다.
+
+## 2026-07-10 Project List Image PM Note
+
+- 과제 목록은 텍스트만 이어지면 프로젝트의 성격을 한눈에 파악하기 어렵다.
+- PM 판단: 목록 전체를 카드형 포트폴리오로 바꾸기보다, 기존 리스트 구조를 유지하면서 각 과제의 `cover` 이미지 1장만 노출하는 것이 현재 콘텐츠 마무리 단계에 적합하다.
+- 대응: `site/src/pages/project/index.astro`에서 기존 `cover` 값을 대표 이미지로 출력하고, `ContentLayout.astro`에 프로젝트 목록 전용 썸네일 스타일을 추가했다.
+- 검증: `npm run build`, `npm run qa:check` 통과. 로컬 `/project/`에서 과제 3개와 대표 이미지 3개 출력 확인.

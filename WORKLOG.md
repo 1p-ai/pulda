@@ -367,3 +367,11 @@
 - `site/src/pages/index.astro`에서 히어로 셰이더 캔버스와 오버레이를 히어로 전체 `inset:0`으로 덮도록 조정했다. 고정 헤더가 이미 위에 덮이는 구조이므로 홈 배경은 히어로 시작점부터 이어지는 것이 기준이다.
 - 변경 이유를 CSS 근처 주석으로 남겼고, `site/`에서 `npm run build`와 `npm run qa:check`를 통과했다.
 - 브라우저에서 `http://127.0.0.1:4178/` 기준 홈 CSS 값을 확인했다. 수정 후 `canvasTopCSS`와 `.hero:after` top이 모두 `0px`로 확인됐다.
+
+### 과제 목록 대표 이미지 추가
+
+- 사용자가 과제 목록 페이지에도 대표 이미지가 한 장 정도 보이면 좋겠다고 요청했다.
+- 새 데이터 구조를 만들지 않고, 기존 프로젝트 frontmatter의 `cover` 값을 목록 카드에서 그대로 사용하도록 했다.
+- `site/src/pages/project/index.astro`에 `project.data.cover`가 있을 때만 대표 이미지 `figure`를 렌더링하도록 추가했다.
+- `site/src/layouts/ContentLayout.astro`에는 프로젝트 목록 전용 썸네일 그리드와 다크 모드 배경/테두리 스타일을 작게 추가했다.
+- `site/`에서 `npm run build`와 `npm run qa:check`를 통과했다. 로컬 `/project/`에서 프로젝트 카드 3개와 대표 이미지 3개가 DOM에 출력되는 것을 확인했다.

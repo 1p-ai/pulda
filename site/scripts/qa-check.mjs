@@ -34,6 +34,7 @@ const requiredDistFiles = [
   'dist/sitemap.xml',
   'dist/rss.xml',
   'dist/robots.txt',
+  'dist/llms.txt',
 ];
 
 for (const file of requiredDistFiles) {
@@ -64,6 +65,13 @@ if (exists('dist/sitemap.xml')) {
 if (exists('dist/rss.xml')) {
   const rss = read('dist/rss.xml');
   assert(rss.includes('/story/why-we-are-pulda/'), 'rss.xml should include the first sample story.');
+}
+
+if (exists('dist/llms.txt')) {
+  const llms = read('dist/llms.txt');
+  assert(llms.includes('https://puldaunion.com/sitemap.xml'), 'llms.txt should point AI agents to the canonical sitemap.');
+  assert(llms.includes('/project/pulda-official-website-renewal/'), 'llms.txt should include representative project routes.');
+  assert(!/(sk-[A-Za-z0-9]|AIza[0-9A-Za-z_-]|SANITY_AUTH_TOKEN|password\s*=|token\s*=|secret\s*=)/i.test(llms), 'llms.txt should not expose secret-like values.');
 }
 
 const parseFrontmatter = (source) => {
@@ -99,7 +107,7 @@ checkMarkdownCollection('projects', ['title', 'description', 'client', 'year', '
 for (const file of fs.existsSync(path.join(contentRoot, 'projects')) ? fs.readdirSync(path.join(contentRoot, 'projects')).filter((name) => name.endsWith('.md')) : []) {
   const source = fs.readFileSync(path.join(contentRoot, 'projects', file), 'utf8');
   const fields = parseFrontmatter(source);
-  warn(!Boolean(fields.cover), path.join('src', 'content', 'projects', file) + ' has no cover image. Portfolio quality review needed.');
+  warn(Boolean(fields.cover), path.join('src', 'content', 'projects', file) + ' has no cover image. Portfolio quality review needed.');
 }
 checkMarkdownCollection('stories', ['title', 'description', 'publishedAt', 'author', 'category', 'tags']);
 

@@ -1,5 +1,16 @@
 # Pulda 작업이력
 
+## 2026-07-10
+
+- 사용자의 지시에 따라 현재까지의 Git, PM, QA, WORKLOG, DESIGN, DevOps/Marketing 역할 문서를 다시 확인했다.
+- Git 기준으로 `main`과 `origin/main`이 `0e4c724 07092017`에서 동기화되어 있고, 작업 시작 시점의 로컬 작업트리가 깨끗한 상태임을 확인했다.
+- 단순 텍스트 수정은 사용자가 VS Code에서 직접 처리하고 `07101104` 같은 시간로그 커밋으로 남기는 운영 방식을 현재 작업 원칙에 반영했다.
+- 배포, 도메인 연결, SEO, GEO를 프로젝트 완결의 최우선 흐름으로 재정렬했다.
+- AI 검색/GEO 보조를 위해 `site/public/llms.txt`를 추가했다. 이 파일은 공개 가능한 핵심 페이지, 대표 사례, sitemap/RSS/robots, 연락처만 담고 비밀 정보나 내부 경로는 포함하지 않는다.
+- `site/scripts/qa-check.mjs`에 `dist/llms.txt` 산출물과 대표 링크, 비밀값 노출 여부 검증을 추가했다.
+- 기존 QA 스크립트에서 프로젝트 cover가 있어도 없다고 경고하던 조건 오류를 바로잡았다.
+- `docs/04-quality/launch-seo-geo-checklist.md`를 생성해 배포 플랫폼 연결, `PUBLIC_SITE_URL`, 도메인 리다이렉트, `/admin` 보호, Search Console, 네이버/Bing 등록, Analytics, GEO 운영 기준을 P0/P1로 정리했다.
+
 ## 2026-07-08
 
 - 루트 Sanity Studio 설정이 여러 플러그인과 커스텀 액션, 잘못된 경로 참조를 동시에 포함해 빌드가 불안정해진 상태를 확인했다.

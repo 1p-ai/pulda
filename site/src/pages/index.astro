@@ -1,7 +1,7 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-const baseUrl = Astro.site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://example.com');
+const baseUrl = Astro.site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://puldaunion.com');
 const canonicalUrl = new URL(Astro.url.pathname, baseUrl);
 const socialImageUrl = new URL('/case/pulda-renewal/home-light-current.png', baseUrl);
 const organizationSchema = {

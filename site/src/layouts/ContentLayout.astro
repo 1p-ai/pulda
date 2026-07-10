@@ -27,7 +27,7 @@ const {
   noindex = false,
   eyebrow = 'Pulda',
 } = Astro.props;
-const baseUrl = Astro.site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://example.com');
+const baseUrl = Astro.site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://puldaunion.com');
 const canonicalUrl = new URL(canonicalPath, baseUrl);
 const imageUrl = image ? new URL(image, baseUrl) : undefined;
 const pageTitle = `${title} | 풀다`;

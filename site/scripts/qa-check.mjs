@@ -74,6 +74,12 @@ if (exists('dist/llms.txt')) {
   assert(!/(sk-[A-Za-z0-9]|AIza[0-9A-Za-z_-]|SANITY_AUTH_TOKEN|password\s*=|token\s*=|secret\s*=)/i.test(llms), 'llms.txt should not expose secret-like values.');
 }
 
+for (const file of requiredDistFiles.filter((file) => /\.(html|xml|txt)$/.test(file))) {
+  if (exists(file)) {
+    assert(!read(file).includes('example.com'), file + ' should not contain the placeholder example.com domain.');
+  }
+}
+
 const parseFrontmatter = (source) => {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return {};

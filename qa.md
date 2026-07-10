@@ -402,6 +402,15 @@ agent.md 기준으로 QA는 독립 품질 관리자이며, PM에게 배포 안�
 - `llms.txt`는 대표 도메인 sitemap과 대표 프로젝트 경로를 포함해야 한다.
 - `llms.txt`에는 비밀키, 토큰, 내부 계정 정보처럼 보이는 값이 없어야 한다.
 - 배포 환경의 `PUBLIC_SITE_URL`은 최종 대표 도메인으로 설정되어야 한다.
+- 빌드 산출물 HTML/XML/TXT에 `example.com` placeholder가 남으면 QA 실패로 처리한다.
+
+### 2026-07-10 E2E 고객여정 보강
+
+- Playwright 테스트 파일을 `site/tests/journeys.spec.ts` 기준으로 정리했다.
+- 테스트 서버는 `astro dev`가 아니라 `npm run build` 이후 `astro preview` 산출물을 사용한다.
+- 확인 시나리오: 데스크톱 홈→프로젝트→상세→스토리→상세→문의, 라이트/다크 테마 유지, 모바일 메뉴 열기/이동/닫힘.
+- 3개 시나리오가 모두 통과했다.
+- 단, Windows 로컬에서 preview 서버 종료가 즉시 반환되지 않아 명령 프로세스가 timeout까지 남는 현상이 있다. 실패 원인이 사이트 동작은 아니므로 배포 전에는 결과 로그의 `ok` 3건을 함께 확인한다.
 
 ### QA 판단
 

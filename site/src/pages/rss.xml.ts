@@ -6,7 +6,7 @@ export const prerender = true;
 const escapeXml = (value: string) => value.replace(/[<>&'\"]/g, (char) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[char] ?? char);
 
 export const GET: APIRoute = async ({ site }) => {
-  const base = site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://example.com');
+  const base = site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://puldaunion.com');
   const stories = (await getCollection('stories')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
   const items = stories.map((entry) => {
     const url = new URL(getStoryPath(entry.id), base);

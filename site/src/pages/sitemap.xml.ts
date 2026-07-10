@@ -5,7 +5,7 @@ import { getProjectPath, getStoryPath } from '../utils/contentRoutes';
 export const prerender = true;
 
 export const GET: APIRoute = async ({ site }) => {
-  const base = site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://example.com');
+  const base = site ?? new URL(import.meta.env.PUBLIC_SITE_URL || 'https://puldaunion.com');
   const [projects, stories] = await Promise.all([getCollection('projects'), getCollection('stories')]);
   const pages = [
     { path: '/', changed: new Date() },

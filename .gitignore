@@ -21,6 +21,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+site/debug.log
+site/test-results/
+site/playwright-report/
 
 # Editor and system files
 .DS_Store

@@ -13,6 +13,9 @@
 - 홈과 공통 콘텐츠 레이아웃에 Twitter title/description/image 메타를 보강하고, 홈 OG 이미지를 `home-light-current.png` 기준으로 명시했다.
 - `_headers`의 CSP를 GA4, Google Tag Manager, 네이버 애널리틱스 도입 시 차단되지 않도록 보강했다. 실제 분석 스크립트 삽입은 개인정보/통계 고지 확정 후 진행한다.
 - `npm run build`와 `npm run qa:check`를 다시 실행해 통과했다. 로컬 빌드는 배포 환경변수가 없어 canonical이 `https://example.com`으로 생성되므로, 실제 배포 플랫폼에는 `PUBLIC_SITE_URL=https://puldaunion.com` 설정이 필수다.
+- 배포 실수 방지를 위해 Astro 사이트 기본 URL과 각 SEO 파일의 fallback을 `https://puldaunion.com`으로 바꿨다. `qa-check`도 dist 산출물의 `example.com` 잔존 여부를 실패로 잡도록 보강했다.
+- Playwright 고객여정 테스트가 실제로 실행되도록 `site/tests/journeys.spec.ts` 위치와 셀렉터를 현재 UI에 맞췄다. E2E는 빌드 후 preview 산출물을 기준으로 홈→프로젝트→스토리→문의, 테마 유지, 모바일 메뉴를 확인한다.
+- E2E 3개 시나리오는 모두 통과했으나, Windows 로컬에서 preview 서버 종료가 붙잡혀 명령 프로세스가 시간 제한까지 남는 현상이 있다. 테스트 결과는 통과로 확인했고, generated test output은 Git 추적에서 제외했다.
 
 ## 2026-07-08
 

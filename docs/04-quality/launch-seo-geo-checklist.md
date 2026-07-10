@@ -23,7 +23,7 @@
    - 최종 대표 도메인을 `PUBLIC_SITE_URL`에 넣는다.
    - 현재 권장값은 `https://puldaunion.com`이다.
    - 플랫폼 환경변수에만 넣고, `.env` 파일은 커밋하지 않는다.
-   - 이 값이 없으면 Astro 기본값 때문에 canonical, OG URL, sitemap, robots가 `https://example.com` 기준으로 생성될 수 있다.
+   - 소스 기본값도 `https://puldaunion.com`으로 맞춰두었지만, 배포 플랫폼 환경변수에는 동일한 값을 명시해 두는 것을 원칙으로 한다.
 
 3. 도메인 연결
    - 대표 도메인을 하나로 정한다: `puldaunion.com` 또는 `www.puldaunion.com`.

@@ -16,6 +16,8 @@
 - 배포 실수 방지를 위해 Astro 사이트 기본 URL과 각 SEO 파일의 fallback을 `https://puldaunion.com`으로 바꿨다. `qa-check`도 dist 산출물의 `example.com` 잔존 여부를 실패로 잡도록 보강했다.
 - Playwright 고객여정 테스트가 실제로 실행되도록 `site/tests/journeys.spec.ts` 위치와 셀렉터를 현재 UI에 맞췄다. E2E는 빌드 후 preview 산출물을 기준으로 홈→프로젝트→스토리→문의, 테마 유지, 모바일 메뉴를 확인한다.
 - E2E 3개 시나리오는 모두 통과했으나, Windows 로컬에서 preview 서버 종료가 붙잡혀 명령 프로세스가 시간 제한까지 남는 현상이 있다. 테스트 결과는 통과로 확인했고, generated test output은 Git 추적에서 제외했다.
+- 로컬 미리보기 서버가 계속 `ERR_CONNECTION_REFUSED`로 끊기는 문제를 조사했다. 같은 셸 안의 `python -m http.server`는 정상 유지되지만, Codex 샌드박스 내부에서 `Start-Process`로 띄운 자식 프로세스는 도구 호출 종료 후 정리되는 것으로 확인했다.
+- 대응으로 사용자 승인 후 샌드박스 밖에서 PowerShell 래퍼 서버를 띄웠고, `http://127.0.0.1:4178/`에서 별도 확인 호출까지 200 응답을 확인했다. 이후 로컬 미리보기는 같은 증상이 반복되면 샌드박스 밖 지속 프로세스로 실행한다.
 
 ## 2026-07-08
 

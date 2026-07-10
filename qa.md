@@ -452,12 +452,13 @@ Replit AI, Gemini, Codex 등 코드 수정 도구가 기존 구현을 통째로 
 ### 원인 판단
 
 - 은조 상세의 후반 전시 섹션이 `device-frame`, `slide-card`, `magazine-card` 같은 전용 클래스를 사용했지만, 공통 상세 레이아웃에 해당 클래스 스타일이 없었다.
+- 풀다 리뉴얼 상세에도 `device-showcase`, `screen-pair`, `case-before-after`, `deliverable-wall`, `system-flow`, `result-metrics` 같은 전용 블록 스타일이 빠져 이미지와 텍스트 레이어가 분리될 수 있었다.
 - 그 결과 일부 이미지가 브라우저 기본 크기 또는 느슨한 본문 흐름으로 렌더링되어 본문 레이아웃과 어긋날 수 있었다.
 
 ### 대응
 
-- `ContentLayout.astro`에 후반 이미지 전시 블록 전용 스타일을 추가했다.
-- 디바이스 프레임, 슬라이드 카드, 매거진 보드 이미지는 카드 안에서 `object-fit: contain`으로 표시되며 과도한 높이를 갖지 않도록 제한했다.
+- `ContentLayout.astro`에 과제 상세 전시/비교 블록 전용 스타일을 추가했다.
+- 디바이스 프레임, 화면쌍, 슬라이드 카드, 매거진 보드 이미지는 카드 안에서 `object-fit: contain`으로 표시되며 과도한 높이를 갖지 않도록 제한했다.
 - 다크 모드와 960px 이하 반응형도 함께 보정했다.
 
 ### 검증
@@ -465,7 +466,8 @@ Replit AI, Gemini, Codex 등 코드 수정 도구가 기존 구현을 통째로 
 - `npm run build`: 통과.
 - `npm run qa:check`: 통과.
 - 로컬 `http://127.0.0.1:4178/project/eunjo-imweb-homepage/` 200 응답 확인.
-- 산출물 HTML에 `device-resolution-showcase`, `slide-card-strip`, `magazine-board` 섹션 포함 확인.
+- 로컬 `http://127.0.0.1:4178/project/pulda-official-website-renewal/` 200 응답 확인.
+- 산출물 HTML에 `device-resolution-showcase`, `slide-card-strip`, `magazine-board`, `device-showcase`, `screen-pair`, `system-flow` 섹션 포함 확인.
 
 ## 15. 2026-07-10 Home Hero Gap Regression
 
@@ -492,3 +494,25 @@ Replit AI, Gemini, Codex 등 코드 수정 도구가 기존 구현을 통째로 
 - `npm run qa:check`: 통과.
 - 브라우저 CSS 측정: 수정 후 홈 `canvasTopCSS`와 `.hero:after` top이 `0px`로 확인됨.
 - 잔여 경고: 기존 콘텐츠 길이 품질 경고는 유지되며 이번 레이아웃 회귀와 무관하다.
+
+## 17. 2026-07-10 Project Content Expansion
+
+### 검수 목적
+
+- 공개 작업물 5건을 과제 목록에 추가하면서 콘텐츠 스키마, 목록 레이아웃, 빌드 산출물이 깨지지 않는지 확인한다.
+
+### QA 기준
+
+- 공개 URL이 있는 항목은 링크를 본문에서 확인할 수 있어야 하며, 운영 종료/이관으로 URL 제공이 어려운 항목은 상태를 명시해야 한다.
+- 대표 이미지가 없는 과제도 목록 그리드에서 텍스트 폭이 밀리거나 어색하게 붕괴되지 않아야 한다.
+- 확인되지 않은 작업 성과를 단정적으로 쓰지 않고, 사용자가 추후 보강 가능한 1차 초안으로 유지한다.
+- `npm run build`와 `npm run qa:check`를 통과해야 한다.
+
+### 검증
+
+- `npm run build`: 통과. 전체 16개 페이지 생성.
+- `npm run qa:check`: 통과. 새 과제 5건은 본문 짧음/대표 이미지 없음 경고가 남았으나, 사용자가 보강할 초안 단계의 품질 경고로 분류한다.
+- 로컬 상세 URL 5건 모두 200 응답 확인.
+- `sitemap.xml`에 새 과제 상세 URL 5건 포함 확인.
+- `인천장애인인권영화제`는 공개 외부 URL 대신 운영 이관 상태를 표시하도록 전환했다.
+- 공개 URL이 있는 새 과제 4건은 현재 사이트 스크린샷을 대표 이미지로 연결하고, URL 비공개 과제 1건은 내부 기록용 커버를 연결한다.

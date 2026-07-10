@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc">
+  <title id="title">인천장애인인권영화제 기록 프로젝트 커버</title>
+  <desc id="desc">운영 이관으로 공개 URL을 제공하지 않는 PHP 기반 영화제 웹사이트 작업 기록용 커버 이미지</desc>
+  <rect width="1440" height="1000" fill="#13233a"/>
+  <path d="M0 0 H1440 V500 C1210 584 1030 484 820 562 C600 644 405 532 190 606 C96 638 38 642 0 630 Z" fill="#9f3a32" opacity=".94"/>
+  <path d="M0 510 C220 462 390 542 620 500 C838 462 1018 506 1230 468 C1330 450 1394 456 1440 470 V682 C1210 730 1030 670 820 714 C600 762 405 700 190 742 C96 760 38 764 0 756 Z" fill="#fbf4e7"/>
+  <path d="M0 756 C220 710 390 790 620 742 C838 696 1018 758 1230 710 C1330 688 1394 696 1440 710 V1000 H0 Z" fill="#13233a"/>
+  <path d="M0 510 C220 462 390 542 620 500 C838 462 1018 506 1230 468 C1330 450 1394 456 1440 470" fill="none" stroke="#f4ead8" stroke-width="8" opacity=".78"/>
+  <rect x="120" y="118" width="1200" height="764" fill="none" stroke="#fbf4e7" stroke-width="2" opacity=".28"/>
+  <text x="160" y="210" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="4">PRIVATE RECORD</text>
+  <text x="160" y="344" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="74" font-weight="800">인천장애인인권영화제</text>
+  <text x="160" y="438" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="50" font-weight="700">PHP 웹사이트 작업 기록</text>
+  <text x="160" y="560" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="28">운영 이관으로 공개 URL을 제공하지 않는 과제입니다.</text>
+  <text x="160" y="632" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="25" opacity=".74">Festival IA · Content Board · Accessibility-Oriented Content</text>
+  <circle cx="1100" cy="242" r="88" fill="#fbf4e7" opacity=".12"/>
+  <circle cx="1185" cy="322" r="44" fill="#fbf4e7" opacity=".2"/>
+  <circle cx="1040" cy="375" r="26" fill="#fbf4e7" opacity=".28"/>
+</svg>

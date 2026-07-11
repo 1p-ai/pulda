@@ -11,7 +11,7 @@ const restStories = stories.filter((story) => story.id !== featuredStory?.id);
 const categories = Array.from(new Set(stories.map((story) => story.data.category))).filter(Boolean);
 const dateFormatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
 ---
-<ContentLayout title="이야기" description="풀다가 문제를 풀며 발견한 생각, 작업 기록, 시장의 변화, 작은 공지들을 편하게 읽을 수 있는 기업 블로그입니다." canonicalPath="/story/" eyebrow="Pulda Journal">
+<ContentLayout title="이야기" description="풀다가 문제를 풀며 발견한 생각, 작업 기록, 시장의 변화, 작은 공지들을 편하게 읽을 수 있는 기업 블로그입니다." canonicalPath="/story/" eyebrow="풀다 저널">
   <section class="page-head story-head"><div class="shell"><p class="eyebrow"><span class="light-copy">풀어가는 이야기</span><span class="dark-copy">Signal Notes</span></p><h1><span class="light-copy">편하게 읽는 작업 노트</span><span class="dark-copy">Field Notes</span></h1><p><span class="light-copy">브랜드, 웹사이트, 콘텐츠 운영, 일하는 태도에 관한 생각을 글로 정리합니다.</span><span class="dark-copy">Readable notes on strategy, interface, content operations, and the decisions behind clear digital systems.</span></p></div></section>
   <section class="content story-home"><div class="shell">
     <div class="blog-toolbar" aria-label="스토리 분류">

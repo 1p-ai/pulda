@@ -4,7 +4,7 @@ description: "필라테스와 자이로토닉 수업, 강사진, 예약, 공지�
 client: "온스튜디오"
 year: 2025
 publishedAt: 2025-06-01
-cover: "/case/onstudio-pilates/cover.png"
+cover: "/case/onstudio-pilates/reservation.png"
 services: ["Imweb Website", "Studio IA", "Reservation Flow", "Content Publishing"]
 tags: ["아임웹", "필라테스", "자이로토닉", "예약 흐름"]
 featured: false
@@ -13,7 +13,7 @@ seoTitle: "온스튜디오 필라테스 아임웹 웹사이트 작업"
 seoDescription: "풀다가 아임웹으로 구축한 온스튜디오 필라테스 웹사이트 작업 기록입니다."
 ---
 <figure class="hero-shot">
-  <img src="/case/onstudio-pilates/cover.png" alt="온스튜디오 필라테스 웹사이트 메인 화면" loading="eager" />
+  <img src="/case/onstudio-pilates/reservation.png" alt="온스튜디오 필라테스 예약 안내 화면" loading="eager" />
 </figure>
 
 <section class="case-summary-grid" aria-label="프로젝트 핵심 요약">
@@ -27,6 +27,17 @@ seoDescription: "풀다가 아임웹으로 구축한 온스튜디오 필라테�
 온스튜디오는 필라테스와 자이로토닉 수업을 운영하는 스튜디오입니다. 방문자는 수업 방식, 강사진, 예약 방법, 위치 정보를 빠르게 확인해야 합니다.
 
 웹사이트는 Onstudio, Trainer, Pilates, Gyrotonic method, Class Reservation, Board로 이어지는 구조를 갖습니다. 특히 예약 전환은 네이버 예약과 연결되고, 공지와 뉴스 영역은 운영 중 변동 사항을 알리는 역할을 합니다.
+
+<section class="screen-pair" aria-label="온스튜디오 예약과 강사진 화면">
+  <figure>
+    <img src="/case/onstudio-pilates/reservation.png" alt="온스튜디오 클래스 예약 화면" loading="lazy" />
+    <figcaption><strong>Reservation</strong><span>방문상담, 필라테스, 자이로토닉 수업으로 이어지는 예약 선택 구조입니다.</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/case/onstudio-pilates/trainer.png" alt="온스튜디오 강사진 소개 화면" loading="lazy" />
+    <figcaption><strong>Trainer</strong><span>수업 전 신뢰를 만들 수 있도록 강사진 정보를 분리해 보여줍니다.</span></figcaption>
+  </figure>
+</section>
 
 ## 풀다가 맡은 일
 

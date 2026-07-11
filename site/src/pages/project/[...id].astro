@@ -15,7 +15,7 @@ const description = entry.data.seoDescription ?? entry.data.description;
 ---
 <ContentLayout title={title} description={description} canonicalPath={entry.data.canonicalUrl ?? getProjectPath(entry.id)} type="project" publishedAt={entry.data.publishedAt} updatedAt={entry.data.updatedAt} image={entry.data.cover} tags={entry.data.tags} noindex={entry.data.noindex}>
   <article>
-    <section class="page-head project-hero"><div class="shell"><p class="eyebrow">Project · {entry.data.year}</p><h1>{entry.data.title}</h1><p>{entry.data.description}</p><div class="case-meta-panel"><div><span>Client</span><strong>{entry.data.client === 'Pulda Union' ? '자체제작' : entry.data.client}</strong></div><div><span>Scope</span><strong>{entry.data.services.join(' / ')}</strong></div><div><span>Outcome</span><strong>{entry.data.outcome ?? '문제 정의부터 구현까지 이어진 작업 기록'}</strong></div></div></div></section>
-    <div class="content"><div class="shell prose case-study"><p class="meta">{entry.data.client === 'Pulda Union' ? '자체제작' : entry.data.client} · {entry.data.services.join(' / ')}</p><Content /><a class="back" href="/project/">← 과제 목록</a></div></div>
+    <section class="page-head project-hero"><div class="shell"><p class="eyebrow">Project · {entry.data.year}</p><h1>{entry.data.title}</h1><p>{entry.data.description}</p><div class="case-meta-panel"><div><span>Client</span><strong>{entry.data.client === '풀다' ? '자체제작' : entry.data.client}</strong></div><div><span>Scope</span><strong>{entry.data.services.join(' / ')}</strong></div><div><span>Outcome</span><strong>{entry.data.outcome ?? '문제 정의부터 구현까지 이어진 작업 기록'}</strong></div></div></div></section>
+    <div class="content"><div class="shell prose case-study"><p class="meta">{entry.data.client === '풀다' ? '자체제작' : entry.data.client} · {entry.data.services.join(' / ')}</p><Content /><a class="back" href="/project/">← 과제 목록</a></div></div>
   </article>
 </ContentLayout>

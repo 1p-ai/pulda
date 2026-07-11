@@ -28,6 +28,17 @@ seoDescription: "풀다가 PHP 기반으로 작업한 한남동성당 웹사이�
 
 PHP 기반 웹사이트는 운영 환경과 유지보수 조건을 함께 고려해야 합니다. 관리자가 익숙한 방식으로 게시글을 올리고, 방문자는 필요한 정보를 오래 헤매지 않고 찾는 것이 핵심입니다.
 
+<section class="screen-pair" aria-label="한남동성당 공지와 주보 화면">
+  <figure>
+    <img src="/case/hannamdong-catholic-church/weekly.png" alt="한남동성당 본당주보 화면" loading="lazy" />
+    <figcaption><strong>Weekly Bulletin</strong><span>반복 방문자가 자주 찾는 주보와 공지 흐름을 전면에 둔 구조입니다.</span></figcaption>
+  </figure>
+  <figure>
+    <img src="/case/hannamdong-catholic-church/cover.png" alt="한남동성당 메인 화면" loading="lazy" />
+    <figcaption><strong>Community Home</strong><span>본당 소개, 소식, 일정, 주보가 한 화면에서 이어지도록 구성했습니다.</span></figcaption>
+  </figure>
+</section>
+
 ## 풀다가 맡은 일
 
 - PHP 기반 웹사이트 구조 정리
@@ -40,4 +51,4 @@ PHP 기반 웹사이트는 운영 환경과 유지보수 조건을 함께 고려
 
 공동체 웹사이트는 화려함보다 신뢰와 지속성이 중요합니다. 정보가 오래 남고, 새 공지가 자연스럽게 쌓이며, 처음 방문한 사람과 기존 구성원 모두 길을 잃지 않아야 합니다.
 
-이 케이스는 Pulda가 브랜드 사이트뿐 아니라 장기 운영형 커뮤니티 사이트도 다룬다는 기록으로 남깁니다.
+이 케이스는 풀다가 브랜드 사이트뿐 아니라 장기 운영형 커뮤니티 사이트도 다룬다는 기록으로 남깁니다.

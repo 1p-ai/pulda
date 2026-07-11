@@ -1,7 +1,7 @@
 ---
 title: "a4u.kr AI 커리어 매니지먼트 플랫폼"
 description: "이력서 등록·관리·제출 흐름을 한 화면에 연결한 AI 기반 커리어 매니지먼트 웹 서비스입니다. Genspark·Gemini·Stitch·Replit으로 이어진 AI 협업 파이프라인으로 기획부터 배포까지 완성했습니다."
-client: "Pulda Union"
+client: "풀다"
 year: 2026
 publishedAt: 2025-03-10
 updatedAt: 2026-07-06
@@ -10,8 +10,8 @@ services: ["Product Planning", "Information Architecture", "UI/UX Design", "Full
 tags: ["AI 플랫폼", "커리어 매니지먼트", "이력서 코칭", "Replit", "에이전트 워크플로"]
 featured: true
 outcome: "기획부터 배포까지 AI 협업 파이프라인으로 실서비스를 완성. a4u.kr에서 이력서 등록·관리·제출 흐름을 운영 중입니다."
-seoTitle: "a4u.kr AI 커리어 매니지먼트 플랫폼 구축 사례 · Pulda"
-seoDescription: "Pulda가 Replit으로 구축한 a4u.kr AI 커리어 매니지먼트 플랫폼. 이력서 등록부터 제출 관리까지, Genspark·Gemini·Stitch·Replit AI 파이프라인 전 과정을 소개합니다."
+seoTitle: "a4u.kr AI 커리어 매니지먼트 플랫폼 구축 사례 · 풀다"
+seoDescription: "풀다가 Replit으로 구축한 a4u.kr AI 커리어 매니지먼트 플랫폼. 이력서 등록부터 제출 관리까지, Genspark·Gemini·Stitch·Replit AI 파이프라인 전 과정을 소개합니다."
 ---
 <section class="case-visual-lead image-first">
   <figure class="hero-shot">
@@ -49,9 +49,9 @@ a4u.kr은 AI 기반 커리어 매니지먼트 플랫폼입니다. 구직자가 �
   <div><span>Build & Ship</span><strong>Replit</strong><p>실제 개발·테스트·배포까지 Replit 단일 환경에서 완성, a4u.kr 운영 중</p></div>
 </section>
 
-이 방식이 Pulda의 AI 활용 기준입니다. AI가 모든 것을 대신하는 게 아니라, PM이 문제를 정의하고 지시를 만들고 결과를 검수하는 흐름 자체를 AI가 빠르게 돌리게 합니다.
+이 방식이 풀다의 AI 활용 기준입니다. AI가 모든 것을 대신하는 게 아니라, PM이 문제를 정의하고 지시를 만들고 결과를 검수하는 흐름 자체를 AI가 빠르게 돌리게 합니다.
 
-## Pulda가 맡은 일
+## 풀다가 맡은 일
 
 - 서비스 개념 정의와 핵심 기능 우선순위 결정
 - 이력서 등록→관리→제출 흐름의 정보 구조 설계
@@ -70,4 +70,4 @@ a4u.kr의 이름은 유니어플라이 재직 시절의 apply4u에서 왔습니�
 
 ## 현재 상태
 
-[a4u.kr](https://a4u.kr)은 현재 실서비스로 운영 중입니다. 완성형 제품이라기보다, Pulda가 AI 시대의 웹 서비스를 어떻게 기획하고 실행하는지 보여주는 실증 사례입니다. 앞으로 실제 사용자 피드백을 반영해 이력서 코칭 기능과 매칭 흐름을 확장할 예정입니다.
+[a4u.kr](https://a4u.kr)은 현재 실서비스로 운영 중입니다. 완성형 제품이라기보다, 풀다가 AI 시대의 웹 서비스를 어떻게 기획하고 실행하는지 보여주는 실증 사례입니다. 앞으로 실제 사용자 피드백을 반영해 이력서 코칭 기능과 매칭 흐름을 확장할 예정입니다.

@@ -1,13 +1,13 @@
-# Pulda
+# 풀다
 
-Pulda is a Korean digital project studio that turns complex business, brand, content, and workflow problems into clear web experiences and operational systems.
+풀다 is a Korean digital project studio that turns complex business, brand, content, and workflow problems into clear web experiences and operational systems.
 
-The official website is built as a static Astro site. It presents Pulda's positioning, selected project case studies, working philosophy, contact route, and operations portal policy.
+The official website is built as a static Astro site. It presents 풀다's positioning, selected project case studies, working philosophy, contact route, and operations portal policy.
 
 ## Primary Pages
 
 - [Home](https://puldaunion.com/)
-- [About Pulda](https://puldaunion.com/about/)
+- [풀다 소개](https://puldaunion.com/about/)
 - [Projects](https://puldaunion.com/project/)
 - [Stories](https://puldaunion.com/story/)
 - [Contact](https://puldaunion.com/contact/)
@@ -15,12 +15,12 @@ The official website is built as a static Astro site. It presents Pulda's positi
 ## Representative Case Studies
 
 - [A4U Platform](https://puldaunion.com/project/a4u-platform/)
-- [Pulda Official Website Renewal](https://puldaunion.com/project/pulda-official-website-renewal/)
+- [풀다 공식 웹사이트 리뉴얼](https://puldaunion.com/project/pulda-official-website-renewal/)
 - [Eunjo Imweb Homepage](https://puldaunion.com/project/eunjo-imweb-homepage/)
 
 ## Editorial Notes
 
-- Pulda writes in Korean, with some English interface labels in dark mode.
+- 풀다 writes in Korean, with some English interface labels in dark mode.
 - The site emphasizes first-hand project experience, planning judgment, web production, AI-assisted execution, automation, and lean project leadership.
 - The current visual identity uses aged hanji, deep Taegeuk blue, old Taegeuk red, brush-like typography, and a light/dark dual identity.
 

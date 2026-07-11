@@ -1,7 +1,7 @@
 ---
 title: "풀다 공식 웹사이트 리뉴얼"
 description: "아임웹 기반 기존 사이트의 철학과 메시지를 Astro 기반 브랜드/콘텐츠 허브로 재구성한 공식 웹사이트 리뉴얼 프로젝트입니다."
-client: "Pulda Union"
+client: "풀다"
 year: 2026
 publishedAt: 2026-07-03
 updatedAt: 2026-07-06
@@ -29,7 +29,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 기존 아임웹 사이트는 풀다의 첫 얼굴이었다. Home, Project, Story, Contact, Notice로 이어지는 단순한 구조 안에서 풀다는 스스로를 “매듭을 풀어내는 사람들”로 소개했고, 사회적 가치, 일하는 사람의 행복, 동등한 관계를 중요한 기준으로 세웠다.
 
-이 메시지는 풀다의 본질을 잘 담고 있었지만, 프로젝트 사례와 작업 과정, 기업 블로그형 기록, 향후 콘텐츠 운영까지 담기에는 구조가 좁았다. 새 웹사이트는 기존 문장의 온도를 유지하면서도 Pulda가 실제로 어떤 문제를 어떻게 풀어내는지 보여주는 브랜드/콘텐츠 허브가 되어야 했다.
+이 메시지는 풀다의 본질을 잘 담고 있었지만, 프로젝트 사례와 작업 과정, 기업 블로그형 기록, 향후 콘텐츠 운영까지 담기에는 구조가 좁았다. 새 웹사이트는 기존 문장의 온도를 유지하면서도 풀다가 실제로 어떤 문제를 어떻게 풀어내는지 보여주는 브랜드/콘텐츠 허브가 되어야 했다.
 
 <section class="case-before-after" aria-label="리뉴얼 전후 방향">
   <div class="before-panel">
@@ -57,17 +57,17 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 ## 정확한 화면 기록
 
-아래 이미지는 현재 Astro 사이트에서 다시 캡처한 실제 화면이다. 라이트 모드는 기존 Pulda가 가진 사람 중심의 철학과 전통 상징을 이어받고, 다크 모드는 같은 콘텐츠를 기술, 시스템, AI 실행의 언어로 다시 번역한다.
+아래 이미지는 현재 Astro 사이트에서 다시 캡처한 실제 화면이다. 라이트 모드는 기존 풀다가 가진 사람 중심의 철학과 전통 상징을 이어받고, 다크 모드는 같은 콘텐츠를 기술, 시스템, AI 실행의 언어로 다시 번역한다.
 
 <section class="device-showcase" aria-label="풀다 리뉴얼 라이트와 다크 실제 화면 비교">
   <div class="device-copy">
     <p class="case-label">Live Capture</p>
     <h2>같은 사이트지만, 낮과 밤의 역할이 다릅니다.</h2>
-    <p>라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 붓글씨 로고, 노리개 스크롤 사인으로 Pulda의 태도와 관계의 온도를 보여준다. 다크 모드는 영문 워드마크, 네온 레드, 시스템 그리드, 마우스형 스크롤 사인으로 기술 실행력을 보여준다.</p>
+    <p>라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 붓글씨 로고, 노리개 스크롤 사인으로 풀다의 태도와 관계의 온도를 보여준다. 다크 모드는 영문 워드마크, 네온 레드, 시스템 그리드, 마우스형 스크롤 사인으로 기술 실행력을 보여준다.</p>
   </div>
   <div class="screen-pair">
     <figure><img src="/case/pulda-renewal/home-light-current.png" alt="풀다 리뉴얼 현재 라이트 모드 홈 화면" loading="lazy" /><figcaption>Light · Hanji, brush title, norigae signal</figcaption></figure>
-    <figure><img src="/case/pulda-renewal/home-dark-current.png" alt="풀다 리뉴얼 현재 다크 모드 홈 화면" loading="lazy" /><figcaption>Dark · PULDA wordmark, neon shader, system grid</figcaption></figure>
+    <figure><img src="/case/pulda-renewal/home-dark-current.png" alt="풀다 리뉴얼 현재 다크 모드 홈 화면" loading="lazy" /><figcaption>Dark · 풀다 워드마크, neon shader, system grid</figcaption></figure>
   </div>
 </section>
 
@@ -161,13 +161,13 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
   <div style="--swatch:#ff2d2d"><span></span><strong>Neon Red</strong><small>#ff2d2d</small></div>
 </section>
 
-다크 모드는 단순 반전이 아니라 다른 얼굴로 설계했다. 테크 네이비, 네온 레드, 영문 PULDA 워드마크, 시스템형 메뉴와 스크롤 사인을 사용해 밤의 풀다가 기술과 시스템을 다루는 회사처럼 보이도록 했다.
+다크 모드는 단순 반전이 아니라 다른 얼굴로 설계했다. 테크 네이비, 네온 레드, 영문 풀다 워드마크, 시스템형 메뉴와 스크롤 사인을 사용해 밤의 풀다가 기술과 시스템을 다루는 회사처럼 보이도록 했다.
 
 <section class="case-map" aria-label="풀다 리뉴얼 디자인 포인트">
   <div><span>Color Source</span><strong>진관사 태극기의 빛바랜 천</strong><p>순백색 대신 한지색을 바탕으로 쓰고, 오래된 홍색과 깊은 태극 청색을 CTA, 강조어, 버튼, 섹션 구조에 나누어 적용했습니다.</p></div>
   <div><span>Light Symbol</span><strong>부채 메뉴와 노리개 스크롤 사인</strong><p>모바일 라이트 메뉴는 부채 이미지로 열리고 닫히며, 데스크톱 히어로 우측 하단에는 노리개가 아래 흐름을 안내합니다.</p></div>
   <div><span>Motion</span><strong>매듭에서 풀리는 명주실 셰이더</strong><p>히어로의 붉은 흐름은 단순한 배경 번짐이 아니라, 엉킨 매듭에서 실이 풀리는 이미지를 WebGL 흐름으로 표현했습니다.</p></div>
-  <div><span>Dark System</span><strong>영문 워드마크와 네온 시스템</strong><p>다크 모드는 전통 자산을 줄이고, PULDA 워드마크, 네온 레드, 그리드, 마우스형 스크롤 사인으로 기술 회사의 밤 얼굴을 만듭니다.</p></div>
+  <div><span>Dark System</span><strong>영문 워드마크와 네온 시스템</strong><p>다크 모드는 전통 자산을 줄이고, 풀다 워드마크, 네온 레드, 그리드, 마우스형 스크롤 사인으로 기술 회사의 밤 얼굴을 만듭니다.</p></div>
 </section>
 
 <section class="case-gallery" aria-label="풀다 브랜드 컴포넌트 자산">
@@ -243,6 +243,6 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 ## 리뷰
 
-이 프로젝트는 풀다가 자기 자신을 대상으로 수행한 첫 번째 케이스 스터디다. 그래서 결과물만큼 중요한 것은 판단의 기록이다. 어떤 상징은 Pulda만의 고유 자산으로 남기고, 어떤 작업 방식은 다음 프로젝트에도 이전 가능한 기준으로 분리했다.
+이 프로젝트는 풀다가 자기 자신을 대상으로 수행한 첫 번째 케이스 스터디다. 그래서 결과물만큼 중요한 것은 판단의 기록이다. 어떤 상징은 풀다만의 고유 자산으로 남기고, 어떤 작업 방식은 다음 프로젝트에도 이전 가능한 기준으로 분리했다.
 
 앞으로 이 페이지는 최종 배포, Sanity 연결, 실제 콘텐츠 운영이 진행될수록 완료형 케이스 스터디로 업데이트한다.

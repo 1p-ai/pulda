@@ -36,8 +36,23 @@ seoDescription: "풀다가 PHP 기반으로 작업한 인천장애인인권영�
 - 행사가 끝난 뒤에도 기록이 남는 콘텐츠 운영 구조 반영
 - 공익/인권 주제에 맞는 명확하고 차분한 정보 표현 기준 적용
 
+<section class="capture-slot-grid" aria-label="인천장애인인권영화제 추가 캡처 예정 화면">
+  <article class="capture-slot">
+    <span>Capture Slot</span>
+    <strong>영화제 소개/메인 기록</strong>
+    <p>운영 이관 전 작업 당시의 메인 또는 영화제 소개 화면이 있다면 프로젝트의 성격을 더 정확히 보여줄 수 있습니다.</p>
+    <small>권장 파일명: /case/incheon-disability-human-rights-film-festival/home-record.png</small>
+  </article>
+  <article class="capture-slot">
+    <span>Capture Slot</span>
+    <strong>상영작/일정 구조</strong>
+    <p>상영작, 일정, 공지처럼 영화제 운영 정보가 누적되는 화면을 비식별 상태로 넣는 자리를 남깁니다.</p>
+    <small>권장 파일명: /case/incheon-disability-human-rights-film-festival/program-record.png</small>
+  </article>
+</section>
+
 ## 작업 기준
 
 공익 행사 웹사이트는 메시지와 운영 정보가 함께 있어야 합니다. 취지만 강하면 참여 방법이 흐려지고, 정보만 나열하면 영화제가 가진 방향이 약해집니다.
 
-이 케이스는 Pulda가 행사 운영, 콘텐츠 기록, 사회적 메시지를 함께 담아야 하는 웹사이트를 어떻게 정리하는지 보여주는 작업으로 남깁니다.
+이 케이스는 풀다가 행사 운영, 콘텐츠 기록, 사회적 메시지를 함께 담아야 하는 웹사이트를 어떻게 정리하는지 보여주는 작업으로 남깁니다.

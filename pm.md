@@ -915,3 +915,14 @@ Pulda 사이트의 장기 이벤트 또는 숨은 이스터에그 후보로 `슬
 - CMS 판단: 지금 단계에서 Notion을 곧바로 공개 CMS로 바꾸면 배포 안정성과 구조가 흔들릴 수 있다. 단기에는 Astro Markdown을 기준 원본으로 유지하고, Notion은 기획/메모/운영 기록 저장소로 사용한다. 이후 풀다 시스템, Sanity, Codex 등록 흐름으로 이전 가능한 frontmatter 구조를 유지한다.
 - 목록 UX: 대표 이미지가 아직 없는 과제도 늘어날 수 있으므로 이미지 없는 항목에는 임시 과제 썸네일 슬롯을 보여 목록 레이아웃을 안정화한다.
 - 시각 자료 기준: 공개 URL이 있는 과제는 현재 사이트 스크린샷을 대표 이미지로 사용한다. 운영 종료/이관 등으로 공개 URL을 제공하지 않는 과제는 외부 URL을 노출하지 않고 내부 기록용 커버를 사용한다.
+
+## 2026-07-11 Wishket Portfolio Reference PM Note
+
+- 사용자가 전달한 위시켓 포트폴리오 URL 4건을 과제 콘텐츠 보강 자료로 확인했다.
+- 참조 URL:
+  - `https://www.wishket.com/partners/p/10birth/portfolio/297291` = 포에리아 펫페어
+  - `https://www.wishket.com/partners/p/10birth/portfolio/297331` = 경기신문 씨사이드 마라톤대회
+  - `https://www.wishket.com/partners/p/10birth/portfolio/297346` = 인테리어 은조
+  - `https://www.wishket.com/partners/p/10birth/portfolio/45585` = 한살림장보기앱
+- PM 판단: 위시켓 페이지는 로그인 세션이 있어야 본문 확인이 가능하므로 Pulda 사이트에서 무조건 외부 링크로 노출하지 않는다. 콘텐츠 보강의 근거 자료로 사용하고, 공개 페이지에는 확인된 역할과 작업 범위만 풀다 언어로 정리한다.
+- `한살림장보기앱`은 웹사이트가 아니라 앱 기획 PL 과제이므로 별도 과제로 추가한다. 확인된 정보는 2015.08~2016.03, 한살림생협, 기획 PL, PPT 기획, UI/UX 기획이며 그 이상은 과장하지 않는다.

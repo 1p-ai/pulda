@@ -530,3 +530,51 @@ Replit AI, Gemini, Codex 등 코드 수정 도구가 기존 구현을 통째로 
 - 한살림장보기앱은 웹사이트 구축이 아니라 앱 기획 PL 과제로 분리한다.
 - 추가 스크린샷은 공개 페이지에서 확인 가능한 화면만 사용하고, 로그인 화면이나 운영상 의미가 약한 화면은 상세에 배치하지 않는다.
 - `npm run build`와 `npm run qa:check`를 통과해야 한다.
+
+## 19. 2026-07-11 Current QA Broadcast
+
+### 검수 범위
+
+- 새 과제 콘텐츠 추가 및 위시켓 기준 보강.
+- 공개 사이트 스크린샷/내부 SVG 커버/상세 이미지 추가.
+- 사용자 캡처 전달을 위한 설명형 캡처 슬롯 추가.
+- 다크모드 브랜드 표기 정리: 본문/라벨은 `풀다`, 다크모드 헤더와 푸터 로고/저작권은 `PULDA` 유지.
+- 공통 상세 이미지 레이아웃, 과제 목록 썸네일, 로컬 미리보기 안정화 이슈 확인.
+
+### 현재 상태
+
+- `npm run build`: 최근 검증 통과. 18개 페이지 생성.
+- `npm run qa:check`: 통과.
+- 잔여 QA 경고는 콘텐츠 길이 경고이며, 현재 배포 차단 이슈는 아니다.
+- `PULDA/Pulda` 검색 결과는 의도한 예외인 다크모드 헤더/푸터 표기만 남아 있다.
+
+### 열린 이슈
+
+| Priority | Issue | Owner | Status | 판단 |
+| --- | --- | --- | --- | --- |
+| P1 | 프로젝트/스토리 본문이 전반적으로 짧다는 QA 경고 | PL-03 Content | Open | 배포 차단은 아니지만 SEO/GEO와 수주 설득력에 영향 |
+| P1 | 캡처 슬롯은 자리만 잡힌 상태이며 실제 이미지가 필요 | PL-03 Content + PL-02 Design | Open | 사용자가 캡처 전달 후 실제 이미지 블록으로 교체 필요 |
+| P1 | 도메인 연결 전 `PUBLIC_SITE_URL`, canonical, sitemap, robots, RSS, llms.txt 최종 도메인 일치 확인 필요 | PL-04 DevOps + PL-05 Marketing | Open | 배포 전 필수 게이트 |
+| P2 | 위시켓 자료는 로그인 세션 기반 확인 자료라 공개 CTA/근거 링크로 노출하지 않음 | PM + PL-03 Content | Monitoring | 내용 보강 근거로만 사용 |
+| P2 | 다크모드 브랜드 표기 예외 기준이 혼선 가능 | PL-02 Design + PL-06 Development | Monitoring | 헤더/푸터 로고와 푸터 저작권만 영문 유지 |
+| P2 | 공개 URL 캡처 중 일부 미사용 이미지가 남아 있음 | PL-03 Content + PL-06 Development | Open | 추후 실제 캡처 교체 시 정리 여부 결정 |
+| P2 | 로컬 미리보기 포트는 세션별로 꼬일 수 있음 | PL-04 DevOps | Monitoring | 최종 안내 시 실제 포트 명시 |
+| P3 | 줄바꿈 경고는 Windows Git 환경 경고로 현재 기능 영향 없음 | PL-06 Development | Monitoring | 별도 포맷 정책 변경 전까지 보류 |
+
+### 공유 지시
+
+- PM: 다음 우선순위는 콘텐츠 깊이 보강, 사용자 캡처 반영, 배포/도메인 게이트 순으로 둔다.
+- PL-02 Design: 캡처 슬롯이 실제 이미지로 바뀔 때 본문 리듬과 다크모드 대비를 확인한다.
+- PL-03 Content: 각 과제의 작업 배경, 맡은 일, 운영 판단, 결과 문단을 보강해 `very short` 경고를 줄인다.
+- PL-04 DevOps: 도메인 연결 전 배포 환경변수와 산출물 도메인 일치 여부를 재검수한다.
+- PL-05 Marketing: SEO/GEO 관점에서 프로젝트 상세의 고유 키워드와 구조화 데이터 품질을 점검한다.
+- PL-06 Development: 이미지 슬롯 교체 시 기존 `screen-pair`, `capture-slot-grid` 규칙을 유지하고 전체 재작성 금지.
+- PL-07 Knowledge Ops: Notion/Drive에 보관될 원본 캡처와 공개용 비식별 캡처를 구분한다.
+
+## 20. 2026-07-12 Contact Form QA Note
+
+- `/contact/` 만남 페이지가 단순 `mailto:` 버튼에서 입력형 문의폼으로 전환되었다.
+- 정적 Astro 배포 구조상 1차 구현은 FormSubmit 외부 폼 액션을 사용하며, 제출 내용은 `1p@puldaunion.com`으로 전달되도록 설정했다.
+- `npm run build`와 `npm run qa:check`는 통과했다.
+- 열린 확인 항목: 배포 후 첫 테스트 문의를 실제로 제출하고, `1p@puldaunion.com` 수신함에서 FormSubmit 활성화 및 수신 여부를 확인해야 한다.
+- 기존 콘텐츠 길이 경고는 그대로 남아 있으며 이번 문의폼 변경과는 별도 이슈다.

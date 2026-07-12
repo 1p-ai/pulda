@@ -2,13 +2,27 @@
   <title id="title">한살림장보기앱 기획 프로젝트 커버</title>
   <desc id="desc">한살림생협 장보기 앱 기획 PL 및 UI/UX 기획 과제 커버 이미지</desc>
   <rect width="1440" height="1000" fill="#fbf4e7"/>
-  <path d="M0 680 C220 610 380 720 610 632 C850 540 1030 620 1228 538 C1336 493 1400 505 1440 520 V1000 H0 Z" fill="#13233a"/>
-  <path d="M0 0 H1440 V420 C1210 508 1038 402 830 480 C610 562 428 448 206 526 C104 562 38 566 0 552 Z" fill="#3f7f57" opacity=".92"/>
-  <path d="M0 594 C240 520 410 644 640 550 C860 460 1020 548 1238 466 C1338 428 1394 440 1440 454" fill="none" stroke="#9f3a32" stroke-width="8" opacity=".72"/>
-  <rect x="120" y="118" width="1200" height="764" fill="none" stroke="#13233a" stroke-width="2" opacity=".24"/>
+  <rect width="1440" height="514" fill="#3f7f57"/>
+  <rect y="514" width="1440" height="206" fill="#fbf4e7"/>
+  <rect y="720" width="1440" height="280" fill="#13233a"/>
+  <path d="M0 476 C230 432 432 508 650 452 C874 394 1058 446 1252 398 C1346 374 1408 382 1440 396 V514 H0 Z" fill="#fbf4e7"/>
+  <path d="M0 492 C230 446 430 522 650 466 C872 410 1056 460 1250 412 C1344 388 1406 396 1440 410" fill="none" stroke="#9f3a32" stroke-width="6" opacity=".5"/>
+  <path d="M0 720 H1440" fill="none" stroke="#3f7f57" stroke-width="4" opacity=".24"/>
+  <rect x="120" y="118" width="1200" height="764" fill="none" stroke="#13233a" stroke-width="2" opacity=".18"/>
+  <rect x="136" y="542" width="860" height="138" fill="#fbf4e7" opacity=".98"/>
+  <path d="M150 542 H980" stroke="#3f7f57" stroke-width="2" opacity=".18"/>
+  <path d="M150 680 H980" stroke="#13233a" stroke-width="2" opacity=".16"/>
+  <g opacity=".16">
+    <rect x="940" y="132" width="172" height="306" rx="26" fill="#fbf4e7"/>
+    <rect x="976" y="178" width="100" height="12" rx="6" fill="#13233a"/>
+    <rect x="976" y="220" width="88" height="88" rx="18" fill="#13233a"/>
+    <rect x="976" y="334" width="104" height="12" rx="6" fill="#13233a"/>
+    <rect x="976" y="366" width="72" height="12" rx="6" fill="#13233a"/>
+  </g>
   <text x="160" y="210" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="4">APP PLANNING</text>
   <text x="160" y="344" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="78" font-weight="800">한살림장보기앱</text>
   <text x="160" y="438" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="50" font-weight="700">기획 PL · UI/UX 기획</text>
-  <text x="160" y="592" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="28">생활협동조합 장보기 경험을 모바일 앱 구조로 정리한 과제입니다.</text>
-  <text x="160" y="664" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="25" opacity=".74">PPT Planning · IA · Mobile UX</text>
+  <text x="160" y="598" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="30" font-weight="800">생활협동조합 장보기 경험을</text>
+  <text x="160" y="648" fill="#13233a" font-family="Noto Sans KR, Arial, sans-serif" font-size="30" font-weight="800">모바일 앱 구조로 정리한 과제입니다.</text>
+  <text x="160" y="824" fill="#fbf4e7" font-family="Noto Sans KR, Arial, sans-serif" font-size="25" opacity=".84">PPT Planning · IA · Mobile UX</text>
 </svg>

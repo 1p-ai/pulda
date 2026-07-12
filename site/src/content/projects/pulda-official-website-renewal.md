@@ -63,7 +63,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
   <div class="device-copy">
     <p class="case-label">Live Capture</p>
     <h2>같은 사이트지만, 낮과 밤의 역할이 다릅니다.</h2>
-    <p>라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 붓글씨 로고, 노리개 스크롤 사인으로 풀다의 태도와 관계의 온도를 보여준다. 다크 모드는 영문 워드마크, 네온 레드, 시스템 그리드, 마우스형 스크롤 사인으로 기술 실행력을 보여준다.</p>
+    <p>라이트 모드는 오래된 태극기의 빛바랜 천, 한지, 붓글씨 로고, 노리개 스크롤 사인으로 풀다의 태도와 관계의 온도를 보여준다. 다크 모드는 영문 워드마크, 네온 레드, 시스템 그리드, 마우스형 스크롤 사인으로 기술 실행력을 보여준다.</p>
   </div>
   <div class="screen-pair">
     <figure><img src="/case/pulda-renewal/home-light-current.png" alt="풀다 리뉴얼 현재 라이트 모드 홈 화면" loading="lazy" /><figcaption>Light · Hanji, brush title, norigae signal</figcaption></figure>
@@ -126,28 +126,11 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 ## 디자인 방향
 
-라이트 모드는 진관사 태극기의 빛바랜 천, 한지, 오래된 홍색, 깊은 태극 청색에서 출발했다. 기존 사이트가 가진 사람과 관계의 정서를 이어가기 위해 붓글씨 로고, 한지 배경, 부채형 모바일 메뉴, 노리개 스크롤 사인을 사용했다.
+라이트 모드는 오래된 태극기의 빛바랜 천, 한지, 오래된 홍색, 깊은 태극 청색에서 출발했다. 기존 사이트가 가진 사람과 관계의 정서를 이어가기 위해 붓글씨 로고, 한지 배경, 부채형 모바일 메뉴, 노리개 스크롤 사인을 사용했다.
 
-### 진관사 태극기 참조
+### 오래된 태극기 색감
 
-진관사 태극기는 원본 사진을 임의로 재가공해 쓰기보다, 저작권과 출처가 확인된 이미지 자산을 확보한 뒤 실제 이미지 슬롯에 반영하는 편이 안전하다. 이번 1차 정리에서는 사진을 대신해 색과 질감의 출처를 명확히 남기고, 공개 전 검토 단계에서 원본 이미지 또는 사용 허가된 전시 사진을 넣을 수 있도록 참조 영역을 마련했다.
-
-<section class="heritage-reference" aria-label="진관사 태극기 디자인 참조">
-  <div class="heritage-flag-card" aria-hidden="true">
-    <span class="heritage-stain stain-a"></span>
-    <span class="heritage-stain stain-b"></span>
-    <span class="heritage-taegeuk"></span>
-    <span class="heritage-trigram trigram-a"></span>
-    <span class="heritage-trigram trigram-b"></span>
-    <span class="heritage-trigram trigram-c"></span>
-    <span class="heritage-trigram trigram-d"></span>
-  </div>
-  <div>
-    <p class="case-label">Heritage Source</p>
-    <h3>빛바랜 천, 먹색, 오래된 홍색과 청색</h3>
-    <p>한지색 바탕, 탁한 홍색, 깊은 청색, 검은 먹선의 대비를 UI 토큰으로 옮겼습니다. 실제 진관사 태극기 사진은 사용권이 확인되는 파일을 확보한 뒤 이 위치에 교체하면 됩니다.</p>
-  </div>
-</section>
+오래된 태극기에서 느껴지는 빛바랜 천, 먹색, 탁한 홍색과 깊은 청색을 라이트 모드의 출발점으로 삼았다. 특정 원본 이미지를 직접 노출하거나 재가공하기보다, 그 색감과 시간의 층위를 UI 토큰과 화면 분위기로 번역했다.
 
 ### 컬러 조견표
 
@@ -164,7 +147,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 다크 모드는 단순 반전이 아니라 다른 얼굴로 설계했다. 테크 네이비, 네온 레드, 영문 풀다 워드마크, 시스템형 메뉴와 스크롤 사인을 사용해 밤의 풀다가 기술과 시스템을 다루는 회사처럼 보이도록 했다.
 
 <section class="case-map" aria-label="풀다 리뉴얼 디자인 포인트">
-  <div><span>Color Source</span><strong>진관사 태극기의 빛바랜 천</strong><p>순백색 대신 한지색을 바탕으로 쓰고, 오래된 홍색과 깊은 태극 청색을 CTA, 강조어, 버튼, 섹션 구조에 나누어 적용했습니다.</p></div>
+  <div><span>Color Source</span><strong>오래된 태극기의 빛바랜 천</strong><p>순백색 대신 한지색을 바탕으로 쓰고, 오래된 홍색과 깊은 태극 청색을 CTA, 강조어, 버튼, 섹션 구조에 나누어 적용했습니다.</p></div>
   <div><span>Light Symbol</span><strong>부채 메뉴와 노리개 스크롤 사인</strong><p>모바일 라이트 메뉴는 부채 이미지로 열리고 닫히며, 데스크톱 히어로 우측 하단에는 노리개가 아래 흐름을 안내합니다.</p></div>
   <div><span>Motion</span><strong>매듭에서 풀리는 명주실 셰이더</strong><p>히어로의 붉은 흐름은 단순한 배경 번짐이 아니라, 엉킨 매듭에서 실이 풀리는 이미지를 WebGL 흐름으로 표현했습니다.</p></div>
   <div><span>Dark System</span><strong>영문 워드마크와 네온 시스템</strong><p>다크 모드는 전통 자산을 줄이고, 풀다 워드마크, 네온 레드, 그리드, 마우스형 스크롤 사인으로 기술 회사의 밤 얼굴을 만듭니다.</p></div>

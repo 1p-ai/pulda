@@ -61,3 +61,11 @@
 - `qa.md`: 변경 후 검증과 회귀 리스크 기록
 - `pm.md`: 대규모 교체 승인과 우선순위 판단
 - `WORKLOG.md`: 실제 변경 이력 기록
+
+## 2026-07-11 QA Broadcast for Development
+
+- 현재 사이트는 최근 `npm run build`, `npm run qa:check`를 통과했다.
+- 후속 개발의 주요 리스크는 기능 오류보다 콘텐츠 슬롯 교체와 다크모드 표기 회귀다.
+- 캡처 슬롯을 실제 이미지로 교체할 때는 `capture-slot-grid`를 무리하게 삭제하지 말고, 기존 `screen-pair`/`hero-shot`/`capture-slot` 패턴 중 필요한 범위만 바꾼다.
+- 다크모드에서 `PULDA` 영문 표기는 헤더/푸터 로고와 푸터 저작권에만 유지한다. 본문/라벨의 브랜드명은 `풀다` 기준이다.
+- `site/dist/`는 빌드 산출물이므로 직접 수정하지 않는다.

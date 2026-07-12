@@ -2,8 +2,125 @@
 import ContentLayout from '../layouts/ContentLayout.astro';
 ---
 <ContentLayout title="만남" description="풀어야 할 문제가 있다면 풀다와 대화를 시작하세요." canonicalPath="/contact/" eyebrow="풀다 문의">
-  <section class="page-head"><div class="shell"><p class="eyebrow"><span class="light-copy">만남의 시작</span><span class="dark-copy">Transmission Open</span></p><h1><span class="light-copy">풀어야 할 문제가<br>있으신가요?</span><span class="dark-copy">Ready to<br>engineer clarity?</span></h1><p><span class="light-copy">아직 정리되지 않은 질문이어도 괜찮습니다. 문제의 맥락, 목표, 현재 막힌 지점을 함께 들여다보며 시작점을 찾겠습니다.</span><span class="dark-copy">Bring the unresolved brief. We will map the signal, define the operating question, and shape the first executable path.</span></p></div></section>
-  <section class="content"><div class="shell section-grid"><aside><p class="eyebrow"><span class="light-copy">문의</span><span class="dark-copy">Contact</span></p></aside><div class="panel"><h2>1p@puldaunion.com</h2><p><span class="light-copy">프로젝트 문의, 협업 제안, 서비스 구조 상담을 메일로 보내주세요. 목적과 현재 상황을 간단히 적어주시면 다음 대화를 준비하겠습니다.</span><span class="dark-copy">Send project inquiries, collaboration notes, or system problems. A concise context note is enough to begin.</span></p><a class="button" href="mailto:1p@puldaunion.com">1p@puldaunion.com</a><div class="pill-list"><span class="pill">Strategy</span><span class="pill">UI/UX</span><span class="pill">Web Development</span><span class="pill">AI Workflow</span></div></div></div></section>
-  <section class="content"><div class="shell section-grid"><aside><p class="eyebrow"><span class="light-copy">협업자</span><span class="dark-copy">Partners</span></p></aside><div class="panel"><h2><span class="light-copy">함께 풀 프로젝트를 기다립니다.</span><span class="dark-copy">Open to thoughtful specialists.</span></h2><p><span class="light-copy">고객 문의뿐 아니라 디자인, 개발, 콘텐츠, 자동화, 운영 개선 분야의 협업 제안도 열어둡니다. 역할과 관심 있는 문제를 간단히 적어 보내주세요.</span><span class="dark-copy">Collaboration notes from design, engineering, content, automation, and operations specialists are welcome.</span></p></div></div></section>
-  <section class="content"><div class="shell section-grid"><aside><p class="eyebrow"><span class="light-copy">위치</span><span class="dark-copy">Base</span></p></aside><div class="panel"><h2><span class="light-copy">대한민국 수도권을 기반으로 일합니다.</span><span class="dark-copy">Seoul Metro, KR</span></h2><p><span class="light-copy">대면 미팅과 원격 협업을 모두 지원합니다. 초기 상담은 문제의 성격에 따라 온라인으로 빠르게 진행할 수 있습니다.</span><span class="dark-copy">Remote-first collaboration is available, with focused sessions for discovery, design review, and launch planning.</span></p></div></div></section>
+  <section class="page-head">
+    <div class="shell">
+      <p class="eyebrow"><span class="light-copy">만남의 시작</span><span class="dark-copy">Transmission Open</span></p>
+      <h1><span class="light-copy">풀어야 할 문제가<br>있으신가요?</span><span class="dark-copy">Ready to<br>engineer clarity?</span></h1>
+      <p><span class="light-copy">아직 정리되지 않은 질문이어도 괜찮습니다. 문제의 맥락, 목표, 현재 막힌 지점을 함께 들여다보며 시작점을 찾겠습니다.</span><span class="dark-copy">Bring the unresolved brief. We will map the signal, define the operating question, and shape the first executable path.</span></p>
+    </div>
+  </section>
+  <section class="content">
+    <div class="shell section-grid">
+      <aside>
+        <p class="eyebrow"><span class="light-copy">문의</span><span class="dark-copy">Contact</span></p>
+      </aside>
+      <div class="panel contact-panel">
+        <div class="contact-intro">
+          <h2>1p@puldaunion.com</h2>
+          <p><span class="light-copy">프로젝트 문의, 협업 제안, 서비스 구조 상담을 남겨주세요. 보내주신 내용은 1p@puldaunion.com으로 전달됩니다.</span><span class="dark-copy">Send project inquiries, collaboration notes, or system problems. The message is routed to 1p@puldaunion.com.</span></p>
+        </div>
+        <!-- 2026-07-12: static Astro deployment needs an external form endpoint until a serverless mailer is selected. -->
+        <form class="contact-form" action="https://formsubmit.co/1p@puldaunion.com" method="POST">
+          <input type="hidden" name="_subject" value="[풀다 문의] 웹사이트 문의가 도착했습니다" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://puldaunion.com/contact/?sent=1" />
+          <input type="text" name="_honey" class="contact-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-grid">
+            <label>
+              <span>이름</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="이름을 입력해주세요" />
+            </label>
+            <label>
+              <span>회사명</span>
+              <input type="text" name="company" autocomplete="organization" placeholder="회사 또는 단체명" />
+            </label>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>이메일</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="답장 받을 이메일 주소" />
+            </label>
+            <label>
+              <span>연락처</span>
+              <input type="text" name="phone" autocomplete="tel" placeholder="선택 입력" />
+            </label>
+          </div>
+          <div class="form-grid form-grid-single">
+            <label>
+              <span>문의 유형</span>
+              <select name="project_type" required>
+                <option value="">선택해주세요</option>
+                <option value="컨설팅/기획">컨설팅/기획</option>
+                <option value="브랜드/웹사이트 구축">브랜드/웹사이트 구축</option>
+                <option value="프로젝트 관리">프로젝트 관리</option>
+                <option value="콘텐츠 제작">콘텐츠 제작</option>
+                <option value="운영유지보수">운영유지보수</option>
+                <option value="자동화">자동화</option>
+                <option value="마케팅/광고">마케팅/광고</option>
+                <option value="협업 제안">협업 제안</option>
+                <option value="크루 신청">크루 신청</option>
+                <option value="기타">기타</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span>예산 및 일정 계획</span>
+            <input type="text" name="budget_timeline" placeholder="예: 8월 착수 희망, 예산 협의 필요" />
+          </label>
+          <label>
+            <span>풀어야 할 문제</span>
+            <textarea name="message" rows="8" required placeholder="현재 상황, 목표, 막힌 지점, 참고 링크를 편하게 적어주세요."></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button" type="submit">문의 보내기</button>
+            <p>첫 전송 시 수신 메일에서 FormSubmit 활성화 확인이 필요할 수 있습니다.</p>
+          </div>
+          <p class="form-success" data-form-success>문의가 전송되었습니다. 곧 메일함에서 내용을 확인하겠습니다.</p>
+        </form>
+        <div class="pill-list"><span class="pill">Strategy</span><span class="pill">UI/UX</span><span class="pill">Web Development</span><span class="pill">AI Workflow</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <div class="shell section-grid">
+      <aside><p class="eyebrow"><span class="light-copy">협업자</span><span class="dark-copy">Partners</span></p></aside>
+      <div class="panel"><h2><span class="light-copy">함께 풀 프로젝트를 기다립니다.</span><span class="dark-copy">Open to thoughtful specialists.</span></h2><p><span class="light-copy">고객 문의뿐 아니라 디자인, 개발, 콘텐츠, 자동화, 운영 개선 분야의 협업 제안도 열어둡니다. 역할과 관심 있는 문제를 간단히 적어 보내주세요.</span><span class="dark-copy">Collaboration notes from design, engineering, content, automation, and operations specialists are welcome.</span></p></div>
+    </div>
+  </section>
+  <section class="content">
+    <div class="shell section-grid">
+      <aside><p class="eyebrow"><span class="light-copy">위치</span><span class="dark-copy">Base</span></p></aside>
+      <div class="panel"><h2><span class="light-copy">대한민국 수도권을 기반으로 일합니다.</span><span class="dark-copy">Seoul Metro, KR</span></h2><p><span class="light-copy">대면 미팅과 원격 협업을 모두 지원합니다. 초기 상담은 문제의 성격에 따라 온라인으로 빠르게 진행할 수 있습니다.</span><span class="dark-copy">Remote-first collaboration is available, with focused sessions for discovery, design review, and launch planning.</span></p></div>
+    </div>
+  </section>
 </ContentLayout>
+
+<style>
+  .contact-panel{display:grid;gap:26px}
+  .contact-intro{max-width:760px}
+  .contact-form{display:grid;gap:16px;max-width:860px}
+  .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .form-grid-single{grid-template-columns:1fr}
+  .contact-form label{display:grid;gap:8px}
+  .contact-form label span{color:var(--red);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid rgba(var(--navy-rgb),.22);background:rgba(var(--paper-rgb),.72);color:var(--navy);padding:13px 14px;font:inherit;font-size:15px;line-height:1.5;border-radius:0}
+  .contact-form textarea{resize:vertical;min-height:190px}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid rgba(var(--red-rgb),.36);outline-offset:2px;border-color:var(--red)}
+  .contact-form ::placeholder{color:rgba(var(--navy-rgb),.42)}
+  .contact-honey{position:absolute;left:-9999px;opacity:0}
+  .form-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .form-actions p{margin:0;font-size:13px;color:rgba(var(--navy-rgb),.62)}
+  .form-success{display:none;margin:0;padding:14px 16px;border:1px solid rgba(var(--red-rgb),.34);background:rgba(var(--red-rgb),.08);font-size:14px}
+  :global(html[data-theme="dark"]) .contact-form input,:global(html[data-theme="dark"]) .contact-form select,:global(html[data-theme="dark"]) .contact-form textarea{border-color:rgba(237,244,255,.16);background:rgba(237,244,255,.055);color:var(--tech-white)}
+  :global(html[data-theme="dark"]) .contact-form ::placeholder,:global(html[data-theme="dark"]) .form-actions p{color:rgba(237,244,255,.48)}
+  :global(html[data-theme="dark"]) .form-success{border-color:rgba(var(--tech-red-rgb),.38);background:rgba(var(--tech-red-rgb),.1)}
+  @media(max-width:760px){.form-grid{grid-template-columns:1fr}.form-actions{display:grid}.form-actions .button{width:100%}}
+</style>
+
+<script>
+  const success = document.querySelector('[data-form-success]');
+  if (success && new URLSearchParams(window.location.search).get('sent') === '1') {
+    success.style.display = 'block';
+  }
+</script>

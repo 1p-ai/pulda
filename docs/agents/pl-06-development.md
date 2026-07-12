@@ -63,3 +63,15 @@
 | 조치 | 다크 모드 nav hover를 별도 override하여 직선 네온 라인으로 복구했다. PL-06 Development 문서를 신설해 소스 구현과 사이드이펙트 통제를 전담하도록 했다. |
 | 검증 | npm run build 통과. 브라우저에서 /project/, /story/, /project/pulda-official-website-renewal/, /story/why-we-are-pulda/ 접근 확인. qa-check passed. |
 | 상태 | Resolved |
+
+## 2026-07-11 QA Broadcast Intake
+
+| 항목 | 내용 |
+| --- | --- |
+| 보고일 | 2026-07-11 |
+| 심각도 | Medium |
+| 영역 | Development |
+| 관찰 | 캡처 슬롯, 상세 이미지 레이아웃, 브랜드 표기 변경이 적용되었고 빌드/QA는 통과했다. |
+| 리스크 | 후속 캡처 교체 과정에서 기존 이미지 containment 규칙이나 다크모드 표기 예외가 회귀할 수 있다. |
+| 제안 | `site/src/layouts/ContentLayout.astro`의 `screen-pair`, `hero-shot`, `capture-slot-grid` 패턴을 유지한다. 영문 `PULDA`는 헤더/푸터 로고와 푸터 저작권 예외만 허용한다. |
+| 상태 | Open |

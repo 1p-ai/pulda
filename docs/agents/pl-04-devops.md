@@ -45,3 +45,27 @@ PL 문서는 최종 결정을 확정하지 않는다. 아래 형식으로 pm.md�
 - Replit으로 이어갈 때는 GitHub 저장소를 import하고, 작업 전후 pull/push 흐름을 유지한다.
 - Codex 세션이 중단되면 AGENTS.md, agent.md, pm.md, qa.md, WORKLOG.md, DESIGN.md, handoff 문서를 기준으로 복구한다.
 - /admin은 noindex만으로 보호되지 않으며 호스팅 레벨 접근 제어가 필요하다.
+
+## 2026-07-11 QA Broadcast Intake
+
+| 항목 | 내용 |
+| --- | --- |
+| 보고일 | 2026-07-11 |
+| 심각도 | High |
+| 영역 | DevOps |
+| 관찰 | 현재 빌드와 QA는 통과했지만, 도메인 연결 전 최종 환경변수와 산출물 도메인 일치 검수가 남아 있다. |
+| 리스크 | `PUBLIC_SITE_URL`, canonical, sitemap, robots, RSS, llms.txt 중 하나라도 다른 도메인을 가리키면 SEO/GEO 초기 신호가 꼬일 수 있다. |
+| 제안 | 도메인 연결 직전 배포 환경변수, 빌드 산출물, 미리보기 URL, production URL을 한 번에 검수한다. 로컬 미리보기 포트는 최종 안내마다 실제 포트를 명시한다. |
+| 상태 | Open |
+
+## 2026-07-12 Contact Form DevOps Note
+
+| 항목 | 내용 |
+| --- | --- |
+| 보고일 | 2026-07-12 |
+| 심각도 | Medium |
+| 영역 | Contact / Deployment |
+| 관찰 | `/contact/` 문의폼은 정적 Astro 배포에서도 동작하도록 FormSubmit 외부 폼 액션을 사용한다. |
+| 리스크 | 첫 전송 시 `1p@puldaunion.com` 수신함에서 활성화 확인이 필요할 수 있으며, 장기 운영에서는 스팸/개인정보 보관/서비스 의존성 검토가 필요하다. |
+| 제안 | 배포 후 실제 테스트 문의를 1회 발송해 활성화와 수신을 확인한다. 이후 서버리스 메일러 또는 전용 폼 서비스 전환 여부를 PM과 결정한다. |
+| 상태 | Open |

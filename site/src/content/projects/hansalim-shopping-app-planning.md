@@ -4,7 +4,7 @@ description: "한살림생협의 모바일 장보기 앱을 위한 기능 구조
 client: "한살림생협"
 year: 2016
 publishedAt: 2016-03-01
-cover: "/case/hansalim-shopping-app/cover.svg"
+cover: "/case/hansalim-shopping-app/cover.svg?v=20260711-contrast"
 services: ["App Planning", "Planning Lead", "Mobile IA", "UI/UX Planning"]
 tags: ["앱기획", "UI/UX", "커머스", "생활협동조합"]
 featured: false
@@ -13,7 +13,7 @@ seoTitle: "한살림장보기앱 기획 PL 작업"
 seoDescription: "풀다가 기획 PL로 참여한 한살림장보기앱 모바일 IA와 UI/UX 기획 과제 기록입니다."
 ---
 <figure class="hero-shot">
-  <img src="/case/hansalim-shopping-app/cover.svg" alt="한살림장보기앱 기획 과제 커버" loading="eager" />
+  <img src="/case/hansalim-shopping-app/cover.svg?v=20260711-contrast" alt="한살림장보기앱 기획 과제 커버" loading="eager" />
 </figure>
 
 <section class="case-summary-grid" aria-label="프로젝트 핵심 요약">

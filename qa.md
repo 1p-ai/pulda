@@ -1,12 +1,22 @@
 # Pulda QA Lead Notes
 
+## 21. 2026-07-17 Pulda OS Project Content QA
+
+- 검수 대상: `site/src/content/projects/pulda-os.md`, `/project/`, `/project/pulda-os/`
+- `npm run build`: 통과. 전체 19개 페이지 및 Pulda OS 상세 페이지 생성 확인.
+- `npm run qa:check`: 통과. Pulda OS cover 없음 경고와 기존 콘텐츠 길이 경고는 남아 있음.
+- 데스크톱 시각 QA: 목록 카드와 상세 페이지 정상 노출, `진행 중 · MVP 개발` 상태 및 4단계 순환구조 표시 확인.
+- 레이아웃/런타임: 가로 넘침 없음, 브라우저 콘솔 오류 없음.
+- 미확인: 실제 화면 자산, 모바일·다크 모드 사용자 확인, 공개 외부 URL.
+- 상태: `Implemented` (User Verified/Closed 아님).
+
 
 
 - 문서 상태: Active / Living Document
 
-- 기준일: 2026-07-08
+- 기준일: 2026-07-17
 
-- 최근 검증: 2026-07-08 기준 `site/`에서 `npm run build` 및 `npm run qa:check`가 모두 통과했다.
+- 최근 검증: 2026-07-17 기준 Pulda OS 프로젝트 추가 후 `site/`에서 `npm run build` 및 `npm run qa:check`가 모두 통과했다.
 
 - 역할: QA 전담 관점에서 테스트 전략, 시나리오, 이슈 전달, 배포 전 품질 기준을 관리한다.
 

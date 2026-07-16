@@ -1,5 +1,16 @@
 # Pulda 작업이력
 
+## 2026-07-17
+
+- `site/src/content/projects/pulda-os.md`를 추가해 `PRJ-PULDA-OS`를 풀다의 진행 중 자체 연구·개발 프로젝트로 등록했다.
+- 기존 프로젝트 콘텐츠 스키마와 자동 목록/상세 라우팅을 그대로 사용했으며, 새 스키마·렌더링 분기·외부 링크·가상 화면 자산은 추가하지 않았다.
+- 공개 원고에는 `Event → 해석 → 인간의 교정·결정 → 행동 → 결과 → 후속 제안 → 다음 해석` 순환구조와 인간/AI 역할, 현재 MVP 개발 단계, `PRJ-PULDA-WEB`과의 구분을 명시했다.
+- `site/`에서 `npm run build`를 실행해 통과했고, 전체 19개 페이지와 `/project/pulda-os/` 상세 산출물이 생성됐다.
+- `site/`에서 `npm run qa:check`를 실행해 통과했다. 실제 화면이 없어 cover를 의도적으로 생략한 데 따른 품질 경고와 기존 콘텐츠 길이 경고가 남았다.
+- 로컬 미리보기 `http://127.0.0.1:4179/project/`와 `http://127.0.0.1:4179/project/pulda-os/`에서 데스크톱 시각 QA를 수행했다. 목록/상세 노출, 상태 표기, 4단계 순환구조, 가로 넘침 없음, 브라우저 콘솔 오류 없음을 확인했다.
+- Notion `Pulda Project Hub`의 기존 Phase 0 항목에 로컬 Git 기준선, 변경 파일, 빌드·QA·시각 검증 결과, 의도적 cover/외부 링크 미사용, GitHub Desktop 사용자 검토 대기 상태를 현행화했다.
+- 현재 상태는 `Implemented`이며, `User Verified` 또는 `Closed`로 전환하지 않았다.
+
 ## 2026-07-10
 
 - 사용자의 지시에 따라 현재까지의 Git, PM, QA, WORKLOG, DESIGN, DevOps/Marketing 역할 문서를 다시 확인했다.

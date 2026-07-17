@@ -6,7 +6,7 @@ year: 2026
 publishedAt: 2026-07-17
 services: ["Life & Work Operating System", "AI Workflow Design", "Governance Design", "MVP Development"]
 tags: ["Pulda OS", "운영시스템", "AI 협업", "업무 체계", "자체 연구개발"]
-featured: false
+featured: true
 draft: false
 outcome: "설계와 거버넌스 기준을 마련하고, 실제 순환구조를 실행·검증하는 MVP를 개발 중입니다."
 seoTitle: "Pulda OS · 풀다 운영시스템 연구개발"

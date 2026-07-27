@@ -2,10 +2,10 @@
 import ContentLayout from '../layouts/ContentLayout.astro';
 ---
 <ContentLayout title="소개" description="풀다는 웹사이트, 콘텐츠, 운영 흐름, AI 자동화를 연결해 복잡한 문제를 실행 가능한 디지털 시스템으로 정리하는 프로젝트 스튜디오입니다." canonicalPath="/about/" eyebrow="풀다 소개">
-  <section class="content">
+  <section class="content about-first">
     <div class="shell section-grid">
       <aside>
-        <p class="eyebrow"><span class="light-copy">지향</span><span class="dark-copy">Direction</span></p>
+        <p class="eyebrow about-eyebrow"><span class="about-num">01</span><span class="light-copy">지향</span><span class="dark-copy">Direction</span></p>
       </aside>
       <div class="panel">
         <h2><span class="light-copy">화면을 만들기 전에, 일이 굴러가는 방식을 먼저 봅니다.</span><span class="dark-copy">We design the operating question before the interface.</span></h2>
@@ -15,10 +15,10 @@ import ContentLayout from '../layouts/ContentLayout.astro';
     </div>
   </section>
 
-  <section class="content">
+  <section class="content about-sep">
     <div class="shell section-grid">
       <aside>
-        <p class="eyebrow"><span class="light-copy">잘하는 일</span><span class="dark-copy">Capabilities</span></p>
+        <p class="eyebrow about-eyebrow"><span class="about-num">02</span><span class="light-copy">잘하는 일</span><span class="dark-copy">Capabilities</span></p>
       </aside>
       <div class="panel">
         <h2><span class="light-copy">요구를 듣고, 구조화하고, 필요한 사람과 도구를 연결합니다.</span><span class="dark-copy">Signal, structure, interface, system.</span></h2>
@@ -28,10 +28,10 @@ import ContentLayout from '../layouts/ContentLayout.astro';
     </div>
   </section>
 
-  <section class="content">
+  <section class="content about-sep">
     <div class="shell section-grid">
       <aside>
-        <p class="eyebrow"><span class="light-copy">협업 방식</span><span class="dark-copy">Team Model</span></p>
+        <p class="eyebrow about-eyebrow"><span class="about-num">03</span><span class="light-copy">협업 방식</span><span class="dark-copy">Team Model</span></p>
       </aside>
       <div class="panel">
         <h2><span class="light-copy">1인 중심의 책임과, 프로젝트별 전문가 네트워크를 함께 씁니다.</span><span class="dark-copy">One accountable lead, selected specialists per project.</span></h2>
@@ -41,10 +41,10 @@ import ContentLayout from '../layouts/ContentLayout.astro';
     </div>
   </section>
 
-  <section class="content">
+  <section class="content about-sep">
     <div class="shell section-grid">
       <aside>
-        <p class="eyebrow"><span class="light-copy">AI와 자동화</span><span class="dark-copy">AI Workflow</span></p>
+        <p class="eyebrow about-eyebrow"><span class="about-num">04</span><span class="light-copy">AI와 자동화</span><span class="dark-copy">AI Workflow</span></p>
       </aside>
       <div class="panel">
         <h2><span class="light-copy">AI는 유행어가 아니라, 오래된 PM 방식의 확장입니다.</span><span class="dark-copy">AI extends the existing PM loop.</span></h2>
@@ -54,10 +54,10 @@ import ContentLayout from '../layouts/ContentLayout.astro';
     </div>
   </section>
 
-  <section class="content">
+  <section class="content about-sep">
     <div class="shell section-grid">
       <aside>
-        <p class="eyebrow"><span class="light-copy">함께할 사람</span><span class="dark-copy">Partners</span></p>
+        <p class="eyebrow about-eyebrow"><span class="about-num">05</span><span class="light-copy">함께할 사람</span><span class="dark-copy">Partners</span></p>
       </aside>
       <div class="panel">
         <h2><span class="light-copy">함께 문제를 풀 협업자에게도 문을 열어둡니다.</span><span class="dark-copy">The network stays open.</span></h2>
@@ -74,3 +74,37 @@ import ContentLayout from '../layouts/ContentLayout.astro';
     </div>
   </section>
 </ContentLayout>
+
+<style>
+  /* section separators */
+  :global(.about-sep) {
+    border-top: 1px solid rgba(var(--navy-rgb),.14);
+    padding-top: 56px !important;
+    padding-bottom: 72px !important;
+  }
+  :global(.about-first) {
+    padding-top: 48px !important;
+    padding-bottom: 72px !important;
+  }
+  /* numbered eyebrow */
+  :global(.about-eyebrow) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  :global(.about-num) {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    color: rgba(var(--red-rgb), .54);
+    font-family: 'Hanken Grotesk', sans-serif;
+    margin-bottom: 2px;
+  }
+  :global(html[data-theme="dark"] .about-sep) {
+    border-top-color: rgba(237,244,255,.1);
+  }
+  :global(html[data-theme="dark"] .about-num) {
+    color: rgba(var(--tech-red-rgb), .62);
+  }
+</style>

@@ -11,12 +11,22 @@ const restStories = stories.filter((story) => story.id !== featuredStory?.id);
 const categories = Array.from(new Set(stories.map((story) => story.data.category))).filter(Boolean);
 const dateFormatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
 ---
+<style>
+.blog-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.blog-toolbar a{display:inline-flex;align-items:center;padding:7px 18px;border:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);transition:.2s;cursor:pointer}
+.blog-toolbar a:hover{border-color:var(--red);color:var(--red)}
+.blog-toolbar a[aria-current="page"]{background:var(--navy);border-color:var(--navy);color:var(--white)}
+html[data-theme="dark"] .blog-toolbar a{border-color:rgba(237,244,255,.22);color:rgba(237,244,255,.62)}
+html[data-theme="dark"] .blog-toolbar a:hover{border-color:var(--tech-red);color:var(--tech-red)}
+html[data-theme="dark"] .blog-toolbar a[aria-current="page"]{background:var(--tech-red);border-color:var(--tech-red);color:#fff;box-shadow:0 0 16px rgba(var(--tech-red-rgb),.4)}
+@media(max-width:600px){.blog-toolbar a{padding:6px 14px;font-size:10px}}
+</style>
 <ContentLayout title="이야기" description="풀다가 문제를 풀며 발견한 생각, 작업 기록, 시장의 변화, 작은 공지들을 편하게 읽을 수 있는 기업 블로그입니다." canonicalPath="/story/" eyebrow="풀다 저널">
   <section class="page-head story-head"><div class="shell"><p class="eyebrow"><span class="light-copy">풀어가는 이야기</span><span class="dark-copy">Signal Notes</span></p><h1><span class="light-copy">편하게 읽는 작업 노트</span><span class="dark-copy">Field Notes</span></h1><p><span class="light-copy">브랜드, 웹사이트, 콘텐츠 운영, 일하는 태도에 관한 생각을 글로 정리합니다.</span><span class="dark-copy">Readable notes on strategy, interface, content operations, and the decisions behind clear digital systems.</span></p></div></section>
   <section class="content story-home"><div class="shell">
-    <div class="blog-toolbar" aria-label="스토리 분류">
-      <span>All Posts</span>
-      {categories.map((category) => <a href="/story/" aria-label={category + ' 글 보기'}>{category}</a>)}
+    <div class="blog-toolbar" role="tablist" aria-label="스토리 분류">
+      <a href="/story/" role="tab" aria-current="page" aria-label="전체 글 보기">All Posts</a>
+      {categories.map((category) => <a href="/story/" role="tab" aria-label={category + ' 글 보기'}>{category}</a>)}
     </div>
 
     {featuredStory && <a class="story-feature" href={getStoryPath(featuredStory.id)}>

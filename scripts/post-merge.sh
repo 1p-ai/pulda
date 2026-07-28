@@ -3,7 +3,8 @@ set -e
 
 cd site
 
-# node_modules가 없을 때만 설치 시도 (postinstall/scripts 제외로 보안 차단 우회)
+# sanity 패키지 제거로 decompress CVE 차단 문제 해소됨
+# node_modules가 없을 때만 설치
 if [ ! -d "node_modules" ]; then
-  npm install --prefer-offline --ignore-scripts
+  npm install --ignore-scripts
 fi

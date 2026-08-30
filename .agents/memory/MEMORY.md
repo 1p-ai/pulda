@@ -1,0 +1,1 @@
+- [1p 운영 계정 전략](hosting-account-strategy.md) — GitHub·Cloudflare·도메인은 1p 기준, Replit은 당분간 11p 개발 환경으로 유지

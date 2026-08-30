@@ -6,17 +6,17 @@ The official website is built as a static Astro site. It presents 풀다's posit
 
 ## Primary Pages
 
-- [Home](https://puldaunion.com/)
-- [풀다 소개](https://puldaunion.com/about/)
-- [Projects](https://puldaunion.com/project/)
-- [Stories](https://puldaunion.com/story/)
-- [Contact](https://puldaunion.com/contact/)
+- [Home](https://www.puldaunion.com/)
+- [풀다 소개](https://www.puldaunion.com/about/)
+- [Projects](https://www.puldaunion.com/project/)
+- [Stories](https://www.puldaunion.com/story/)
+- [Contact](https://www.puldaunion.com/contact/)
 
 ## Representative Case Studies
 
-- [A4U Platform](https://puldaunion.com/project/a4u-platform/)
-- [풀다 공식 웹사이트 리뉴얼](https://puldaunion.com/project/pulda-official-website-renewal/)
-- [Eunjo Imweb Homepage](https://puldaunion.com/project/eunjo-imweb-homepage/)
+- [A4U Platform](https://www.puldaunion.com/project/a4u-platform/)
+- [풀다 공식 웹사이트 리뉴얼](https://www.puldaunion.com/project/pulda-official-website-renewal/)
+- [Eunjo Imweb Homepage](https://www.puldaunion.com/project/eunjo-imweb-homepage/)
 
 ## Editorial Notes
 
@@ -26,9 +26,9 @@ The official website is built as a static Astro site. It presents 풀다's posit
 
 ## Crawl And Indexing
 
-- Sitemap: https://puldaunion.com/sitemap.xml
-- RSS: https://puldaunion.com/rss.xml
-- Robots: https://puldaunion.com/robots.txt
+- Sitemap: https://www.puldaunion.com/sitemap.xml
+- RSS: https://www.puldaunion.com/rss.xml
+- Robots: https://www.puldaunion.com/robots.txt
 
 ## Contact
 

@@ -69,7 +69,7 @@ if (exists('dist/rss.xml')) {
 
 if (exists('dist/llms.txt')) {
   const llms = read('dist/llms.txt');
-  assert(llms.includes('https://puldaunion.com/sitemap.xml'), 'llms.txt should point AI agents to the canonical sitemap.');
+  assert(llms.includes('https://www.puldaunion.com/sitemap.xml'), 'llms.txt should point AI agents to the canonical sitemap.');
   assert(llms.includes('/project/pulda-official-website-renewal/'), 'llms.txt should include representative project routes.');
   assert(!/(sk-[A-Za-z0-9]|AIza[0-9A-Za-z_-]|SANITY_AUTH_TOKEN|password\s*=|token\s*=|secret\s*=)/i.test(llms), 'llms.txt should not expose secret-like values.');
 }

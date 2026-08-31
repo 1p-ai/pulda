@@ -1,1 +1,2 @@
 - [1p 운영 계정 전략](hosting-account-strategy.md) — GitHub·Cloudflare·도메인은 1p 기준, Replit은 당분간 11p 개발 환경으로 유지
+- [외부 정적 빌드](external-static-builds.md) — 운영 설치에서 Playwright 자동 설치와 Replit 전용 lockfile 주소를 피한다

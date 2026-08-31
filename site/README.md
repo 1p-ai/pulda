@@ -19,3 +19,4 @@
 - `npm run dev`: 로컬 개발 서버
 - `npm run build`: 정적 사이트 빌드
 - `npm run preview`: 빌드 결과 미리보기
+- `npm run test:e2e:install`: E2E 테스트용 Playwright 브라우저 설치

@@ -9,6 +9,7 @@ cover: "/case/pulda-renewal/home-light-current.png"
 services: ["Brand Strategy", "Information Architecture", "UI/UX Design", "Astro Development", "Content System"]
 tags: ["브랜드 리뉴얼", "공식 웹사이트", "Astro", "콘텐츠 운영"]
 featured: true
+homeOrder: 2
 outcome: "브랜드 철학, 프로젝트 기록, 스토리 운영, 문의 흐름을 하나의 정적 웹사이트 구조로 통합했습니다."
 seoTitle: "풀다 공식 웹사이트 리뉴얼 프로젝트"
 seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 공식 웹사이트를 Astro 기반 브랜드/콘텐츠 허브로 재구성한 프로젝트 기록입니다."
@@ -50,7 +51,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
       <li>소개 / 프로젝트 / 스토리 / 문의를 실제 페이지로 분리</li>
       <li>라이트와 다크가 전혀 다른 브랜드 표정을 갖도록 설계</li>
       <li>프로젝트 상세를 케이스 스터디와 갤러리 중심으로 전환</li>
-      <li>Markdown 콘텐츠 컬렉션, sitemap, RSS, robots, 향후 Sanity 전환 기준 준비</li>
+      <li>Markdown 콘텐츠 컬렉션 + git 운영 체계, sitemap, RSS, robots 기준 마련</li>
     </ul>
   </div>
 </section>
@@ -119,7 +120,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
   <div><span>01</span><strong>Home</strong><p>철학, 역량, 대표 프로젝트, 문의를 하나의 첫 경험으로 연결</p></div>
   <div><span>02</span><strong>Project</strong><p>포트폴리오와 작업 산출물을 전시하는 케이스 스터디 허브</p></div>
   <div><span>03</span><strong>Story</strong><p>개인적 이야기, 시장동향, 공지, 작업 노트를 담는 기업 블로그</p></div>
-  <div><span>04</span><strong>Admin</strong><p>Sanity 이전을 염두에 둔 콘텐츠 관리 콘솔 초안</p></div>
+  <div><span>04</span><strong>Admin</strong><p>Markdown/git 기반 콘텐츠 운영 경로를 정리한 noindex 포털</p></div>
 </section>
 
 프로젝트는 단순 포트폴리오 목록이 아니라 케이스 스터디 전시장으로 정의했다. 각 프로젝트는 문제 정의, 기획 의도, 진행 과정, 산출물, 결과, 리뷰를 담을 수 있어야 한다. 스토리는 기업 블로그로 시작하되, 글이 충분히 쌓인 뒤 태그나 카테고리 탭을 노출할 수 있도록 필드를 유지했다.
@@ -184,13 +185,13 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 <section class="deliverable-wall" aria-label="프로젝트 산출물">
   <article><span>Planning</span><h3>표준 산출물 세트</h3><p>요구사항정의서, 기능정의서, IA, 스토리보드, 아키텍처, ERD, QA 체크리스트를 Draft 문서로 구성했습니다.</p></article>
   <article><span>Content</span><h3>샘플 프로젝트 콘텐츠</h3><p>첫 번째 케이스 스터디로 이 리뉴얼 프로젝트 자체를 등록해 콘텐츠 운영 기준을 검증했습니다.</p></article>
-  <article><span>Admin</span><h3>관리 화면 초안</h3><p>프로젝트와 스토리를 관리할 수 있는 정적 어드민 UI를 만들고, Sanity 전환 방향을 시각화했습니다.</p></article>
+  <article><span>Admin</span><h3>관리 화면 초안</h3><p>프로젝트와 스토리 운영 경로, 접근 정책, 발행 체크리스트를 모아둔 noindex 운영 포털을 만들었습니다.</p></article>
   <article><span>Interaction</span><h3>테마별 마이크로 인터랙션</h3><p>부채 메뉴의 회전, 라이트/다크별 효과음, 첫 렌더 전 테마 적용으로 브랜드 경험을 정교하게 다듬었습니다.</p></article>
 </section>
 
 ## 개발과 운영 구조
 
-기술 구조는 Astro 기반 정적 사이트로 잡았다. 초기 콘텐츠는 Markdown으로 관리하고, 이후 Sanity Studio를 별도 어드민으로 붙일 수 있도록 프로젝트와 스토리 필드를 먼저 정리했다.
+기술 구조는 Astro 기반 정적 사이트로 잡았다. 콘텐츠는 Markdown + git으로 관리한다. 발행 빈도가 낮고 AI 에이전트가 직접 편집하는 운영 방식과 맞아, 별도 CMS(Sanity 등) 도입은 검토 후 보류하기로 결정했다(2026-09).
 
 현재 구현된 주요 운영 요소는 다음과 같다.
 
@@ -208,7 +209,7 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
   <i></i>
   <div><strong>SEO/RSS</strong><span>검색과 구독 기반</span></div>
   <i></i>
-  <div><strong>Sanity Ready</strong><span>향후 어드민 전환</span></div>
+  <div><strong>Git Deploy</strong><span>커밋 시 재배포</span></div>
 </section>
 
 ## 결과
@@ -228,4 +229,4 @@ seoDescription: "기존 아임웹 사이트의 메시지를 바탕으로 풀다 
 
 이 프로젝트는 풀다가 자기 자신을 대상으로 수행한 첫 번째 케이스 스터디다. 그래서 결과물만큼 중요한 것은 판단의 기록이다. 어떤 상징은 풀다만의 고유 자산으로 남기고, 어떤 작업 방식은 다음 프로젝트에도 이전 가능한 기준으로 분리했다.
 
-앞으로 이 페이지는 최종 배포, Sanity 연결, 실제 콘텐츠 운영이 진행될수록 완료형 케이스 스터디로 업데이트한다.
+앞으로 이 페이지는 최종 배포와 실제 콘텐츠 운영이 진행될수록 완료형 케이스 스터디로 업데이트한다.

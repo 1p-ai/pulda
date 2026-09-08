@@ -45,7 +45,7 @@ if (exists('dist/admin/index.html')) {
   const adminHtml = read('dist/admin/index.html');
   assert(adminHtml.includes('noindex'), '/admin must include noindex robots meta.');
   assert(!/(sk-[A-Za-z0-9]|AIza[0-9A-Za-z_-]|SANITY_AUTH_TOKEN|password\s*=|token\s*=|secret\s*=)/i.test(adminHtml), '/admin output should not expose concrete secret values.');
-  assert(/Sanity/i.test(adminHtml), '/admin should clearly route content operations to Sanity.');
+  assert(/Markdown/i.test(adminHtml), '/admin should clearly document that content operations go through the Markdown/git workflow.');
 }
 
 if (exists('dist/robots.txt')) {

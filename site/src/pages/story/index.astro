@@ -20,16 +20,18 @@ html[data-theme="dark"] .blog-toolbar a{border-color:rgba(237,244,255,.22);color
 html[data-theme="dark"] .blog-toolbar a:hover{border-color:var(--tech-red);color:var(--tech-red)}
 html[data-theme="dark"] .blog-toolbar a[aria-current="page"]{background:var(--tech-red);border-color:var(--tech-red);color:#fff;box-shadow:0 0 16px rgba(var(--tech-red-rgb),.4)}
 @media(max-width:600px){.blog-toolbar a{padding:6px 14px;font-size:10px}}
+.story-empty{padding:48px 0;text-align:center;color:rgba(var(--navy-rgb),.56)}
+html[data-theme="dark"] .story-empty{color:rgba(237,244,255,.52)}
 </style>
 <ContentLayout title="이야기" description="풀다가 문제를 풀며 발견한 생각, 작업 기록, 시장의 변화, 작은 공지들을 편하게 읽을 수 있는 기업 블로그입니다." canonicalPath="/story/" eyebrow="풀다 저널">
   <section class="page-head story-head"><div class="shell"><p class="eyebrow"><span class="light-copy">풀어가는 이야기</span><span class="dark-copy">Signal Notes</span></p><h1><span class="light-copy">편하게 읽는 작업 노트</span><span class="dark-copy">Field Notes</span></h1><p><span class="light-copy">브랜드, 웹사이트, 콘텐츠 운영, 일하는 태도에 관한 생각을 글로 정리합니다.</span><span class="dark-copy">Readable notes on strategy, interface, content operations, and the decisions behind clear digital systems.</span></p></div></section>
   <section class="content story-home"><div class="shell">
     <div class="blog-toolbar" role="tablist" aria-label="스토리 분류">
-      <a href="/story/" role="tab" aria-current="page" aria-label="전체 글 보기">All Posts</a>
-      {categories.map((category) => <a href="/story/" role="tab" aria-label={category + ' 글 보기'}>{category}</a>)}
+      <a href="/story/" data-category="all" role="tab" aria-current="page" aria-label="전체 글 보기">All Posts</a>
+      {categories.map((category) => <a href={`/story/?category=${encodeURIComponent(category)}`} data-category={category} role="tab" aria-label={category + ' 글 보기'}>{category}</a>)}
     </div>
 
-    {featuredStory && <a class="story-feature" href={getStoryPath(featuredStory.id)}>
+    {featuredStory && <a class="story-feature" data-category={featuredStory.data.category} href={getStoryPath(featuredStory.id)}>
       <div class="story-feature-copy">
         <p class="meta">Featured · {featuredStory.data.category}</p>
         <h2>{featuredStory.data.title}</h2>
@@ -46,10 +48,54 @@ html[data-theme="dark"] .blog-toolbar a[aria-current="page"]{background:var(--te
       <h2>최근 글</h2>
     </div>
     <div class="story-card-list" aria-label="최근 스토리 목록">
-      {restStories.map((story) => <a class="story-card" href={getStoryPath(story.id)}>
+      {restStories.map((story) => <a class="story-card" data-category={story.data.category} href={getStoryPath(story.id)}>
         <figure>{story.data.cover ? <img src={story.data.cover} alt="" loading="lazy" /> : <span>{story.data.category}</span>}</figure>
         <div><p class="meta">{story.data.category} · {story.data.author}</p><h3>{story.data.title}</h3><p>{story.data.description}</p><time datetime={story.data.publishedAt.toISOString()}>{dateFormatter.format(story.data.publishedAt)}</time></div>
       </a>)}
     </div>
+    <p class="story-empty" data-story-empty hidden>이 카테고리에는 아직 글이 없습니다.</p>
   </div></section>
 </ContentLayout>
+<script>
+  const toolbar = document.querySelector('.blog-toolbar');
+  const tabs = Array.from(document.querySelectorAll<HTMLAnchorElement>('.blog-toolbar a[data-category]'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-category].story-feature, [data-category].story-card'));
+  const emptyState = document.querySelector<HTMLElement>('[data-story-empty]');
+
+  function applyFilter(category: string) {
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const match = category === 'all' || card.dataset.category === category;
+      card.hidden = !match;
+      if (match) visibleCount += 1;
+    });
+    tabs.forEach((tab) => {
+      const active = tab.dataset.category === category;
+      if (active) {
+        tab.setAttribute('aria-current', 'page');
+      } else {
+        tab.removeAttribute('aria-current');
+      }
+    });
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+  }
+
+  toolbar?.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-category]');
+    if (!link) return;
+    event.preventDefault();
+    const category = link.dataset.category ?? 'all';
+    const url = new URL(window.location.href);
+    if (category === 'all') {
+      url.searchParams.delete('category');
+    } else {
+      url.searchParams.set('category', category);
+    }
+    window.history.pushState({}, '', url);
+    applyFilter(category);
+  });
+
+  const initialCategory = new URLSearchParams(window.location.search).get('category');
+  const knownCategories = tabs.map((tab) => tab.dataset.category);
+  applyFilter(initialCategory && knownCategories.includes(initialCategory) ? initialCategory : 'all');
+</script>

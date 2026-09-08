@@ -88,6 +88,10 @@ import ContentLayout from '../layouts/ContentLayout.astro';
             <span>풀어야 할 문제</span>
             <textarea name="message" rows="8" required placeholder="현재 상황, 목표, 막힌 지점, 참고 링크를 편하게 적어주세요."></textarea>
           </label>
+          <label class="consent-check">
+            <input type="checkbox" name="privacy_consent" required />
+            <span>개인정보 수집 및 이용에 동의합니다. (<a href="/privacy/" target="_blank" rel="noreferrer">개인정보처리방침 보기</a>)</span>
+          </label>
           <div class="form-actions">
             <button class="button" type="submit">문의 보내기</button>
             <p>첫 전송 시 수신 메일에서 FormSubmit 활성화 확인이 필요할 수 있습니다.</p>
@@ -139,6 +143,12 @@ import ContentLayout from '../layouts/ContentLayout.astro';
   .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid rgba(var(--red-rgb),.36);outline-offset:2px;border-color:var(--red)}
   .contact-form ::placeholder{color:rgba(var(--navy-rgb),.42)}
   .contact-honey{position:absolute;left:-9999px;opacity:0}
+  .consent-check{display:flex !important;flex-direction:row !important;align-items:center;gap:10px}
+  .consent-check input{width:auto;flex:none}
+  .consent-check span{color:rgba(var(--navy-rgb),.72);font-size:13px;font-weight:400;text-transform:none;letter-spacing:0}
+  .consent-check a{color:var(--red);text-decoration:underline}
+  :global(html[data-theme="dark"]) .consent-check span{color:rgba(237,244,255,.68)}
+  :global(html[data-theme="dark"]) .consent-check a{color:var(--tech-red)}
   .form-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
   .form-actions p{margin:0;font-size:13px;color:rgba(var(--navy-rgb),.62)}
   .form-success{display:none;margin:0;padding:14px 16px;border:1px solid rgba(var(--red-rgb),.34);background:rgba(var(--red-rgb),.08);font-size:14px}

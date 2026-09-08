@@ -9,6 +9,7 @@ cover: "/case/a4u-platform/a4u-main.png"
 services: ["Product Planning", "Information Architecture", "UI/UX Design", "Full-Stack Development", "Deployment"]
 tags: ["AI 플랫폼", "커리어 매니지먼트", "이력서 코칭", "Replit", "에이전트 워크플로"]
 featured: true
+homeOrder: 1
 outcome: "기획부터 배포까지 AI 협업 파이프라인으로 실서비스를 완성. a4u.kr에서 이력서 등록·관리·제출 흐름을 운영 중입니다."
 seoTitle: "a4u.kr AI 커리어 매니지먼트 플랫폼 구축 사례 · 풀다"
 seoDescription: "풀다가 Replit으로 구축한 a4u.kr AI 커리어 매니지먼트 플랫폼. 이력서 등록부터 제출 관리까지, Genspark·Gemini·Stitch·Replit AI 파이프라인 전 과정을 소개합니다."

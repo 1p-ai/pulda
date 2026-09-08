@@ -24,6 +24,8 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     outcome: z.string().optional(),
+    // Set on a project to feature it on the homepage "work" section; the number controls display order. Omit to keep it off the homepage.
+    homeOrder: z.number().int().optional(),
     ...seoFields,
   }),
 });

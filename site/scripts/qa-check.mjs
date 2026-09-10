@@ -35,6 +35,7 @@ const requiredDistFiles = [
   'dist/rss.xml',
   'dist/robots.txt',
   'dist/llms.txt',
+  'dist/ads.txt',
 ];
 
 for (const file of requiredDistFiles) {
